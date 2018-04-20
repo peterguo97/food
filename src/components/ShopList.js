@@ -20,7 +20,6 @@ class ShopList extends React.Component {
                     {
                         data.map(function(val) {
                             const str = val.id + val.name;
-                            console.log(str);
                             return (
                                 <Item 
                                     key={str}
