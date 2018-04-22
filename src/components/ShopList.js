@@ -21,17 +21,18 @@ class ShopList extends React.Component {
                         data.map(function(val) {
                             const str = val.id + val.name;
                             return (
-                                <Item 
-                                    key={str}
-                                    arrow="horizontal"
-                                    multipleLine
-                                    onClick={() => { }}
-                                    thumb={img}
-                                >
+                                <div key={str}>
                                     <Link to={`${val.id}/detail`}>
-                                        宠物饲料 <Brief>{val.name}</Brief>
+                                        <Item                                            
+                                            arrow="horizontal"
+                                            multipleLine
+                                            onClick={() => { }}
+                                            thumb={img}
+                                        >                                       
+                                                宠物饲料 <Brief>{val.name}</Brief>                                   
+                                        </Item>
                                     </Link>
-                                </Item>
+                                </div>
                             )
                         }, this)
                     }
