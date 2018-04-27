@@ -1,16 +1,10 @@
 import React from 'react';
-import { Tabs, WhiteSpace, Badge } from 'antd-mobile';
-
-const tabs = [
-  { title: <Badge text={'3'}>First Tab</Badge> },
-  { title: <Badge text={'今日(20)'}>Second Tab</Badge> },
-  { title: <Badge dot>Third Tab</Badge> },
-];
+import { Tabs, WhiteSpace } from 'antd-mobile';
 
 const tabs2 = [
-  { title: 'First Tab', sub: '1' },
-  { title: 'Second Tab', sub: '2' },
-  { title: 'Third Tab', sub: '3' },
+  { title: '主页', sub: '1' },
+  { title: '订单', sub: '2' },
+  { title: '我', sub: '3' },
 ];
 
 const Footer = () => (
@@ -20,15 +14,7 @@ const Footer = () => (
       tabBarPosition="bottom"
       renderTab={tab => <span>{tab.title}</span>}
     >
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-        Content of first tab
-      </div>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-        Content of second tab
-      </div>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-        Content of third tab
-      </div>
+      { this.props.children }
     </Tabs>
     <WhiteSpace />
   </div>
