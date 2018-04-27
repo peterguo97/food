@@ -14,3 +14,42 @@
     width: 80px;
     height: 80px;
 }
+
+.box{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.box_left {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.box_left_item {
+    background: rgb(243, 245, 247);
+    font-size: 12px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-bottom: 1px solid rgb(223, 216, 216);
+    border-right: 1px solid rgb(223, 216, 216);
+}
+
+.box_right{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.active {
+    background: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 12px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-bottom: 1px solid rgb(223, 216, 216);
+}

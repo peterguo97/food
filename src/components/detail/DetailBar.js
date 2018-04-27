@@ -1,6 +1,6 @@
-import { Tabs, WhiteSpace, Badge } from 'antd-mobile';
+import { Tabs, WhiteSpace } from 'antd-mobile';
 import React from 'react';
-import DetailBar_Left from './DetailBar_Left';
+import DetailBarLeft from './DetailBar_Left';
 const tabs2 = [
     { title: '商品', sub: '1' },
     { title: '评价', sub: '2' },
@@ -10,7 +10,7 @@ const tabs2 = [
 export default class DetailBar extends React.Component {
     render(){
         return(
-            <div style={{ position: 'fixed', top: 125, left: 0 }}>
+            <div style={{ position: 'fixed', top: 125, left: 0, width: '100%' }}>
                 <Tabs tabs={tabs2}
                     initialPage={0}
                     tabBarPosition="top"
@@ -18,7 +18,7 @@ export default class DetailBar extends React.Component {
                     usePaged={false}
                 >
                     <div style={{backgroundColor: '#fff' }}>
-                        <DetailBar_Left />
+                        <DetailBarLeft />
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
                         Content of second tab
