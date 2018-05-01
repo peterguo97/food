@@ -51,7 +51,7 @@ export default class BoxList extends React.Component {
         const list = tabs.map((item, index) => {
                 return(
                     <List key={index} renderHeader={() => <div className={style.itemtitle}>{item.title}</div>}>
-                        <Item thumb={<img src={food} width="20px" height="20px" />} extra={'extra content'} className={style.item}>Title</Item>
+                        <Item thumb={food} extra={'extra content'} className={style.item}>Title</Item>
                     </List>
                 )
         })
