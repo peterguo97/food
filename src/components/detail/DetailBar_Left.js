@@ -23,9 +23,13 @@ export default class DetailBarLeft extends React.Component {
         })
     }
     
+    handleChange(){
+        
+        console.log("hello");
+    }
+
     componentDidMount() {
-        const dom = ReactDOM.findDOMNode(this.refs.active);
-        console.log(dom);
+        window.addEventListener('scroll',this.handleChange.bind(this));
     }
     
     render(){
@@ -39,13 +43,12 @@ export default class DetailBarLeft extends React.Component {
         })
         return(
             <div className={style.box}>
-                <WhiteSpace />
-                
+                <WhiteSpace />               
                 <div className={style.box_left}>
                     {Tab_left}
                 </div>
                 <div className={style.box_right} ref="active">
-                    <Boxlist tabs={tabs}/>
+                    <Boxlist ref="active" tabs={tabs}/>
                 </div>  
             </div>
         )
