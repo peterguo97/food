@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,cAAe;EACX,WAAW,EAAE,IAAI;EAGd,UAAW;IACT,gBAAgB,EAAE,OAAO;;EAG1B,QAAS;IACT,SAAS,EAAE,KAAK",
+"sources": ["ForgetPas.scss"],
+"names": [],
+"file": "ForgerPas.css"
+}

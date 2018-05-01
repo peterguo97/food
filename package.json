@@ -11,6 +11,7 @@
     "antd-mobile": "^2.1.8",
     "babel-plugin-import": "^1.7.0",
     "dva": "^2.2.2",
+    "rc-form": "^2.2.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },

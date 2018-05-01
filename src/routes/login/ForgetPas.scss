@@ -1,0 +1,14 @@
+.forgetPasList {
+    padding-top: 60px;
+
+     @at-root {
+       .userInput {
+         background-color: #f5f5f5;
+        }
+        // 发送验证码的大小
+        .codeBtn {
+        max-width: 100px;
+        }
+
+    }
+}
