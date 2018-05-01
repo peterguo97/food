@@ -2,7 +2,7 @@ import { WhiteSpace } from 'antd-mobile';
 import React from 'react';
 import style from './css/detail.css';
 import Boxlist from './List';
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 
 const tabs = [
     { title: '狗狗最爱' },
@@ -23,13 +23,14 @@ export default class DetailBarLeft extends React.Component {
         })
     }
     
-    handleChange(){
+    handleChange(e){
         
-        console.log("hello");
+        console.log(e.target.scrollTop);
     }
 
     componentDidMount() {
-        window.addEventListener('scroll',this.handleChange.bind(this));
+        const node = ReactDOM.findDOMNode(this.refs.active)
+        node.addEventListener('scroll',this.handleChange.bind(this));
     }
     
     render(){
@@ -42,12 +43,12 @@ export default class DetailBarLeft extends React.Component {
             }
         })
         return(
-            <div className={style.box}>
+            <div ref="active" className={style.box}>
                 <WhiteSpace />               
                 <div className={style.box_left}>
                     {Tab_left}
                 </div>
-                <div className={style.box_right} ref="active">
+                <div className={style.box_right}>
                     <Boxlist ref="active" tabs={tabs}/>
                 </div>  
             </div>
