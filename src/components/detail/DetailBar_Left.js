@@ -29,7 +29,7 @@ export default class DetailBarLeft extends React.Component {
     }
 
     componentDidMount() {
-        const node = ReactDOM.findDOMNode(this.refs.active)
+        const node = ReactDOM.findDOMNode(this.refs.active);
         node.addEventListener('scroll',this.handleChange.bind(this));
     }
     
