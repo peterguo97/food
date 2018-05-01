@@ -1,0 +1,17 @@
+.item {
+    display: block;
+    height: 120px;
+    line-height: 100px;
+    padding: 10px;
+    border-bottom: 1px solid rgb(7,17,27);
+}
+
+.itemtitle {
+    padding-left:10px 0px 10px 14px;
+    height: 25px;
+    line-height: 25px;
+    border-left: 2px solid #d9dde1;
+    font-size: 12px;
+    color: #93999f;
+    background-color: #f3f5f7;
+}

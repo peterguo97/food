@@ -10,14 +10,15 @@ const tabs2 = [
 export default class DetailBar extends React.Component {
     render(){
         return(
-            <div style={{ position: 'fixed', top: 125, left: 0, width: '100%' }}>
+            <div style={{ position: 'fixed', top: 125, left: 0, width: '100%',height: '70%' }}>
                 <Tabs tabs={tabs2}
                     initialPage={0}
                     tabBarPosition="top"
                     renderTab={tab => <span>{tab.title}</span>}
                     usePaged={false}
+                    swipeable={false}
                 >
-                    <div style={{backgroundColor: '#fff' }}>
+                    <div>
                         <DetailBarLeft />
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>

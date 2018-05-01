@@ -1,6 +1,8 @@
 import { WhiteSpace } from 'antd-mobile';
 import React from 'react';
 import style from './css/detail.css';
+import Boxlist from './List';
+import ReactDOM from 'react-dom';
 
 const tabs = [
     { title: '狗狗最爱' },
@@ -20,7 +22,12 @@ export default class DetailBarLeft extends React.Component {
             current_active: item
         })
     }
-
+    
+    componentDidMount() {
+        const dom = ReactDOM.findDOMNode(this.refs.active);
+        console.log(dom);
+    }
+    
     render(){
         const Tab_left = tabs.map( (item,index) => {
             if(this.state.current_active === index ){
@@ -37,7 +44,9 @@ export default class DetailBarLeft extends React.Component {
                 <div className={style.box_left}>
                     {Tab_left}
                 </div>
-                <div className={style.box_right}></div>  
+                <div className={style.box_right} ref="active">
+                    <Boxlist tabs={tabs}/>
+                </div>  
             </div>
         )
     }
