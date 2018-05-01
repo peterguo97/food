@@ -5,6 +5,10 @@
     padding: 10px;
     border-bottom: 1px solid rgb(7,17,27);
 }
+.item img{
+    width: 40px;
+    height: 40px;
+}
 
 .itemtitle {
     padding-left:10px 0px 10px 14px;

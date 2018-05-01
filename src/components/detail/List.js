@@ -1,12 +1,12 @@
 import { List } from 'antd-mobile';
 import React from 'react'
 import style from './css/item.css';
-import ReactDOM from 'react-dom';
+import food from "../../assets/dog.jpg";
 
 const Item = List.Item;
 let starty= 0;
 let endy = 0;
-let page_height = 0;
+
 export default class BoxList extends React.Component {
     constructor(props){
         super(props);
@@ -51,7 +51,7 @@ export default class BoxList extends React.Component {
         const list = tabs.map((item, index) => {
                 return(
                     <List key={index} renderHeader={() => <div className={style.itemtitle}>{item.title}</div>}>
-                        <Item extra={'extra content'} className={style.item}>Title</Item>
+                        <Item thumb={<img src={food} width="20px" height="20px" />} extra={'extra content'} className={style.item}>Title</Item>
                     </List>
                 )
         })
