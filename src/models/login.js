@@ -1,4 +1,4 @@
-import *as loginImg from "../services/getLoginImg";
+import { img } from "../services/getLoginImg";
 import { query } from "../services/login";
 
 export default {
@@ -10,13 +10,13 @@ export default {
         img: ''
     },
 
-    subscripitions: {
+    subscriptions: {
         setup( {dispatch, history }) {
             history.listen(( { pathname }) => {
                 if(pathname === '/login') {
                     dispatch({
                         type: 'codeImg',
-                        payload: 'loginCodeIMg'
+                        payload: 'hello'
                     });
                 }
             });
@@ -25,7 +25,7 @@ export default {
 
     effects: {
         * codeImg({ payload }, { put, call }) {
-          const { data } = yield call(loginImg.fetch, payload);
+          const { data } = yield call(img, payload);
           yield put({ type: 'save', payload: data});
         },
         * submit({ payload }, { put, call }) {
@@ -61,5 +61,7 @@ export default {
         //     })
         //     return {...state}
         // },
-    }
+    },
+
+
 };

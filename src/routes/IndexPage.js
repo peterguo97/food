@@ -6,12 +6,13 @@ import Nav1 from '../components/Nav1';
 import Search from '../components/Search';
 import ShopList from '../components/ShopList';
 import { TabBar } from 'antd-mobile';
+import My from '../components/my/Account';
 
 class TabBarExample extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'blueTab',
+      selectedTab: 'yellowTab',
       hidden: false,
       fullScreen: true,
     };
@@ -111,7 +112,7 @@ class TabBarExample extends React.Component {
             }}
             data-seed="logId1"
           >
-            {this.renderContent('Koubei')}
+            {/* {this.renderContent('Koubei')} */}
           </TabBar.Item>
           <TabBar.Item
             icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
@@ -125,7 +126,8 @@ class TabBarExample extends React.Component {
               });
             }}
           >
-            {this.renderContent('My')}
+			<My />
+            {/* {this.renderContent('My')} */}
           </TabBar.Item>
         </TabBar>
       </div>
