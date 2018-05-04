@@ -29,8 +29,12 @@ export default class DetailBarLeft extends React.Component {
     }
 
     componentDidMount() {
-        const node = ReactDOM.findDOMNode(this.refs.active);
+        const node = this.refs.active;
         node.addEventListener('scroll',this.handleChange.bind(this));
+    }
+    
+    componentWillUnmount = () => {
+      this.refs.active.removeEventListener('scroll',this.handleChange.bind(this))
     }
     
     render(){
@@ -43,13 +47,15 @@ export default class DetailBarLeft extends React.Component {
             }
         })
         return(
-            <div ref="active" className={style.box}>
+            <div className={style.box}>
                 <WhiteSpace />               
                 <div className={style.box_left}>
                     {Tab_left}
                 </div>
-                <div className={style.box_right}>
-                    <Boxlist ref="active" tabs={tabs}/>
+                <div ref="active" className={style.box_right}>
+                    <div className={style.wrap}>
+                        <Boxlist tabs={tabs}/>
+                    </div>  
                 </div>  
             </div>
         )

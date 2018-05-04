@@ -18,7 +18,6 @@
 .box{
     width: 100%;
     height: 100%;
-    overflow: scroll;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -41,11 +40,16 @@
 }
 
 .box_right{
-    display: flex;
-    flex-direction: column;
+    height: 100%;
+    overflow: scroll;
     width: 80%;
 }
 
+.wrap{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
 .active {
     background: rgb(255, 255, 255);
     font-weight: bold;

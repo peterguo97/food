@@ -1,13 +1,12 @@
 .item {
-    display: block;
     height: 120px;
     line-height: 100px;
     padding: 10px;
     border-bottom: 1px solid rgb(7,17,27);
 }
 .item img{
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
 }
 
 .itemtitle {
@@ -18,4 +17,32 @@
     font-size: 12px;
     color: #93999f;
     background-color: #f3f5f7;
+}
+
+.sale{
+    color: #93999f;
+    font-size: 10px;
+    margin-top: 15px;
+    line-height: 10px;
+
+}
+
+.price{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #f01414;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.detailbutton {
+    width: 18px;
+    height: 18px;
+}
+
+.detailbutton img {
+    width: 18px;
+    height: 18px;
 }

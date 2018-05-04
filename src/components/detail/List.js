@@ -2,10 +2,9 @@ import { List } from 'antd-mobile';
 import React from 'react'
 import style from './css/item.css';
 import food from "../../assets/dog.jpg";
+import button from '../../assets/button.jpg';
 
 const Item = List.Item;
-let starty= 0;
-let endy = 0;
 
 export default class BoxList extends React.Component {
     constructor(props){
@@ -14,50 +13,31 @@ export default class BoxList extends React.Component {
             current_height : 0,
         }
     }
-    handleChangebegin(e){
-        starty = e.targetTouches[0].pageY;
-    }
-    handleChangemove(e){
-        endy = e.targetTouches[0].pageY;
-    }
-    handleChangeend(){
-
-        let move = starty - endy;
-        let height = this.state.current_height + move;
-        if(height < 0){
-            this.setState({
-                current_height: 0
-            })
-        }
-        else if( height > 240){
-            this.setState({
-                current_height: 240
-            })
-        }
-        else{
-            this.setState({
-                current_height: height
-            })
-        }
-        console.log(this.state.current_height);
-    }
-    handleChange(){
-        var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-        console.log(scrollTop)
-    }
-   
+    
     render() {
         const tabs = this.props.tabs;
         const list = tabs.map((item, index) => {
                 return(
                     <List key={index} renderHeader={() => <div className={style.itemtitle}>{item.title}</div>}>
-                        <Item thumb={food} extra={'extra content'} className={style.item}>Title</Item>
+                        <Item thumb={food} className={style.item}>
+                           <div className={style.detail}>
+                                <div className={style.title}>狗狗最爱</div>
+                                <div className={style.sale}>月售xx份</div>
+                                <div className={style.price}>
+                                    <span>¥10</span>
+                                    <span className={style.detailbutton}>
+                                        <img src={button} alt=""/>
+                                    </span>
+                                </div>
+                            </div>
+                        </Item>
                     </List>
                 )
         })
-            return (
-                <div ref="active">
-                    {list}
-                </div>);
+        return (
+            <div ref="active">
+                {list}
+            </div>
+            );
     }
 }
