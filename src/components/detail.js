@@ -13,9 +13,9 @@ class Detail extends React.Component {
     render(){
         return(
             <div>
-                <List className={style.detail_head} >
+                <div className={style.detail_head}>
                     <Item
-                        style={{background: 'rgba(38,188,213,.8)',color:'#fff'}}
+                        style={{background: 'rgba(38,188,213,.8)',color:'#fff',height: '100%'}}
                         thumb={img_title}
                         multipleLine="true"
                         extra={<div><Link to="/"><img src={back} alt="back"/></Link></div>}
@@ -24,8 +24,8 @@ class Detail extends React.Component {
                         <Brief style={{ color: '#fff' }}>蜂鸟专送/极速送达</Brief>
                         <Brief style={{ color: '#fff' }}>在线支付满xx减xx</Brief>
                     </Item>
-                </List>
-                <DetailBar style={{position:'fixed', top:125, left:0}}/>
+                </div>               
+                <DetailBar/>
             </div>
         )
     }

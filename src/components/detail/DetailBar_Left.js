@@ -1,8 +1,8 @@
-import { WhiteSpace } from 'antd-mobile';
 import React from 'react';
 import style from './css/detail.css';
 import Boxlist from './List';
 import { connect } from 'dva';
+import shopcar from '../../assets/shopcar.jpg';
 
 const tabs = [
     { title: '狗狗最爱',shoplist: [
@@ -57,7 +57,7 @@ class DetailBarLeft extends React.Component {
     }
 
     handleChange(e){
-        console.log(e.target.scrollTop)
+        //console.log(e.target.scrollTop)
         let index = this.findIndex(e.target.scrollTop);
         if(this.props.active === index){
             return
@@ -77,13 +77,13 @@ class DetailBarLeft extends React.Component {
         tabs.forEach( (item, index)=>{
             let height = temp + 50 + 120 * item.shoplist.length;
             temp = height;
-            console.log(height)
+            //console.log(height)
             arr.push(height);
         })
     }
     
     componentWillUnmount = () => {
-        this.refs.active.removeEventListener('scroll',this.handleChange.bind(this));   
+        this.refs.active.removeEventListener('scroll',this.handleChange.bind(this));
     }
     
     render(){
@@ -96,25 +96,41 @@ class DetailBarLeft extends React.Component {
             }
         })
         return(
-            <div className={style.box}>
-                <WhiteSpace />        
-                <div className={style.box_left}>
-                    <div className={style.wrap}>
-                        {Tab_left}
-                    </div>   
-                </div>
-                <div ref="active" className={style.box_right}>
-                    <div className={style.wrap}>
-                        <Boxlist tabs={tabs}/>
+            <div className={style.wrapper}>
+                <div className={style.box}>        
+                    <div className={style.box_left}>
+                        <div className={style.wrap}>
+                            {Tab_left}
+                        </div>   
+                    </div>
+                    <div ref="active" className={style.box_right}>
+                        <div className={style.wrap}>
+                            <Boxlist tabs={tabs}/>
+                        </div>  
                     </div>  
-                </div>  
+                </div>
+                <div className={style.footer}>
+                    <div className={style.footer_left}>
+                        <div className={style.footer_circle}>
+                            <img src={shopcar} alt="小车车" />
+                        </div>
+                    </div>
+                    <div className={style.footer_middle}>
+                        <div>差100起送</div>
+                    </div>
+                    <div className={style.footer_right}>
+                        <div>
+                            加入购物车
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
 }
 
 const mapStateToProps = ({handlestyle})=> {
-    return {active: handlestyle.active}
+    return { active: handlestyle.active }
 }
 
 export default connect(mapStateToProps)(DetailBarLeft)
