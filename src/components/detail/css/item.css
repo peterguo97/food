@@ -2,7 +2,7 @@
     height: 120px;
     line-height: 100px;
     padding: 10px;
-    border-bottom: 1px solid rgb(7,17,27);
+    border-bottom: 1px solid rgba(7,17,27,.1);
 }
 .item img{
     width: 80px;

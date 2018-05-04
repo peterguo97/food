@@ -19,18 +19,27 @@ export default class BoxList extends React.Component {
         const list = tabs.map((item, index) => {
                 return(
                     <List key={index} renderHeader={() => <div className={style.itemtitle}>{item.title}</div>}>
-                        <Item thumb={food} className={style.item}>
-                           <div className={style.detail}>
-                                <div className={style.title}>狗狗最爱</div>
-                                <div className={style.sale}>月售xx份</div>
-                                <div className={style.price}>
-                                    <span>¥10</span>
-                                    <span className={style.detailbutton}>
-                                        <img src={button} alt=""/>
-                                    </span>
+                    {
+                        item.shoplist.map((item1,index)=>{
+                            return(
+                                <div key={index}>
+                                    <Item thumb={food} className={style.item}>
+                                        <div className={style.detail}>
+                                            <div className={style.title}>{item1.title}</div>
+                                            <div className={style.sale}>月售{item1.sale}份</div>
+                                            <div className={style.price}>
+                                                <span>¥{item1.price}</span>
+                                                <span className={style.detailbutton}>
+                                                    <img src={button} alt=""/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </Item>
                                 </div>
-                            </div>
-                        </Item>
+                            )
+                        })
+                    }
+                        
                     </List>
                 )
         })

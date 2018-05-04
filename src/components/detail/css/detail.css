@@ -24,9 +24,9 @@
 }
 
 .box_left {
-    display: flex;
-    flex-direction: column;
     width: 20%;
+    height: 100%;
+    overflow: scroll;
 }
 
 .box_left_item {
