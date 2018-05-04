@@ -37,12 +37,19 @@ class DetailBarLeft extends React.Component {
             type: 'handlestyle/change',
             payload: item
         })
+        let dom = this.refs.active;
+        if( item === 0 ){
+            dom.scrollTop = 0;
+        }
+        else{
+            dom.scrollTop = arr[item-1];
+        }
     }
     
     findIndex( target ){
         let i=0;
         for ( i = 0; i < arr.length - 1 ; i++) {
-                if(target >= ( arr[i] - 150 ) && target <= arr[i+1] ){
+                if(target >= ( arr[i] - 200 ) && target <= arr[i+1] - 200){
                     return i+1;
                 }
         }
@@ -50,10 +57,8 @@ class DetailBarLeft extends React.Component {
     }
 
     handleChange(e){
-        console.log(typeof(e.target.scrollTop));
         console.log(e.target.scrollTop)
         let index = this.findIndex(e.target.scrollTop);
-        console.log(index);
         if(this.props.active === index){
             return
         }
@@ -72,7 +77,7 @@ class DetailBarLeft extends React.Component {
         tabs.forEach( (item, index)=>{
             let height = temp + 50 + 120 * item.shoplist.length;
             temp = height;
-            //console.log(height)
+            console.log(height)
             arr.push(height);
         })
     }
