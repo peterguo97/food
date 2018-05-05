@@ -1,0 +1,15 @@
+.user {
+  height: 180px;
+  padding-top: 37px;
+  background-color: #06c1ae;
+  text-align: center; }
+  .user img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%; }
+  .username {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700; }
+
+/*# sourceMappingURL=User.css.map */

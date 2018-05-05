@@ -1,33 +1,55 @@
 import { List } from 'antd-mobile';
-import React from 'react'
+import React from 'react';
 import style from './css/item.css';
-import ReactDOM from 'react-dom';
+import food from "../../assets/dog.jpg";
+import button from '../../assets/button.jpg';
 
 const Item = List.Item;
 
 export default class BoxList extends React.Component {
-    handleChange(e){
-        console.log(e);
-        let a = document.documentElement.scrollTop;  
-        console.log("滑动距离为：",a);  
+    constructor(props){
+        super(props);
+        this.state = {
+            current_height : 0,
+        }
     }
-    componentDidMount() {
-        const node = ReactDOM.findDOMNode(this.refs.active);
-        console.log(node);
-        node.addEventListener('touchmove',this.handleChange);
-    }
+    
     render() {
+        console.log(button);
+
+        
         const tabs = this.props.tabs;
         const list = tabs.map((item, index) => {
                 return(
                     <List key={index} renderHeader={() => <div className={style.itemtitle}>{item.title}</div>}>
-                        <Item extra={'extra content'} className={style.item}>Title</Item>
+                    {
+                        item.shoplist.map((item1,index)=>{
+                            return(
+                                <div key={index}>
+                                    <Item thumb={food} className={style.item}>
+                                        <div className={style.detail}>
+                                            <div className={style.title}>{item1.title}</div>
+                                            <div className={style.sale}>月售{item1.sale}份</div>
+                                            <div className={style.price}>
+                                                <span>¥{item1.price}</span>
+                                                <span className={style.detailbutton}>
+                                                    <img src={button} alt=""/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </Item>
+                                </div>
+                            )
+                        })
+                    }
+                        
                     </List>
                 )
         })
-            return (
-                <div ref="active">
-                    {list}
-                </div>);
+        return (
+            <div ref="active">
+                {list}
+            </div>
+            );
     }
 }

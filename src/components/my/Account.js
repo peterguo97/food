@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import User from './User';
-import Address from './Address';
+import UserInfo from './UserInfo';
 import Merchanat from './Merchant';
 
 class Account extends Component {
@@ -8,7 +8,7 @@ class Account extends Component {
         return(
             <div>
                 <User />
-                <Address />
+                <UserInfo />
                 <Merchanat />
             </div>
         );

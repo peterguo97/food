@@ -10,7 +10,7 @@ const tabs2 = [
 export default class DetailBar extends React.Component {
     render(){
         return(
-            <div style={{ position: 'fixed', top: 125, left: 0, width: '100%',height: '70%' }}>
+            <div style={{ position: 'fixed', top: 125, left: 0, width: '100%', height: '70%'}}>
                 <Tabs tabs={tabs2}
                     initialPage={0}
                     tabBarPosition="top"
@@ -18,8 +18,8 @@ export default class DetailBar extends React.Component {
                     usePaged={false}
                     swipeable={false}
                 >
-                    <div>
-                        <DetailBarLeft />
+                    <div style={{height: '100%'}}>
+                        <DetailBarLeft/>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
                         Content of second tab
