@@ -38,11 +38,32 @@
 }
 
 .detailbutton {
-    width: 18px;
-    height: 18px;
+    width: 60px;
+    height: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.decrease {
+    background: #1296db;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    line-height: 20px;
+    text-align: center;
 }
 
 .detailbutton img {
     width: 18px;
     height: 18px;
+    padding-bottom: 3px;
+}
+
+.plus {
+    background: #1296db;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    line-height: 20px;
+    text-align: center;
 }

@@ -1,15 +1,44 @@
 .detail_head{
     height: 20%;
     width: 100%;
-    line-height: 20%;
+    background-image: url('../../assets/yay.jpg');
     background-repeat: no-repeat;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1999;
+    
 }
 
-.detail_head img{
+.wrap {
+    height: 100%;
+    width: 100%;
+    background: rgba(7, 17, 27,.5);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.titleimg {
+    width: 25%;
+    text-align: center;
+}
+
+.titleimg img{
     width: 80px;
     height: 80px;
+}
+
+.backimg {
+    width: 20%;
+    text-align: center;
+}
+
+.backimg img{
+    width: 25px;
+    height: 25px;
+    padding-top: 7.5px;
+}
+
+.mid {
+    width: 40%;
 }
