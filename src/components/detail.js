@@ -1,12 +1,9 @@
 import React from 'react';
-import { List } from 'antd-mobile';
 import style from './css/detail.css';
 import img_title from '../assets/yay.jpg';
 import back from '../assets/back.jpg';
 import { Link } from 'dva/router';
 import DetailBar from './detail/DetailBar.js';
-const Item = List.Item;
-
 
 class Detail extends React.Component {
     render(){
