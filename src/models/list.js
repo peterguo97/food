@@ -1,9 +1,11 @@
+import { hasItem } from "../publicapi";
+
 export default {
 
     namespace: 'shoplist',
   
     state: {
-        list: [],
+        list: [{name: '乐事', price: 10, num: 1}],
     },
   
     subscriptions: {
@@ -18,15 +20,27 @@ export default {
     },
   
     reducers: {
-        addTolsit(state, {payload} ){
+        addTolist(state, { payload }){
             const list = state.list;
-            list.push(payload);
-            return {
-                ...state.list, list
+            let judge = hasItem(list, payload, "name");
+            console.log(judge);
+            if (judge) {
+                let recentlist = list.map((item) => {
+                    if(item.name === payload.name){
+                        item.num++;
+                    }
+                    return item;
+                })
+                return Object.assign({},state,{list: recentlist});
+            }
+            else {
+                payload.num = 1;
+                let recentlist = [ ...state.list, payload ];
+                return Object.assign({}, state, { list: recentlist });
             }
         },
 
-        removeFromlist(state, {payload}){
+        decreaseFromlist(state, {payload}){
             const list = state.list;
             let recentlist = list.filter((item)=>{
                 if ( item.name === payload.name ){
@@ -42,12 +56,7 @@ export default {
             let newstate = {
                 list: recentlist,
             }
-            return {
-                ...state, ...newstate
-            }
-        },
-        save(state, action) {
-            return { ...state, ...action.payload };
+            return Object.assign({},state,newstate)
         },
     },
   

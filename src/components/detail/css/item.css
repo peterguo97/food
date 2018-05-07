@@ -39,8 +39,9 @@
 
 .detailbutton {
     width: 60px;
-    height: 20px;
+    height: 100%;
     display: flex;
+    align-items: center;
     justify-content: space-around;
 }
 
@@ -66,4 +67,50 @@
     border-radius: 10px;
     line-height: 20px;
     text-align: center;
+}
+
+.listItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 35px;
+    line-height: 35px;
+}
+
+.list_title {
+    width: 25%;
+    height: 100%;
+    text-align: center;
+}
+
+.list_price {
+    width: 35%;
+    height: 100%;
+    text-align: center;
+    color: #f01414;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.detail_button {
+    width: 60px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 25px; 
+}
+
+.detail_button img {
+    width: 18px;
+    height: 18px;
+}
+
+
+.footeritem {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
 }

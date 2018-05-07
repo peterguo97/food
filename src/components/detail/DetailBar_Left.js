@@ -3,6 +3,7 @@ import style from './css/detail.css';
 import Boxlist from './List';
 import { connect } from 'dva';
 import shopcar from '../../assets/shopcar.jpg';
+import BoxItem from './BoxItem';
 
 const tabs = [
     { title: '狗狗最爱',shoplist: [
@@ -109,18 +110,23 @@ class DetailBarLeft extends React.Component {
                         </div>  
                     </div>  
                 </div>
-                <div className={style.footer}>
-                    <div className={style.footer_left}>
-                        <div className={style.footer_circle}>
-                            <img src={shopcar} alt="小车车" />
+                <div className={style.foot}>
+                    <div className={style.footeritem}>
+                        <BoxItem />   
+                    </div>
+                    <div className={style.footer}>
+                        <div className={style.footer_left}>
+                            <div className={style.footer_circle}>
+                                <img src={shopcar} alt="小车车" />
+                            </div>
                         </div>
-                    </div>
-                    <div className={style.footer_middle}>
-                        <div>差100起送</div>
-                    </div>
-                    <div className={style.footer_right}>
-                        <div>
-                            加入购物车
+                        <div className={style.footer_middle}>
+                            <div>差100起送</div>
+                        </div>
+                        <div className={style.footer_right}>
+                            <div>
+                                加入购物车
+                            </div>
                         </div>
                     </div>
                 </div>
