@@ -9,7 +9,18 @@ class ListFooter extends React.Component {
         super(props);
         this.state = {
             price: 0,
+            isShow: props.showlist
         }
+    }
+
+    handleClick(){
+        let list = this.props.list;
+        if(list.length === 0){
+            return
+        }
+        this.props.dispatch({
+            type: 'shoplist/showOrNotShow'
+        })
     }
 
     componentWillReceiveProps(nextProps) {
@@ -20,24 +31,30 @@ class ListFooter extends React.Component {
         })    
         this.setState({
             price: tempprice,
-        })    
+        })   
+        if(this.state.isShow !== nextProps.showlist){
+            this.setState({
+                isShow: nextProps.showlist,
+            })
+        } 
     }
     
 
     render(){
-       
         return(
             <div className={style.foot}>
-                <div className={style.footeritem}>
-                    <BoxItem /> 
+                
+                <div className={style.footeritem} style={{display: this.state.isShow ? "block" : "none" }}>
+                    <div className={style.buycar}>购物车</div>
+                    <BoxItem />
                 </div>
                 <div className={style.footer}>
-                    <div className={style.footer_left}>
+                    <div className={style.footer_left} onClick={this.handleClick.bind(this)}>
                         <div className={style.footer_circle}>
                             <img src={shopcar} alt="小车车" />
                         </div>
                     </div>
-                    <div className={style.footer_middle}>
+                    <div className={style.footer_middle} onClick={this.handleClick.bind(this)}>
                         <div>￥{this.state.price}</div>
                     </div>
                     <div className={style.footer_right}>
@@ -53,6 +70,7 @@ class ListFooter extends React.Component {
 
 const mapStateToProps = ({shoplist}) => {
     return {
+        showlist: shoplist.showlist,
         list: shoplist.list
     }
 }

@@ -122,7 +122,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: auto;
+    width: 50%;
 }
 
 .footer_circle {
@@ -132,4 +132,12 @@
     text-align: center;
     border-radius: 20px;
     background: #fff;
+}
+
+.buycar {
+    background: rgb(243,245,247);
+    height: 35px;
+    line-height: 35px;
+    padding-left: 20px;
+    font-weight: bold;
 }
