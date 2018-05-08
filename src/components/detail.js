@@ -1,14 +1,40 @@
 import React from 'react';
 import style from './css/detail.css';
 import img_title from '../assets/yay.jpg';
-import back from '../assets/back.jpg';
+import back from '../assets/back.png';
 import { Link } from 'dva/router';
 import DetailBar from './detail/DetailBar.js';
+import ListFooter from './detail/footer';
+import { connect } from 'dva';
 
 class Detail extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            index: -500
+        }
+    }
+
+    
+    componentWillReceiveProps(nextProps) {
+        let index = this.state.index;
+        if( this.props.showlist !== nextProps.showlist ){
+            this.setState({
+                index: ~index
+            })
+        }
+    }
+    
+
+    handleClick(){
+        this.props.dispatch({
+            type: 'shoplist/showOrNotShow'
+        })
+    }
     render(){
         return(
-            <div>
+            <div style={{height: '100%'}}>
+                <div className={style.boxshadow} style={{zIndex: this.state.index}} onClick={this.handleClick.bind(this)}></div>
                 <div className={style.detail_head}>
                     <div className={style.wrap}>
                         <div className={style.titleimg}>
@@ -20,16 +46,23 @@ class Detail extends React.Component {
                             <div style={{ color: '#fff', fontSize: 12, marginTop: 10 }}>在线支付满xx减xx</div>
                         </div>
                         <div className={style.backimg}>
-                            <div style={{width: 40, height: 40, borderRadius: 20, background: '#fff'}}>
+                            <div style={{width: 40, height: 40, borderRadius: 20, background: 'rgb(104,108,111)'}}>
                                 <Link to="/" ><img src={back} alt='back' /></Link>
                             </div>
                         </div>
                     </div>
                 </div>               
                 <DetailBar/>
+                <ListFooter/>
             </div>
         )
     }
 }
 
-export default Detail;
+const mapStateToProps = ({shoplist}) => {
+    return {
+        showlist: shoplist.showlist
+    }
+}
+
+export default connect(mapStateToProps)(Detail);

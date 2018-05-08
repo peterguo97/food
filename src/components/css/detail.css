@@ -9,6 +9,15 @@
     
 }
 
+.boxshadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(104, 108, 111, 0.6);
+}
+
 .wrap {
     height: 100%;
     width: 100%;

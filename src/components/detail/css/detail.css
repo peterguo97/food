@@ -27,6 +27,7 @@
     width: 20%;
     height: 100%;
     overflow: scroll;
+    background: #f3f5f7;
 }
 
 .box_left_item {
@@ -43,6 +44,7 @@
     height: 100%;
     overflow: scroll;
     width: 80%;
+    background: #f3f5f7;
 }
 
 .wrap{
@@ -126,7 +128,8 @@
 .footer_circle {
     width: 40px;
     height: 40px;
-    padding: 10px;
+    line-height: 50px;
+    text-align: center;
     border-radius: 20px;
     background: #fff;
 }

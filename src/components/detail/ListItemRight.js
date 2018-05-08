@@ -3,6 +3,7 @@ import style from './css/item.css';
 import plus from '../../assets/plus.png';
 import decrease from '../../assets/decrease.png';
 import { connect } from 'dva';
+import { hasItem } from '../../publicapi';
 
 class ListItemRight extends React.Component {
     constructor(props){
@@ -13,7 +14,7 @@ class ListItemRight extends React.Component {
     }
     handlePlus(){
         const data = this.props.data;
-        console.log(this.props);
+        // console.log(this.props);
         let recentlynum = this.state.num + 1;
         this.setState({
             num: recentlynum
@@ -21,7 +22,7 @@ class ListItemRight extends React.Component {
         this.props.dispatch({
             type: 'shoplist/addTolist',
             payload: {
-                name: data.title,
+                name: data.name,
                 price: data.price,
                 num: data.num
             }
@@ -40,17 +41,50 @@ class ListItemRight extends React.Component {
         this.props.dispatch({
             type: 'shoplist/decreaseFromlist',
             payload: {
-                name: data.title,
+                name: data.name,
                 price: data.price,
                 num: data.num
             }
         })
     }
+
+    componentWillReceiveProps = (nextProps)=>{
+        const list = nextProps.list;
+        const item1 = this.props.data;
+        let judge = hasItem(this.props.list, this.props.data, "name");
+        let judge1 = hasItem(nextProps.list, this.props.data, "name");
+        if (judge && judge1) {
+            for (let index = 0; index < list.length; index++) {
+                const element = list[index];
+                if(element.name === item1.name){
+                    this.setState({
+                        num: element.num,
+                    })
+                    break;
+                } 
+            }
+        }
+        if(judge && !judge1){
+            this.setState({
+                num: 0,
+            })
+        }
+    }
+
+    shouldComponentUpdate = (nextProps, nextState) => {
+       if(this.state.num !== nextState.num ){
+           return true;
+       }
+       else{
+           return false;
+       }
+    }
+
     render(){
         const item1 = this.props.data;
         return(
             <div className={style.detail}>
-                <div className={style.title}>{item1.title}</div>
+                <div className={style.title}>{item1.name}</div>
                 <div className={style.sale}>月售{item1.sale}份</div>
                 <div className={style.price}>
                     <span>¥{item1.price}</span>
@@ -72,6 +106,6 @@ class ListItemRight extends React.Component {
 }
 
 const mapStateToProps = ({shoplist}) => {
-    return {}
+    return {list: shoplist.list};
 }
 export default connect(mapStateToProps)(ListItemRight);

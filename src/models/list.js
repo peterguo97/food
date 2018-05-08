@@ -5,7 +5,8 @@ export default {
     namespace: 'shoplist',
   
     state: {
-        list: [{name: '乐事', price: 10, num: 1}],
+        showlist: false,
+        list: [],
     },
   
     subscriptions: {
@@ -23,14 +24,16 @@ export default {
         addTolist(state, { payload }){
             const list = state.list;
             let judge = hasItem(list, payload, "name");
-            console.log(judge);
+            // console.log(judge);
             if (judge) {
-                let recentlist = list.map((item) => {
-                    if(item.name === payload.name){
-                        item.num++;
-                    }
-                    return item;
-                })
+                let recentlist = JSON.parse(JSON.stringify(list));
+                for (let index = 0; index < recentlist.length; index++) {
+                    const element = recentlist[index];
+                    if (element.name === payload.name){
+                        element.num++;
+                        break;
+                    }                   
+                }
                 return Object.assign({},state,{list: recentlist});
             }
             else {
@@ -41,7 +44,7 @@ export default {
         },
 
         decreaseFromlist(state, {payload}){
-            const list = state.list;
+            const list =JSON.parse(JSON.stringify(state.list));
             let recentlist = list.filter((item)=>{
                 if ( item.name === payload.name ){
                     item.num--;
@@ -53,11 +56,19 @@ export default {
                     return true;
                 }
             })
-            let newstate = {
-                list: recentlist,
-            }
-            return Object.assign({},state,newstate)
+            return Object.assign({}, state, { list: recentlist });
         },
+
+        showOrNotShow(state,{payload}){
+            let temp = state.showlist;
+            if(temp){
+                temp = false;
+            }
+            else{
+                temp = true;
+            }
+            return Object.assign({}, state, {showlist: temp});
+        }
     },
   
   };

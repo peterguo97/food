@@ -6,14 +6,7 @@ import ListItemRight from './ListItemRight';
 
 const Item = List.Item;
 
-export default class BoxList extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            current_height : 0,
-        }
-    }
-    
+class BoxList extends React.Component {  
     render() {
         const tabs = this.props.tabs;
         const list = tabs.map((item, index) => {
@@ -35,11 +28,13 @@ export default class BoxList extends React.Component {
                 )
         })
         return (
-            <div ref="active">
+            <div>
                 {list}
             </div>
             );
     }
 }
 
+
+export default BoxList;
 

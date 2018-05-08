@@ -6,7 +6,6 @@ import ListItem from './ListItem';
 class BoxItem extends React.Component {
     render(){
         const data = this.props.list;
-        console.log(data);
         let list = data.map((item,index)=>{
             return <ListItem data={item} key={index} />
         })

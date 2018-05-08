@@ -2,30 +2,28 @@ import React from 'react';
 import style from './css/detail.css';
 import Boxlist from './List';
 import { connect } from 'dva';
-import shopcar from '../../assets/shopcar.jpg';
-import BoxItem from './BoxItem';
 
 const tabs = [
     { title: '狗狗最爱',shoplist: [
-        {title: '海澜之家', sale: 100, price: 150},
-        {title: '美汁源', sale: 60, price: 150},
-        {title: '点点之家', sale: 70, price: 150},
-        {title: '好丽友', sale: 80, price: 150},
-        {title: '爱上狗粮', sale: 120, price: 150},
+        {name: '海澜之家', sale: 100, price: 150},
+        {name: '美汁源', sale: 60, price: 150},
+        {name: '点点之家', sale: 70, price: 150},
+        {name: '好丽友', sale: 80, price: 150},
+        {name: '爱上狗粮', sale: 120, price: 150},
     ]},
     { title: '每单必点',shoplist: [
-        {title: '海澜之家', sale: 100, price: 150},
-        {title: '美汁源', sale: 60, price: 150},
-        {title: '点点之家', sale: 70, price: 150},
-        {title: '好丽友', sale: 80, price: 150},
-        {title: '爱上狗粮', sale: 120, price: 150},
+        {name: '海澜之家', sale: 100, price: 150},
+        {name: '美汁源', sale: 60, price: 150},
+        {name: '点点之家', sale: 70, price: 150},
+        {name: '好丽友', sale: 80, price: 150},
+        {name: '爱上狗粮', sale: 120, price: 150},
     ] },
     { title: '促销折扣',shoplist: [
-        {title: '海澜之家', sale: 100, price: 150},
-        {title: '美汁源', sale: 60, price: 150},
-        {title: '点点之家', sale: 70, price: 150},
-        {title: '好丽友', sale: 80, price: 150},
-        {title: '爱上狗粮', sale: 120, price: 150},
+        {name: '海澜之家', sale: 100, price: 150},
+        {name: '美汁源', sale: 60, price: 150},
+        {name: '点点之家', sale: 70, price: 150},
+        {name: '好丽友', sale: 80, price: 150},
+        {name: '爱上狗粮', sale: 120, price: 150},
     ] },
 ];
 
@@ -109,26 +107,6 @@ class DetailBarLeft extends React.Component {
                             <Boxlist tabs={tabs}/>
                         </div>  
                     </div>  
-                </div>
-                <div className={style.foot}>
-                    <div className={style.footeritem}>
-                        <BoxItem />   
-                    </div>
-                    <div className={style.footer}>
-                        <div className={style.footer_left}>
-                            <div className={style.footer_circle}>
-                                <img src={shopcar} alt="小车车" />
-                            </div>
-                        </div>
-                        <div className={style.footer_middle}>
-                            <div>差100起送</div>
-                        </div>
-                        <div className={style.footer_right}>
-                            <div>
-                                加入购物车
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         )

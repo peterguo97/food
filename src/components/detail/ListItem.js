@@ -5,7 +5,12 @@ import plus from '../../assets/plus.png';
 import decrease from '../../assets/decrease.png';
 
 class ListItem extends React.Component {
-
+    constructor(props){
+        super(props);
+        this.state = {
+            num: 0,
+        }
+    }
     handlePlus(){
         const data = this.props.data;
         this.props.dispatch({
@@ -32,11 +37,11 @@ class ListItem extends React.Component {
 
     render(){
         let data = this.props.data;
-        console.log(data);
+        
         return(
             <div className={style.listItem}>             
                 <div className={style.list_title}>{data.name}</div>
-                <div className={style.list_price}>¥{data.price}</div>
+                <div className={style.list_price}>¥{data.price*data.num}</div>
                 <div className={style.detail_button}>
                     <div className={style.decrease} onClick={this.handleDecrease.bind(this)}>
                         <img src={decrease} alt="-"/>
