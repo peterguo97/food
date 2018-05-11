@@ -73,7 +73,7 @@ class ShoppingList extends Component {
                         </Flex>
                         <div className={styles.listfooter}>
                             <Link to="./eval" className={styles.eval}>评价</Link>
-                            <Link to="./address" className={styles.eval}>查看物流</Link>
+                            <Link to="./logistics" className={styles.eval}>查看物流</Link>
                             <div className={styles.eval} onClick={this.delete.bind(this, list.id)}>删除订单</div>
                         </div>
                     </div>)
