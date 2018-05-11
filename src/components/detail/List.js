@@ -2,18 +2,11 @@ import { List } from 'antd-mobile';
 import React from 'react';
 import style from './css/item.css';
 import food from "../../assets/dog.jpg";
-import button from '../../assets/button.jpg';
+import ListItemRight from './ListItemRight';
 
 const Item = List.Item;
 
-export default class BoxList extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            current_height : 0,
-        }
-    }
-    
+class BoxList extends React.Component {  
     render() {
         console.log(button);
 
@@ -27,16 +20,7 @@ export default class BoxList extends React.Component {
                             return(
                                 <div key={index}>
                                     <Item thumb={food} className={style.item}>
-                                        <div className={style.detail}>
-                                            <div className={style.title}>{item1.title}</div>
-                                            <div className={style.sale}>月售{item1.sale}份</div>
-                                            <div className={style.price}>
-                                                <span>¥{item1.price}</span>
-                                                <span className={style.detailbutton}>
-                                                    <img src={button} alt=""/>
-                                                </span>
-                                            </div>
-                                        </div>
+                                        <ListItemRight data={item1}/>
                                     </Item>
                                 </div>
                             )
@@ -47,9 +31,13 @@ export default class BoxList extends React.Component {
                 )
         })
         return (
-            <div ref="active">
+            <div>
                 {list}
             </div>
             );
     }
 }
+
+
+export default BoxList;
+

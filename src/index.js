@@ -16,6 +16,7 @@ app.model(require('./models/login').default);
 app.model(require('./models/register').default);
 app.model(require('./models/forgetPas').default);
 app.model(require('./models/handlestyle').default);
+app.model(require('./models/list').default);
 
 // 4. Router
 app.router(require('./router').default);

@@ -1,34 +1,68 @@
 import React from 'react';
-import { List } from 'antd-mobile';
 import style from './css/detail.css';
 import img_title from '../assets/yay.jpg';
 import back from '../assets/back.png';
 import { Link } from 'dva/router';
 import DetailBar from './detail/DetailBar.js';
-const Item = List.Item;
-const Brief = Item.Brief;
-
+import ListFooter from './detail/footer';
+import { connect } from 'dva';
 
 class Detail extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            index: -500
+        }
+    }
+
+    
+    componentWillReceiveProps(nextProps) {
+        let index = this.state.index;
+        if( this.props.showlist !== nextProps.showlist ){
+            this.setState({
+                index: ~index
+            })
+        }
+    }
+    
+
+    handleClick(){
+        this.props.dispatch({
+            type: 'shoplist/showOrNotShow'
+        })
+    }
     render(){
         return(
-            <div>
-                <List className={style.detail_head} >
-                    <Item
-                        style={{background: 'rgba(38,188,213,.8)',color:'#fff'}}
-                        thumb={img_title}
-                        multipleLine="true"
-                        extra={<div><Link to="/"><img src={back} alt="back"/></Link></div>}
-                    >
-                        <div style={{color: '#fff'}}>宠物狗饲料</div>
-                        <Brief style={{ color: '#fff' }}>蜂鸟专送/极速送达</Brief>
-                        <Brief style={{ color: '#fff' }}>在线支付满xx减xx</Brief>
-                    </Item>
-                </List>
-                <DetailBar style={{position:'fixed', top:125, left:0}}/>
+            <div style={{height: '100%'}}>
+                <div className={style.boxshadow} style={{zIndex: this.state.index}} onClick={this.handleClick.bind(this)}></div>
+                <div className={style.detail_head}>
+                    <div className={style.wrap}>
+                        <div className={style.titleimg}>
+                            <img src={img_title} alt="shop" />
+                        </div>
+                        <div className={style.mid}>
+                            <div style={{color: '#fff', fontWeight: 'bold' ,fontSize: 16}}>宠物狗饲料</div>
+                            <div style={{ color: '#fff', fontSize: 12, marginTop: 10 }}>蜂鸟专送/极速送达</div>
+                            <div style={{ color: '#fff', fontSize: 12, marginTop: 10 }}>在线支付满xx减xx</div>
+                        </div>
+                        <div className={style.backimg}>
+                            <div style={{width: 40, height: 40, borderRadius: 20, background: 'rgb(104,108,111)'}}>
+                                <Link to="/" ><img src={back} alt='back' /></Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+                <DetailBar/>
+                <ListFooter/>
             </div>
         )
     }
 }
 
-export default Detail;
+const mapStateToProps = ({shoplist}) => {
+    return {
+        showlist: shoplist.showlist
+    }
+}
+
+export default connect(mapStateToProps)(Detail);

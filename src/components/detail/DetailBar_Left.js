@@ -1,4 +1,3 @@
-import { WhiteSpace } from 'antd-mobile';
 import React from 'react';
 import style from './css/detail.css';
 import Boxlist from './List';
@@ -6,25 +5,25 @@ import { connect } from 'dva';
 
 const tabs = [
     { title: '狗狗最爱',shoplist: [
-        {title: '海澜之家', sale: 100, price: 150},
-        {title: '美汁源', sale: 60, price: 150},
-        {title: '点点之家', sale: 70, price: 150},
-        {title: '好丽友', sale: 80, price: 150},
-        {title: '爱上狗粮', sale: 120, price: 150},
+        {name: '海澜之家', sale: 100, price: 150},
+        {name: '美汁源', sale: 60, price: 150},
+        {name: '点点之家', sale: 70, price: 150},
+        {name: '好丽友', sale: 80, price: 150},
+        {name: '爱上狗粮', sale: 120, price: 150},
     ]},
     { title: '每单必点',shoplist: [
-        {title: '海澜之家', sale: 100, price: 150},
-        {title: '美汁源', sale: 60, price: 150},
-        {title: '点点之家', sale: 70, price: 150},
-        {title: '好丽友', sale: 80, price: 150},
-        {title: '爱上狗粮', sale: 120, price: 150},
+        {name: '海澜之家', sale: 100, price: 150},
+        {name: '美汁源', sale: 60, price: 150},
+        {name: '点点之家', sale: 70, price: 150},
+        {name: '好丽友', sale: 80, price: 150},
+        {name: '爱上狗粮', sale: 120, price: 150},
     ] },
     { title: '促销折扣',shoplist: [
-        {title: '海澜之家', sale: 100, price: 150},
-        {title: '美汁源', sale: 60, price: 150},
-        {title: '点点之家', sale: 70, price: 150},
-        {title: '好丽友', sale: 80, price: 150},
-        {title: '爱上狗粮', sale: 120, price: 150},
+        {name: '海澜之家', sale: 100, price: 150},
+        {name: '美汁源', sale: 60, price: 150},
+        {name: '点点之家', sale: 70, price: 150},
+        {name: '好丽友', sale: 80, price: 150},
+        {name: '爱上狗粮', sale: 120, price: 150},
     ] },
 ];
 
@@ -57,7 +56,7 @@ class DetailBarLeft extends React.Component {
     }
 
     handleChange(e){
-        console.log(e.target.scrollTop)
+        //console.log(e.target.scrollTop)
         let index = this.findIndex(e.target.scrollTop);
         if(this.props.active === index){
             return
@@ -77,13 +76,13 @@ class DetailBarLeft extends React.Component {
         tabs.forEach( (item, index)=>{
             let height = temp + 50 + 120 * item.shoplist.length;
             temp = height;
-            console.log(height)
+            //console.log(height)
             arr.push(height);
         })
     }
     
     componentWillUnmount = () => {
-        this.refs.active.removeEventListener('scroll',this.handleChange.bind(this));   
+        this.refs.active.removeEventListener('scroll',this.handleChange.bind(this));
     }
     
     render(){
@@ -96,25 +95,26 @@ class DetailBarLeft extends React.Component {
             }
         })
         return(
-            <div className={style.box}>
-                <WhiteSpace />        
-                <div className={style.box_left}>
-                    <div className={style.wrap}>
-                        {Tab_left}
-                    </div>   
-                </div>
-                <div ref="active" className={style.box_right}>
-                    <div className={style.wrap}>
-                        <Boxlist tabs={tabs}/>
+            <div className={style.wrapper}>
+                <div className={style.box}>        
+                    <div className={style.box_left}>
+                        <div className={style.wrap}>
+                            {Tab_left}
+                        </div>   
+                    </div>
+                    <div ref="active" className={style.box_right}>
+                        <div className={style.wrap}>
+                            <Boxlist tabs={tabs}/>
+                        </div>  
                     </div>  
-                </div>  
+                </div>
             </div>
         )
     }
 }
 
 const mapStateToProps = ({handlestyle})=> {
-    return {active: handlestyle.active}
+    return { active: handlestyle.active }
 }
 
 export default connect(mapStateToProps)(DetailBarLeft)
