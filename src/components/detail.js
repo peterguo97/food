@@ -11,7 +11,8 @@ class Detail extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            index: -500
+            index: -500,
+            showFooter: true
         }
     }
 
@@ -25,6 +26,11 @@ class Detail extends React.Component {
         }
     }
     
+    showFooter = (bol) => {
+        this.setState({
+            showFooter: bol
+        })
+    }
 
     handleClick(){
         this.props.dispatch({
@@ -52,8 +58,8 @@ class Detail extends React.Component {
                         </div>
                     </div>
                 </div>               
-                <DetailBar/>
-                <ListFooter/>
+                <DetailBar handleChange={this.showFooter.bind(this)}/>
+                <ListFooter isShow={this.state.showFooter}/>
             </div>
         )
     }

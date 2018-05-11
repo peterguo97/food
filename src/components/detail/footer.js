@@ -42,8 +42,7 @@ class ListFooter extends React.Component {
 
     render(){
         return(
-            <div className={style.foot}>
-                
+            <div className={style.foot} style={{display: this.props.isShow ? "block" : "none" }}>
                 <div className={style.footeritem} style={{display: this.state.isShow ? "block" : "none" }}>
                     <div className={style.buycar}>购物车</div>
                     <BoxItem />
