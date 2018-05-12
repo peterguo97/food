@@ -28,6 +28,14 @@ export default {
         save(state, action) {
             return { ...state, ...action.payload };
         },
+        change(state, { payload }) {
+            console.log(payload);
+            
+            return { ...state, ...payload };
+        },
+        decrease(state, { payload }) {
+            return { ...state, ...payload };
+        }
     },
 
 };

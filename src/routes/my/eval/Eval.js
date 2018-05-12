@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { List, TextareaItem, Button, WhiteSpace, WingBlank } from 'antd-mobile';
+import { List, TextareaItem, Button, WhiteSpace } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 

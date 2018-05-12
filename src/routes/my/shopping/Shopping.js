@@ -17,6 +17,7 @@ function removeItem(_arr) {
     }
     return arr;  
 }
+
 class Shopping extends Component {
     // constructor() {
     //     super();
@@ -31,7 +32,9 @@ class Shopping extends Component {
     //     }
     // }
     change = (item) => {
-        const datas = this.state.data;
+        const datas = this.props.shopping.data;
+        console.log(datas);
+        
         let price = this.props.shopping.priceAll;
 
         datas.map(i => {
@@ -45,10 +48,11 @@ class Shopping extends Component {
             }
             return null;
         });
-        this.setState({
-            data: datas,
-            priceAll: price
-        })
+        this.props.dispatch({ type: 'shopping/change', payload: {data: datas, priceAll: price}});
+        // this.setState({
+        //     data: datas,
+        //     priceAll: price
+        // })
         
     }
     decrease = (item) => {
@@ -66,11 +70,12 @@ class Shopping extends Component {
                     }
                 }
                 return null;
-            })
-            this.setState({
-                data: datas,
-                priceAll: price
-            })
+            });
+            this.props.dispatch({ type: 'shopping/decrease', payload: { data: datas, priceAll: price } });
+            // this.setState({
+            //     data: datas,
+            //     priceAll: price
+            // })
         }
     }
     add = (item) => {
@@ -128,7 +133,7 @@ class Shopping extends Component {
         })
     }
     render() {
-        const datas = this.props.shopping.data;
+        const datas = this.props.shopping.data;    
         return(
             <div>
                 <List>
