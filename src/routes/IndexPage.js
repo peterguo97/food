@@ -6,15 +6,17 @@ import Nav1 from '../components/Nav1';
 import Search from '../components/Search';
 import ShopList from '../components/ShopList';
 
-function IndexPage() {
-  return (
-    <div className={styles.normal}>
-      <Search />
-      <Nav />
-      <Nav1 />
-      <ShopList/>
-    </div>
-  );
+class IndexPage extends React.Component {
+  render(){
+    return(
+      <div className={styles.normal}>
+        <Search history={this.props.history}/>
+        <Nav />
+        <Nav1 />
+        <ShopList/>
+      </div>
+    )
+  }
 }
 
 IndexPage.propTypes = {

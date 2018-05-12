@@ -8,6 +8,12 @@ class Search extends React.Component {
     // componentDidMount() {
     //     this.autoFocusInst.focus();
     // }
+    onSubmit = (value) => {
+        if(this.props.history){
+            this.props.history.push('/user');
+        }
+    }
+
     onChange = (value) => {
         this.setState({ value });
     };
@@ -22,7 +28,7 @@ class Search extends React.Component {
             <WingBlank>
                 <SearchBar
                     placeholder="搜索附近商家"
-                    onSubmit={value => console.log(value, 'onSubmit')}
+                    onSubmit={this.onSubmit}
                     onClear={this.onClear}
                     onBlur={() => console.log('onBlur')}
                     onCancel={() => console.log('onCancel')}

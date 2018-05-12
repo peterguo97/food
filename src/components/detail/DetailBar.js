@@ -2,6 +2,7 @@ import { Tabs, WhiteSpace } from 'antd-mobile';
 import React from 'react';
 import DetailBarLeft from './DetailBar_Left';
 import Comment from '../comment/comment';
+import ShopDetail from '../shop';
 
 const tabs2 = [
     { title: '商品', sub: '1' },
@@ -36,11 +37,11 @@ export default class DetailBar extends React.Component {
                     <div style={{height: '100%'}}>
                         <DetailBarLeft/>
                     </div>
-                    <div onClick={()=>{console.log("hello")}} style={{ backgroundColor: 'rgb(243,245,247)' }}>
+                    <div style={{ backgroundColor: 'rgb(243,245,247)' }}>
                         <Comment />
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-                        Content of third tab
+                    <div style={{ backgroundColor: 'rgb(243,245,247)',height: '100%' }}>
+                       <ShopDetail />
                 </div>
                 </Tabs>
                 <WhiteSpace />

@@ -9,7 +9,7 @@ const data = [
     { id:12342552233,name: 'petter', description: '真的好吃，狗狗很爱' ,comment:4.5},
     { id:1234251253,name: 'pig', description: '真的好吃，狗狗很爱' ,comment:4.5},
     { id:1234253453,name: 'zhuzhu', description: '真的好吃，狗狗很爱' ,comment:4.5, sex: 'woman'},
-    { id:12342123553,name: 'hellokity', description: '真的好吃，狗狗很爱' ,comment:4.5, sex: 'woman'} 
+    { id:12342123553,name: 'hellokity', description: '真的好吃，狗狗很爱' ,comment:4.5, sex: 'woman'}
 ]
 
 
