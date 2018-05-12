@@ -10,7 +10,7 @@ class Search extends React.Component {
     // }
     onSubmit = (value) => {
         if(this.props.history){
-            this.props.history.push('/user');
+            this.props.history.push(`/search/${value}`);
         }
     }
 
