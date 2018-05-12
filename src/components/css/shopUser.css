@@ -1,0 +1,14 @@
+.shopbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.shopItemDetail {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    line-height: 60px;
+    padding: 0px 15px;
+    margin: 5px 0px;
+    background: #fff;
+}

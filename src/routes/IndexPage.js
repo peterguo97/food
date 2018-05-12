@@ -8,6 +8,7 @@ import ShopList from '../components/ShopList';
 import { TabBar } from 'antd-mobile';
 import My from './my/Account';
 
+// <<<<<<< HEAD
 class TabBarExample extends React.Component {
   constructor(props) {
     super(props);
@@ -79,7 +80,7 @@ class TabBarExample extends React.Component {
             data-seed="logId"
           >
             <div className={styles.normal}>
-              <Search />       
+              <Search history={this.props.history} />    
               <Nav />
               <Nav1 />
               <ShopList/>
@@ -124,7 +125,7 @@ class TabBarExample extends React.Component {
               });
             }}
           >
-			<My />
+			      <My />
             {/* {this.renderContent('My')} */}
           </TabBar.Item>
         </TabBar>
@@ -132,6 +133,19 @@ class TabBarExample extends React.Component {
     );
   }
 }
+  
+// class IndexPage extends React.Component {
+//   render(){
+//     return(
+//       <div className={styles.normal}>
+//         <Search history={this.props.history}/>
+//         <Nav />
+//         <Nav1 />
+//         <ShopList/>
+//       </div>
+//     )
+//   }
+// }
 
 // function IndexPage() {
 //   return (

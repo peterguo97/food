@@ -1,0 +1,47 @@
+.listbox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.listItem {
+    width: 100%;
+    display: -ms-flexbox;
+    padding: 0px 10px;
+    background: #fff;
+    margin-bottom: 5px;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-pack: distribute;
+    justify-content: space-between;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.left {
+    width: 75%;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.itemName {
+    display: flex;
+    height: 50px;
+    align-items: center;
+}
+
+.itemName img {
+    width: 40px;
+    height: 40px;
+}
+
+.item {
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
