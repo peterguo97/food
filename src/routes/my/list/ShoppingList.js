@@ -38,6 +38,14 @@ class ShoppingList extends Component {
     multiply = (a, b) => {
         return a * b;
     }
+    // 查看物流
+    logistics(id) {
+        this.props.dispatch({ type: 'shoppingList/logis', payload: id}); 
+    }
+    // 评价
+    eval(id) {
+        this.props.dispatch({ type: 'shoppingList/eval', payload: id }); 
+    }
     render() {
         const data = this.props.shoppingList.data;  
         return(
@@ -69,8 +77,9 @@ class ShoppingList extends Component {
                             <Flex.Item className={styles.textalign}>共{list.num}件商品 合计: ￥{this.multiply(list.num, list.price)}</Flex.Item>
                         </Flex>
                         <div className={styles.listfooter}>
-                            <Link to="./eval" className={styles.eval}>评价</Link>
-                            <Link to="./logistics" className={styles.eval}>查看物流</Link>
+                            <div className={styles.eval} onClick={this.eval.bind(this, list.id)}>评价</div>
+                            {/* <Link to="./logistics" className={styles.eval} onClick={this.logistics.bind(this, list.id)}>查看物流</Link> */}
+                            <div className={styles.eval} onClick={this.logistics.bind(this, list.id)}>查看物流</div>
                             <div className={styles.eval} onClick={this.delete.bind(this, list.id)}>删除订单</div>
                         </div>
                     </div>)
