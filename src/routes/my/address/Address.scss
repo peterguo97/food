@@ -1,0 +1,12 @@
+footer {
+    $height: 40px;
+    position: fixed;
+    width: 100%;
+    height: $height;
+    line-height: $height;
+    bottom: 0;
+
+    text-align: center;
+    background-color: #fff;
+    color: blue;
+}

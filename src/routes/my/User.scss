@@ -1,0 +1,26 @@
+.user {
+    $userHeight: 180px;
+    // 图片的长与宽
+    $size: 70px;
+
+    height: $userHeight;
+
+    padding-top: ($userHeight - $size) / 2 - 18px;
+
+    background-color: #06c1ae;
+    text-align: center;
+
+    img {
+        width: $size;
+        height: $size;
+
+        border-radius: 50%;
+    }
+    @at-root {
+        .username {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+        }
+    }
+}

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,aAAc;EACV,UAAU,EAAE,IAAI",
+"sources": ["Merchant.scss"],
+"names": [],
+"file": "Merchant.css"
+}

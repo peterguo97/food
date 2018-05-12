@@ -2,18 +2,18 @@ import React from 'react';
 import { Router, Route, Switch } from 'dva/router';
 import IndexPage from './routes/IndexPage';
 import Detail from './components/detail';
-import List from './components/my/list/ShoppingList';
-import Shopping from './components/my/shopping/Shopping';
-import Aboutus from './components/my/aboutus/Aboutus';
-import Address from './components/my/address/Address';
-import Write from './components/my/address/WriteAddress';
-import Logistics from './components/my/logistics/Logistics';
-import Eval from './components/my/eval/Eval';
+import List from './routes/my/list/ShoppingList';
+import Shopping from './routes/my/shopping/Shopping';
+import Aboutus from './routes/my/aboutus/Aboutus';
+import Address from './routes/my/address/Address';
+import Write from './routes/my/address/WriteAddress';
+import Logistics from './routes/my/logistics/Logistics';
+import Eval from './routes/my/eval/Eval';
 
 // 注册登录
-import Login from "./routes/login/Login";
-import Register from "./routes/login/Register";
-import ForgetPas from "./routes/login/ForgetPas";
+// import Login from "./routes/login/Login";
+// import Register from "./routes/login/Register";
+// import ForgetPas from "./routes/login/ForgetPas";
 
 
 function RouterConfig({ history }) {
@@ -30,9 +30,9 @@ function RouterConfig({ history }) {
         <Route path="/logistics" component={Logistics} />
         <Route path="/eval" component={Eval} />
 
-        <Route path="/login" exact component={Login} />
+        {/* <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
-        <Route path="/forget" exact component={ForgetPas} />
+        <Route path="/forget" exact component={ForgetPas} /> */}
       </Switch>
     </Router>
   );
