@@ -6,6 +6,7 @@ import List from './components/my/list/ShoppingList';
 import Shopping from './components/my/shopping/Shopping';
 import Aboutus from './components/my/aboutus/Aboutus';
 import Address from './components/my/address/Address';
+import Write from './components/my/address/WriteAddress';
 import Logistics from './components/my/logistics/Logistics';
 import Eval from './components/my/eval/Eval';
 
@@ -24,6 +25,7 @@ function RouterConfig({ history }) {
         <Route path="/list" component={List} />
         <Route path="/shopping" component={Shopping} />
         <Route path="/address" component={Address} />
+        <Route path="/write" component={Write} />
         <Route path="/aboutus" component={Aboutus} />
         <Route path="/logistics" component={Logistics} />
         <Route path="/eval" component={Eval} />

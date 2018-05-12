@@ -1,11 +1,13 @@
 .checkbox {
+  width: 100%;
   background-color: #fff; }
-  .item {
-    padding-left: 0; }
-    .item img {
-      width: 50px;
-      height: 50px;
-      margin-top: -10px; }
+
+.item {
+  padding-left: 0; }
+  .item img {
+    width: 50px;
+    height: 50px;
+    margin-top: -10px; }
 
 .footer {
   position: fixed;
@@ -19,7 +21,7 @@
     color: red;
     text-align: right;
     padding-right: 5px; }
-  .footer .remove, .footer .pay {
+  .footer .remove {
     width: 50%;
     height: 100%;
     margin-left: 0;
@@ -27,6 +29,11 @@
     line-height: 40px;
     background-color: #eee; }
   .footer .pay {
+    width: 50%;
+    height: 100%;
+    margin-left: 0;
+    text-align: center;
+    line-height: 40px;
     background-color: #e5f31d; }
 
 .stepper {
