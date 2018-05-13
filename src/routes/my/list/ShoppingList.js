@@ -58,7 +58,7 @@ class ShoppingList extends Component {
                                 <Flex.Item className={styles.textalign}>{list.result}</Flex.Item>
                             </Flex>
                         </Link>
-                        <Link to="./listdetail" className={styles.color}>
+                        <Link to={`./listdetail/${list.id}`} className={styles.color}>
                             <Item thumb={food} multipleLine="true" className={styles.item}>
                                 <Flex>
                                     <Flex.Item>

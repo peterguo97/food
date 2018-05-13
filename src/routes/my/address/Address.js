@@ -62,7 +62,7 @@ class Address extends Component {
                    )
                }
                <Link to="./write/0">
-                <footer>
+                <footer className={styles.footer}>
                     新增收货地址
                 </footer>
                </Link>
