@@ -34,8 +34,14 @@
     text-align: right; }
 
 .refund {
-  padding: 10px 0;
-  justify-content: right; }
+  padding: 10px 5px;
+  text-align: right;
+  background-color: #fff; }
+  .refund span {
+    display: inline-block;
+    border: 1px solid #000;
+    padding: 5px 10px;
+    border-radius: 10px; }
 
 .footer span {
   display: block;

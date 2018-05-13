@@ -10,6 +10,9 @@ class ListDetail extends Component {
     multiply = (a, b) => {
         return a * b;
     }
+    refund = () => {     
+        this.props.dispatch({ type: 'listdetail/refund'});
+    }
     render() {
         const { name, phone, list, footer } = this.props.listdetail;
         console.log(name);
@@ -44,11 +47,9 @@ class ListDetail extends Component {
                     <Flex className={styles.listheader}>
                         <Flex.Item className={styles.textalign}>共{list.num}件商品 合计: ￥{this.multiply(list.num, list.price)}</Flex.Item>
                     </Flex>
-                    <Flex className={styles.refund}>
-                        <Flex.Item>
-                            申请退款
-                        </Flex.Item>
-                    </Flex>
+                    <div className={styles.refund}>
+                        <span onClick={this.refund}>申请退款</span>
+                    </div>
                 </List>
                 <footer className={styles.footer}>
                     <span>

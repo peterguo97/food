@@ -1,3 +1,4 @@
+import { listDetail, refundList } from "../../services/listDetail";
 
 export default {
 
@@ -24,18 +25,39 @@ export default {
 
     subscriptions: {
         setup({ dispatch, history }) {  // eslint-disable-line
+            history.listen(({ pathname }) => {
+                const address = pathname.includes('/listdetail/');
+                if (address) {
+                    dispatch({
+                        type: 'fetch',
+                        payload: 'getListdetail'
+                    });
+                }
+            });
         },
     },
 
     effects: {
         *fetch({ payload }, { call, put }) {  // eslint-disable-line
-            yield put({ type: 'save' });
+            const { data } = yield call( listDetail, payload );
+            if(data) {
+                yield put({ type: 'save', payload: data });
+            }
+           
         },
+        *refund({ payload }, { call, put }) {
+            console.log(1);
+            
+            const { data } = yield call(refundList);
+            if(data) {
+                console.log(1);
+            }
+        }
     },
 
     reducers: {
         save(state, action) {
-            return { ...state, ...action.payload };
+        return { ...state, ...action.payload };
         },
     },
 

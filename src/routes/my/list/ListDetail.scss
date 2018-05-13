@@ -57,8 +57,17 @@ $color: #000;
 }
 
 .refund {
-    padding: 10px 0;
-    justify-content: right;
+    padding: 10px 5px;
+    text-align: right;
+    background-color: $bgcolor;
+
+    span {
+        $size: 10px;
+        display: inline-block;
+        border: 1px solid #000;
+        padding: 5px $size;
+        border-radius: $size;
+    }
 }
 
 .footer {
