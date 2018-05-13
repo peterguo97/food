@@ -30,10 +30,10 @@ function RouterConfig({ history }) {
         <Route path="/list" component={List} />
         <Route path="/shopping" component={Shopping} />
         <Route path="/address" component={Address} />
-        <Route path="/write" component={Write} />
+        <Route path="/write/:id" component={Write} />
         <Route path="/aboutus" component={Aboutus} />
-        <Route path="/logistics" component={Logistics} />
-        <Route path="/eval" component={Eval} />
+        <Route path="/logistics/:id" component={Logistics} />
+        <Route path="/eval/:id" component={Eval} />
 
         {/* <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />

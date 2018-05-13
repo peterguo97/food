@@ -1,18 +1,18 @@
 import request from '../utils/request';
 
-export function address(json) {
+export function log(json) {
     console.log(json);
     
-    return request('/address/users', {
+    return request('/api/users', {
         method: 'post',
         body: JSON.stringify(json)
     });
-}
+};
 
-export function staticAddress(json) {
+export function evals(json) {
     console.log(json);
 
-    return request('/address/users', {
+    return request('/api/users', {
         method: 'post',
         body: JSON.stringify(json)
     });

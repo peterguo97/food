@@ -11,14 +11,16 @@ const alert = Modal.alert;
 class Address extends Component {
     change = (e, id) =>{
         const datas = this.props.address.data;
+        let staticaddress;
         datas.map(i => {
             i.checked = false;
             if(i.id === id) {
                 i.checked = true;
+                staticaddress = i;
             }
             return null;
         });
-        this.props.dispatch({ type: 'address/change', payload: {data: datas}});
+        this.props.dispatch({ type: 'address/staticaddress', payload: {data: datas, staticaddress: staticaddress, id: id}});
     }
     // 删除该地址
     delete = (id) => {
@@ -46,7 +48,7 @@ class Address extends Component {
                         <List className="my-list" key={i.id}>
                             <Item
                                 extra={
-                                    <Link to="./write"><i className="fa fa-edit"></i></Link>
+                                    <Link to={`./write/${i.id}`}><i className="fa fa-edit"></i></Link>
                                 }
                                 multipleLine
                             >
@@ -59,7 +61,7 @@ class Address extends Component {
                         </List>
                    )
                }
-               <Link to="./write">
+               <Link to="./write/0">
                 <footer>
                     新增收货地址
                 </footer>

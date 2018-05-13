@@ -23,6 +23,8 @@ app.model(require('./models/my/user').default);
 app.model(require('./models/my/shoppingList').default);
 app.model(require('./models/my/shopping').default);
 app.model(require('./models/my/address').default);
+app.model(require('./models/my/logistics').default);
+app.model(require('./models/my/eval').default);
 // 4. Router
 app.router(require('./router').default);
 

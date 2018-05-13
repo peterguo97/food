@@ -8,20 +8,20 @@ export function listItem(json) {
     });
 }
 
-export function logistics(json) {
-    console.log(json);
+// export function logistics(json) {
+//     console.log(json);
     
-    return request('./list/logistics', {
-        method: 'POST',
-        body: JSON.stringify(json)
-    });
-}
+//     return request('./list/logistics', {
+//         method: 'POST',
+//         body: JSON.stringify(json)
+//     });
+// }
 
-export function evals(json) {
-    console.log(json);
+// export function evals(json) {
+//     console.log(json);
 
-    return request('./list/eval', {
-        method: 'POST',
-        body: JSON.stringify(json)
-    });
-}
+//     return request('./list/eval', {
+//         method: 'POST',
+//         body: JSON.stringify(json)
+//     });
+// }

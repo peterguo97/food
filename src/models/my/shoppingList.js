@@ -1,5 +1,5 @@
-import { listItem, logistics, evals } from "../../services/list";
-import { routerRedux } from 'dva/router';
+import { listItem } from "../../services/list";
+// import { routerRedux } from 'dva/router';
 
 export default {
 
@@ -34,22 +34,22 @@ export default {
             yield call(listItem, payload.id);
             yield put({ type: 'deleteSave', payload: payload.data});
         },
-        *logis({ payload }, { call, put}) {
-            const  data = yield call(logistics, payload);
-            console.log(data);
-            // 有时间弄一个404页面
-            if(data.message) {
-                yield put(routerRedux.push('/logistics'));
-            }
-        },
-        *eval({ payload }, { call, put }) {
-            const data = yield call(evals, payload);
-            console.log(data);
-            // 有时间弄一个404页面
-            if (data.message) {
-                yield put(routerRedux.push('/eval'));
-            }
-        }
+        // *logis({ payload }, { call, put}) {
+        //     const  data = yield call(logistics, payload);
+        //     console.log(data);
+        //     // 有时间弄一个404页面
+        //     if(data.message) {
+        //         yield put(routerRedux.push('/logistics'));
+        //     }
+        // },
+        // *eval({ payload }, { call, put }) {
+        //     const data = yield call(evals, payload);
+        //     console.log(data);
+        //     // 有时间弄一个404页面
+        //     if (data.message) {
+        //         yield put(routerRedux.push('/eval'));
+        //     }
+        // }
     },
 
     reducers: {    

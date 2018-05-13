@@ -1,4 +1,6 @@
 import { address } from "../../services/address";
+import { staticAddress } from "../../services/address";
+
 export default {
 
     namespace: 'address',
@@ -28,6 +30,10 @@ export default {
             const { data } = yield call(address, payload);
             yield put({ type: 'save', payload: data })
         },
+        *staticaddress( { payload }, { call, put }) {          
+            yield call(staticAddress, {id: payload.id, staticaddress: payload.staticaddress});
+            yield put({ type: 'change', payload: payload })
+        }
     },
 
     reducers: {
