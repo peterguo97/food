@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, Route, Switch } from 'dva/router';
 import IndexPage from './routes/IndexPage';
 import Detail from './components/detail';
+
 import List from './routes/my/list/ShoppingList';
 import Shopping from './routes/my/shopping/Shopping';
 import Aboutus from './routes/my/aboutus/Aboutus';
@@ -16,12 +17,16 @@ import Eval from './routes/my/eval/Eval';
 // import ForgetPas from "./routes/login/ForgetPas";
 
 
+import SearchResult from './components/searchResult';
+
+
 function RouterConfig({ history }) {
   return (
     <Router history={history}>
       <Switch>
         <Route path="/" exact component={IndexPage} />
         <Route path="/:id/detail" component={Detail} />
+
         <Route path="/list" component={List} />
         <Route path="/shopping" component={Shopping} />
         <Route path="/address" component={Address} />
@@ -33,6 +38,9 @@ function RouterConfig({ history }) {
         {/* <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
         <Route path="/forget" exact component={ForgetPas} /> */}
+
+        <Route path='/search/:value' component={SearchResult} />
+
       </Switch>
     </Router>
   );

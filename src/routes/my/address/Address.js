@@ -1,23 +1,44 @@
 import React, { Component } from 'react';
 import { Link } from "dva/router";
-import { List } from 'antd-mobile';
-import "./Address.css";
+import { List, Radio, Modal } from 'antd-mobile';
+import { connect } from "dva";
+import styles from "./Address.css";
 
 const Item = List.Item;
 const Brief = Item.Brief;
+const alert = Modal.alert;
 
 class Address extends Component {
-    constructor() {
-        super();
-        this.state = {
-            data: [
-                {id: 1, name: '小小', phone: 12345678910, address: '河北省保定市莲池区华电路689号河北省啦啦啦啦'},
-                {id: 2, name: '小小', phone: 12345678910, address: '河北省保定市莲池区华电路689号河北省啦啦啦啦'}
-            ]
-        }
+    change = (e, id) =>{
+        const datas = this.props.address.data;
+        datas.map(i => {
+            i.checked = false;
+            if(i.id === id) {
+                i.checked = true;
+            }
+            return null;
+        });
+        this.props.dispatch({ type: 'address/change', payload: {data: datas}});
+    }
+    // 删除该地址
+    delete = (id) => {
+        alert('确定删除吗？', '', [
+            { text: '取消', onPress: () => console.log('cancel') },
+            { text: '确定', onPress: () => {
+                const datas = this.props.address.data;
+                let arr = [];
+                datas.map(i => {
+                    if(i.id !== id) {
+                        arr.push(i);
+                    };
+                    return null;
+                });
+                this.props.dispatch({ type: 'address/change', payload: { data: arr } });
+            } },
+        ])
     }
     render() {
-        const data = this.state.data;
+        const data = this.props.address.data;
         return (
             <div>
                { 
@@ -31,6 +52,10 @@ class Address extends Component {
                             >
                                 {i.name} {i.phone}<Brief>{i.address}</Brief>
                             </Item>
+                            <div className={styles.radio}>
+                                <Radio className={styles.myradio} onChange={(e, id) => {this.change(e, i.id)}} checked={i.checked}>设为默认地址</Radio>
+                                <i className="fa fa-trash" style={{ float: 'right', marginRight: '20px'}} onClick={(id) => this.delete(i.id)}></i>
+                            </div>
                         </List>
                    )
                }
@@ -44,4 +69,11 @@ class Address extends Component {
     }
 }
 
-export default Address;
+
+function mapStateToProps(state) {
+    return { address: state.address };
+}
+
+const AddressState = connect(mapStateToProps)(Address);
+
+export default AddressState;

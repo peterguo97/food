@@ -32,9 +32,6 @@ export default {
             console.log(payload);
             
             return { ...state, ...payload };
-        },
-        decrease(state, { payload }) {
-            return { ...state, ...payload };
         }
     },
 

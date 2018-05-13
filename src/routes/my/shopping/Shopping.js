@@ -33,7 +33,6 @@ class Shopping extends Component {
     // }
     change = (item) => {
         const datas = this.props.shopping.data;
-        console.log(datas);
         
         let price = this.props.shopping.priceAll;
 
@@ -71,7 +70,7 @@ class Shopping extends Component {
                 }
                 return null;
             });
-            this.props.dispatch({ type: 'shopping/decrease', payload: { data: datas, priceAll: price } });
+            this.props.dispatch({ type: 'shopping/change', payload: { data: datas, priceAll: price } });
             // this.setState({
             //     data: datas,
             //     priceAll: price
@@ -89,11 +88,12 @@ class Shopping extends Component {
                 }
             }
             return null;
-        })
-        this.setState({
-            data: datas,
-            priceAll: price
-        })
+        });
+        this.props.dispatch({ type: 'shopping/change', payload: { data: datas, priceAll: price } });
+        // this.setState({
+        //     data: datas,
+        //     priceAll: price
+        // })
     }
     checkAll = () => {
         const checked = this.props.shopping.checkedAll;
@@ -104,36 +104,41 @@ class Shopping extends Component {
                 i.checked = true;
                 price += i.num * i.price;
                 return null;
-            })
+            });
+            
         } else {
             datas.map(i => {
                 i.checked = false;
                 return null;
             }) 
-        }
-        this.setState({
-            data: datas,
-            priceAll: price,
-            checkedAll: !checked
-        })
+        };
+        this.props.dispatch({ type: 'shopping/change', payload: { data: datas, priceAll: price, checkedAll: !checked } });
+        // this.setState({
+        //     data: datas,
+        //     priceAll: price,
+        //     checkedAll: !checked
+        // })
     }
     remove = () => {
         const datas = this.props.shopping.data;
-        const cheked = this.props.shopping.checkedAll;
+        const checked = this.props.shopping.checkedAll;
         // 全选时删除
         let check;
-        if(cheked) {
+        if(checked) {
             check = false;
         }
         const data = removeItem(datas);
-        this.setState({
-            data: data,
-            priceAll: 0.00,
-            checkedAll: check
-        })
+        this.props.dispatch({ type: 'shopping/change', payload: { data: data, priceAll: 0.00, checkedAll: check } });
+        // this.setState({
+        //     data: data,
+        //     priceAll: 0.00,
+        //     checkedAll: check
+        // })
     }
     render() {
-        const datas = this.props.shopping.data;    
+        const datas = this.props.shopping.data; 
+        const checked = this.props.shopping.checkedAll;
+        
         return(
             <div>
                 <List>
@@ -161,7 +166,7 @@ class Shopping extends Component {
                 </List>
                 <Flex className={styles.footer}>
                     <Flex.Item className={styles.btn}>
-                        <CheckboxItem style={{ backgroundColor: '#fff' }} checked={this.props.shopping.checkedAll} onChange={this.checkAll}>
+                        <CheckboxItem style={{ backgroundColor: '#fff' }} checked={checked} onChange={this.checkAll}>
                             全选
                         </CheckboxItem>
                     </Flex.Item>

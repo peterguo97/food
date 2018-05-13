@@ -1,3 +1,20 @@
+.radio {
+    margin-left: 15px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+
+}
+
+.myradio>span{
+    $paddingLR: 1.5px;
+    padding-left: $paddingLR;
+    padding-right: $paddingLR;
+    
+    margin-top: -5px;
+    border: 1px solid #000;
+    margin-right: 5px;
+}
+
 footer {
     $height: 40px;
     position: fixed;
