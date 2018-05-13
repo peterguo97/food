@@ -7,13 +7,14 @@ import Search from '../components/Search';
 import ShopList from '../components/ShopList';
 import { TabBar } from 'antd-mobile';
 import My from './my/Account';
+import Discover from '../components/discover';
 
 // <<<<<<< HEAD
 class TabBarExample extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'yellowTab',
+      selectedTab: 'blueTab',
       hidden: false,
       fullScreen: true,
     };
@@ -111,7 +112,7 @@ class TabBarExample extends React.Component {
             }}
             data-seed="logId1"
           >
-            {/* {this.renderContent('Koubei')} */}
+            <Discover />
           </TabBar.Item>
           <TabBar.Item
             icon={{ uri: 'http://pic.sfont.cn/svg/img/e7cdj.svg' }}

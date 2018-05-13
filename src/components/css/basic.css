@@ -29,3 +29,39 @@
   width: 35px;
   height: 35px;
 }
+
+.discoverlist {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background: rgb(243,245,247);
+  flex-wrap: wrap;
+}
+
+.discoverItem {
+  width: 100%;
+  height: 200px;
+}
+
+.imgDetail {
+  width: 100%;
+}
+
+.imgDetail img {
+  width: 100%;
+  height: 150px;
+}
+
+.itemTitle {
+  width: 100%;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  color: black;
+}
+
+.discoverWrap{
+  width: 40%;
+  background: #fff;
+  margin-top: 8px;
+}
