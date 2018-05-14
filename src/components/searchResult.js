@@ -15,7 +15,6 @@ class SearchResult extends React.Component {
         }
     }
 
-    
     componentDidMount() {
         console.log(this.state.data);
     }
@@ -35,7 +34,7 @@ class SearchResult extends React.Component {
                             const str = value.id + value.name;
                             return (
                                 <div key={str}>
-                                <IndexListitem data={value}/>
+                                    <IndexListitem data={value}/>
                                 </div>
                             )
                         }, this)

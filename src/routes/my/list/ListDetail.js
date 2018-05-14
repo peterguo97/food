@@ -3,6 +3,7 @@ import { List, Flex } from "antd-mobile";
 import { connect } from "dva";
 import { Link } from "dva/router";
 import food from "../../../assets/food5.jpg";
+import yay from "../../../assets/yay.jpg";
 import styles from "./ListDetail.css";
 
 const Item = List.Item;
@@ -19,6 +20,7 @@ class ListDetail extends Component {
         
         return(
             <div className={styles.main}>
+                <img src={yay} alt="交易成功" height="80" width="100%"/>
                 <header className={styles.header}>
                     <p>收货人：{name}</p>
                     <p>电话号码：{phone}</p>
