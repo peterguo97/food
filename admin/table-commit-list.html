@@ -311,7 +311,7 @@
         <div class="am-form-group am-form-file">
             <button type="button" class="am-btn am-btn-default am-btn-sm">
             <i class="am-icon-cloud-upload"></i> 选择要上传的图片</button>
-            <input type="file" multiple>
+            <input type="file" onchange="checkImg(this)" multiple>
         </div>
     </div>
       <div class="am-form-group">
@@ -344,6 +344,7 @@
 <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/amazeui.min.js"></script>
   <script src="assets/js/app.js"></script>
+  <script src="assets/js/mycommit.js"></script>
 </body>
 
 </html>
