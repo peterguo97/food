@@ -11,7 +11,7 @@ export default {
         address: [
             '11', '1101', '110101'
         ],
-        information: ''
+        information: '',
     },
 
     subscriptions: {
