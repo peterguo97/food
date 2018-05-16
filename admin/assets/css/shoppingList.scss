@@ -1,0 +1,13 @@
+// 商品管理
+.list-header {
+    a {
+        padding: 10px 20px;
+        display: inline-block;
+        color: #000;
+    }
+    @at-root {
+        .list-bottom {
+             border-bottom: 3px solid #000;
+        }
+    }
+}

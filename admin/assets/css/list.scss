@@ -1,0 +1,55 @@
+// 订单管理
+
+.list-header {
+  a {
+    padding: 10px 20px;
+    display: inline-block;
+    font-size: 14px;
+    color: #000;
+  }
+  @at-root {
+    .list-bottom {
+      border-bottom: 3px solid #000;
+    }
+  }
+}
+
+.table-header {
+    $padding: 10px;
+    padding-top: $padding;
+    padding-bottom: $padding;
+    text-align: center;
+    background-color: #f7f7f7;
+    
+    div {
+        font-size: 14px;
+    }
+}
+
+.table {
+    margin-top: 20px;
+
+    @at-root {
+        .table-infromation {
+            overflow: auto;
+            border: 1px solid #eee;
+            .header-table {
+                padding: 10px 0;
+                background-color: #f4f5f9;
+
+            }
+            .body-table {
+                padding: 15px 10px;
+                border-right: 1px solid #eee;
+            }
+            p {
+               margin-bottom: 0;
+               margin-top: 0;
+            }
+            a {
+                text-align: center;
+                display: block;
+            }
+        }
+    }
+}

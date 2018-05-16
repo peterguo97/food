@@ -64,7 +64,10 @@ class WriteAddress extends Component {
                         initialValue: address,
                     })}
                     title="地址"
-                    onOk={e => console.log('ok', e)}
+                    onOk={e => {
+                        
+                        console.log(district)
+                    }}
                     onDismiss={e => console.log('dismiss', e)}
                 >
                     <Item arrow="horizontal">地址</Item>
