@@ -206,7 +206,7 @@
       <div class="tpl-left-nav-list">
         <ul class="tpl-left-nav-menu">
           <li class="tpl-left-nav-item">
-            <a href="index.html" class="nav-link">
+            <a href="index.html" class="nav-link active">
               <i class="am-icon-home"></i>
               <span>首页</span>
             </a>
@@ -222,19 +222,26 @@
           </li>
 
           <li class="tpl-left-nav-item">
-            <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+            <!-- 打开状态 a 标签添加 active 即可   -->
+            <a href="javascript:;" class="nav-link tpl-left-nav-link-list active">
               <i class="am-icon-table"></i>
-              <span>表格</span>
-              <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+              <span>商品</span>
+              <!-- 列表打开状态的i标签添加 tpl-left-nav-more-ico-rotate 图表即90°旋转  -->
+              <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
             </a>
-            <ul class="tpl-left-nav-sub-menu">
+            <ul class="tpl-left-nav-sub-menu" style="display:block">
               <li>
-                <a href="table-font-list.html">
+                <!-- 打开状态 a 标签添加 active 即可   -->
+                <a href="table-font-list.html" class="active">
                   <i class="am-icon-angle-right"></i>
-                  <span>文字表格</span>
-                  <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                  <span>商品管理</span>
+                  <!-- <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i> -->
                 </a>
-
+                <a href="table-commit-list.html">
+                  <i class="am-icon-angle-right"></i>
+                  <span>添加商品</span>
+                  <!-- <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i> -->
+                </a>
                 <a href="table-images-list.html">
                   <i class="am-icon-angle-right"></i>
                   <span>图片表格</span>
@@ -242,15 +249,14 @@
                     18
                   </i>
                 </a>
-
                 <a href="form-news.html">
                   <i class="am-icon-angle-right"></i>
                   <span>消息列表</span>
                   <i class="tpl-left-nav-content tpl-badge-primary">
                     5
                   </i>
-                </a>
 
+                </a>
                 <a href="form-news-list.html">
                   <i class="am-icon-angle-right"></i>
                   <span>文字列表</span>
@@ -261,21 +267,13 @@
           </li>
 
           <li class="tpl-left-nav-item">
-            <!-- 打开状态 a 标签添加 active 即可   -->
-            <a href="javascript:;" class="nav-link tpl-left-nav-link-list active">
+            <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
               <i class="am-icon-wpforms"></i>
-              <span>订单管理</span>
-              <!-- 列表打开状态的i标签添加 tpl-left-nav-more-ico-rotate 图表即90°旋转  -->
-              <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
+              <span>表单</span>
+              <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
             </a>
-            <!-- 打开状态 添加 display:block-->
-            <ul class="tpl-left-nav-sub-menu" style="display: block;">
+            <ul class="tpl-left-nav-sub-menu">
               <li>
-                <!-- 打开状态 a 标签添加 active 即可   -->
-                <a href="list.html" class="active">
-                  <i class="am-icon-angle-right"></i>
-                  <span>订单管理</span>
-                </a>
                 <a href="form-amazeui.html">
                   <i class="am-icon-angle-right"></i>
                   <span>Amaze UI 表单</span>
