@@ -1,0 +1,77 @@
+
+$bgcolor: #fff;
+$fontSize: 14px;
+.header {
+    $paddingTB: 10px;
+    padding-top: $paddingTB;
+    padding-bottom: $paddingTB;
+    padding-left: 20px;
+    margin-top: $paddingTB;
+    background-color: $bgcolor;
+
+    p {
+        font-size: $fontSize;
+    }
+}
+
+$color: #000;
+.color {
+  color: $color;
+}
+
+.listheader {
+  padding: 12.5px 15px;
+  background-color: #fff;
+  @at-root {
+    .textalign {
+      text-align: right;
+    }
+  }
+}
+
+.list {
+    margin-top: 10px;
+
+ 
+    .item {
+        background-color: rgba(238, 238, 238, 0.3);
+    }
+
+}
+
+.contain {
+  margin-bottom: 15px;
+  background-color: #eee;
+  img {
+    $size: 44px;
+    width: $size;
+    height: $size;
+  }
+  @at-root {
+    .flexitem {
+      text-align: right;
+    }
+  }
+}
+
+.refund {
+    padding: 10px 5px;
+    text-align: right;
+    background-color: $bgcolor;
+
+    span {
+        $size: 10px;
+        display: inline-block;
+        border: 1px solid #000;
+        padding: 5px $size;
+        border-radius: $size;
+    }
+}
+
+.footer {
+    @extend .header;
+    span {
+        display: block;
+        font-size: $fontSize;
+    }
+}

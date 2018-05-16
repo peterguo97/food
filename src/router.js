@@ -4,6 +4,7 @@ import IndexPage from './routes/IndexPage';
 import Detail from './components/detail';
 
 import List from './routes/my/list/ShoppingList';
+import ListDetail from './routes/my/list/ListDetail';
 import Shopping from './routes/my/shopping/Shopping';
 import Aboutus from './routes/my/aboutus/Aboutus';
 import Address from './routes/my/address/Address';
@@ -28,6 +29,7 @@ function RouterConfig({ history }) {
         <Route path="/:id/detail" component={Detail} />
 
         <Route path="/list" component={List} />
+        <Route path="/listdetail/:id" component={ListDetail} />
         <Route path="/shopping" component={Shopping} />
         <Route path="/address" component={Address} />
         <Route path="/write/:id" component={Write} />
