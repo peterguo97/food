@@ -6,6 +6,7 @@ export default {
     namespace: 'writeAddress',
 
     state: {
+        id: '',
         name: '小小',
         phone: '',
         address: [
@@ -17,11 +18,12 @@ export default {
     subscriptions: {
         setup({ dispatch, history }) {  // eslint-disable-line
             history.listen(({ pathname }) => {
-                const address = pathname.includes('/write/')
+                const address = pathname.includes('/write/');
+                const getId = pathname.substr(7);
                 if (address) {
                     dispatch({
                         type: 'fetch',
-                        payload: 'getWriteAddress'
+                        payload: getId
                     });
                 }
             });
@@ -40,6 +42,7 @@ export default {
 
     reducers: {
         save(state, action) {
+            
             return { ...state, ...action.payload };
         },
     },
