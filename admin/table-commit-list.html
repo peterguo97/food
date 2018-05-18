@@ -303,7 +303,7 @@
         
       <div class="am-form-group">
         <label>商品名称</label>
-        <input type="text" class="" id="goods_name" placeholder="">
+        <input type="text" id="goods_name" placeholder="请输入商品名称">
       </div>
       
     <div class="am-form-group am-form-file"> 
@@ -311,33 +311,31 @@
         <div class="am-form-group am-form-file">
             <button type="button" class="am-btn am-btn-default am-btn-sm">
             <i class="am-icon-cloud-upload"></i> 选择要上传的图片</button>
-            <input type="file" onchange="checkImg(this)" multiple>
+            <input type="file" id="goods_image" onchange="checkImg(this)" multiple>
         </div>
     </div>
       <div class="am-form-group">
         <label>商品价格</label>
-        <input type="text" class="" id="goods_name" placeholder="">
+        <input type="text" id="goods_price" placeholder="请填写商品价格">
       </div>
       <div class="am-form-group">
         <label>商品库存</label>
-        <input type="text" class="" id="goods_name" placeholder="">
+        <input type="text" id="goods_save" placeholder="请填写商品库存">
       </div>
       <div class="am-form-group">
         <label for="doc-select-1">选择商品分类</label>
         <select id="doc-select-1">
             <option value="option1">......</option>
-            <option value="option1">选项一...</option>
-            <option value="option2">选项二.....</option>
-            <option value="option3">选项三........</option>
+            <option value="option2">选项一...</option>
+            <option value="option3">选项二.....</option>
+            <option value="option4">选项三........</option>
         </select>
-        <span class="am-form-caret"></span>
       </div>
       <div class="am-form-group">
         <label for="doc-ta-1">请输入商品描述</label>
-        <textarea class="" rows="5" id="doc-ta-1"></textarea>
+        <textarea rows="5" id="goods_des"></textarea>
       </div>
-  
-      <p><button type="submit" class="am-btn am-btn-default">提交</button></p>
+      <p><button onclick="postForm(this)" type="button" class="am-btn am-btn-default">提交</button></p>
     </fieldset>
     </form>
 </div>

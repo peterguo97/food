@@ -16,3 +16,51 @@ function checkImg(data) {
         }  
     }  
 }
+
+function postForm(e){
+    e.preventDefault;
+    let name = document.getElementById("goods_name").value;
+    let image = document.getElementById("goods_image").files[0];
+    let selectNode = document.getElementById("doc-select-1");
+    let selectIndex = selectNode.selectedIndex;
+    let label =  selectNode.options[selectIndex].text;
+    let price = document.getElementById("goods_price").value;
+    let des = document.getElementById("goods_des").value;
+    let save = document.getElementById("goods_save").value;
+    let arr = [{name: name}, {image: image}, {label: label}, {price: price}, {des: des}, {save: save}];
+    let formdata = new FormData();
+    arr.forEach((obj)=>{
+        for(let attr in obj){
+            if(obj.hasOwnProperty(attr)){
+                if(! obj[attr] ){
+                    throw new Error( attr + "不能为空");
+                }
+                else{
+                    formdata.append(attr,obj[attr]);
+                }
+            }
+        }
+    })
+    $.ajax({
+        url: "/hello",
+        data: formdata,
+        type: "post",
+        dataType: "json",
+        cache: false,//上传文件无需缓存
+        processData: false,//用于对data参数进行序列化处理 这里必须false
+        contentType: false, //必须
+        success: function (result) {
+            alert("上传完成!");
+        },
+    })
+}
+
+function checkType(value, attr,message){
+    if( typeof value !== attr){
+        throw new Error(message);
+        return false;
+    }
+    else{
+        return true;
+    }
+}
