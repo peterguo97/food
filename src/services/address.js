@@ -11,7 +11,6 @@ export function address(json) {
 
 export function staticAddress(json) {
     console.log(json);
-
     return request('/address/users', {
         method: 'post',
         body: JSON.stringify(json)

@@ -2,12 +2,24 @@ import React from 'react';
 import { List, WingBlank } from 'antd-mobile';
 import normal from './css/basic.css';
 import IndexListitem from './IndexListItem';
+import { getStore } from '../services/myshop.js';
+import axios from 'axios';
 
 const data = [{id: '1',name: '点点饲料'},{id:'2',name:'点点最爱'}];
 
 class ShopList extends React.Component {
     state = {
         disabled: false,
+        data : []
+    }
+
+    componentDidMount(){
+        axios.get('/stores').then((res)=>{
+            
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
     }
 
     render() {
