@@ -35,7 +35,7 @@ export default class DetailBar extends React.Component {
                     onTabClick={this.handleClick.bind(this)}
                 >
                     <div style={{height: '100%'}}>
-                        <DetailBarLeft/>
+                        <DetailBarLeft id={this.props.id}/>
                     </div>
                     <div style={{ backgroundColor: 'rgb(243,245,247)' }}>
                         <Comment />

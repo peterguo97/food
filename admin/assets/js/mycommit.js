@@ -2,23 +2,22 @@ function checkImg(data) {
     if(typeof FileReader !== 'undefined'){  
         var file = data.files[0];
         if((file.type).indexOf("image/") === -1){
-            alert("提示请上传图片!warning");
+            showMessage("请上传图片!（格式BMP、JPG、JPEG、PNG )");
             data.value = "";
         }  
     }
     else{ 
         var fileName= data.value;
-        console.log(fileName);
         var suffixIndex=fileName.lastIndexOf(".");  
         var suffix=fileName.substring(suffixIndex+1).toUpperCase();
-        if(suffix!=="BMP"&&suffix!=="JPG"&&suffix!=="JPEG"&&suffix!=="PNG"&&suffix!=="GIF"){  
-            alert("提示请上传图片（格式BMP、JPG、JPEG、PNG、GIF等");  
+        if(suffix!=="BMP"&&suffix!=="JPG"&&suffix!=="JPEG"&&suffix!=="PNG"){  
+            showMessage("提示请上传图片（格式BMP、JPG、JPEG、PNG等");
+            fileName = "";
         }  
     }  
 }
 
-function postForm(e){
-    e.preventDefault;
+function postForm(){
     let name = document.getElementById("goods_name").value;
     let image = document.getElementById("goods_image").files[0];
     let selectNode = document.getElementById("doc-select-1");
@@ -29,18 +28,39 @@ function postForm(e){
     let save = document.getElementById("goods_save").value;
     let arr = [{name: name}, {image: image}, {label: label}, {price: price}, {des: des}, {save: save}];
     let formdata = new FormData();
-    arr.forEach((obj)=>{
-        for(let attr in obj){
-            if(obj.hasOwnProperty(attr)){
-                if(! obj[attr] ){
-                    throw new Error( attr + "不能为空");
-                }
-                else{
-                    formdata.append(attr,obj[attr]);
-                }
+    for(let i=0;i<arr.length;i++){
+        let attr = Object.keys(arr[i])[0];
+        if(! arr[i][attr]){
+            let temp;
+            if(attr === 'name'){
+                temp = '商品名称';
             }
+            else if(attr === 'image'){
+                temp = '商品图片';
+            }
+
+            else if(attr === 'price'){
+                temp = '商品价格';
+            }
+
+            else if(attr === 'save'){
+                temp = '商品库存';
+            }
+
+            else if(attr === 'label'){
+                temp = '商品分类';
+            }
+            
+            else if(attr === 'des'){
+                temp = '商品描述';
+            }
+            showMessage(temp + "不能为空");
+            return ;
         }
-    })
+        else{
+            formdata.append(attr,arr[i][attr]);
+        }
+    }   
     $.ajax({
         url: "/hello",
         data: formdata,
@@ -53,6 +73,11 @@ function postForm(e){
             alert("上传完成!");
         },
     })
+}
+
+function showMessage( message ){
+    $("#showMessage").text(message);
+    $('#my-alert').modal('open');
 }
 
 function checkType(value, attr,message){

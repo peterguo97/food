@@ -4,17 +4,21 @@ import normal from './css/basic.css';
 import IndexListitem from './IndexListItem';
 import axios from 'axios';
 
-const data = [{id: '1',name: '点点饲料'},{id:'2',name:'点点最爱'}];
-
 class ShopList extends React.Component {
     state = {
         disabled: false,
-        data : []
+        data : [{id:1,name:'hello',abstract:'测试'}]
     }
 
     componentDidMount(){
         axios.get('/stores').then((res)=>{
-            
+            let mydata = res.data;
+            if(!Array.isArray(mydata)){
+                throw new Error("请传入数组");
+            }
+            this.setState({
+                data: mydata
+            })
         })
         .catch((err)=>{
             console.log(err);
@@ -26,10 +30,9 @@ class ShopList extends React.Component {
             <WingBlank>
                 <List renderHeader={() => '商家列表'} className={normal.list}>
                     {
-                        data.map(function(value) {
-                            const str = value.id + value.name;
+                        this.state.data.map(function(value,index) {
                             return (
-                                <div key={str}>
+                                <div key={index}>
                                     <IndexListitem data={value}/>
                                 </div>
                             )
