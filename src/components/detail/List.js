@@ -8,9 +8,6 @@ const Item = List.Item;
 
 class BoxList extends React.Component {  
     render() {
-        // console.log(button);
-
-        
         const tabs = this.props.tabs;
         const list = tabs.map((item, index) => {
                 return(
