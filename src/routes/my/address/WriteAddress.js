@@ -67,6 +67,8 @@ class WriteAddress extends Component {
         });
     }
     render() {
+        console.log(district);
+        
         const { getFieldProps } = this.props.form;
         const { name, phone, address, information } = this.props.writeAddress;
         return (

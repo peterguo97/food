@@ -38,6 +38,7 @@ class Detail extends React.Component {
         })
     }
     render(){
+        const id = this.props.match.params.id;
         return(
             <div style={{height: '100%'}}>
                 <div className={style.boxshadow} style={{zIndex: this.state.index}} onClick={this.handleClick.bind(this)}></div>
@@ -57,8 +58,8 @@ class Detail extends React.Component {
                             </div>
                         </div>
                     </div>
-                </div>               
-                <DetailBar handleChange={this.showFooter.bind(this)}/>
+                </div>          
+                <DetailBar id={id} handleChange={this.showFooter.bind(this)}/>
                 <ListFooter isShow={this.state.showFooter}/>
             </div>
         )

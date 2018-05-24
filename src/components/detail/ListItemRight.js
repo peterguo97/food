@@ -22,7 +22,7 @@ class ListItemRight extends React.Component {
         this.props.dispatch({
             type: 'shoplist/addTolist',
             payload: {
-                name: data.name,
+                id: data.id,
                 price: data.price,
                 num: data.num
             }
@@ -41,7 +41,7 @@ class ListItemRight extends React.Component {
         this.props.dispatch({
             type: 'shoplist/decreaseFromlist',
             payload: {
-                name: data.name,
+                id: data.id,
                 price: data.price,
                 num: data.num
             }
@@ -51,8 +51,8 @@ class ListItemRight extends React.Component {
     componentWillReceiveProps = (nextProps)=>{
         const list = nextProps.list;
         const item1 = this.props.data;
-        let judge = hasItem(this.props.list, this.props.data, "name");
-        let judge1 = hasItem(nextProps.list, this.props.data, "name");
+        let judge = hasItem(this.props.list, this.props.data, "id");
+        let judge1 = hasItem(nextProps.list, this.props.data, "id");
         if (judge && judge1) {
             for (let index = 0; index < list.length; index++) {
                 const element = list[index];

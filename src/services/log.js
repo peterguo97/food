@@ -12,7 +12,7 @@ export function log(json) {
 export function evals(json) {
     console.log(json);
 
-    return request('/api/users', {
+    return request('/comment/store', {
         method: 'post',
         body: JSON.stringify(json)
     });

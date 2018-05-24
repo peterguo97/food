@@ -2,41 +2,24 @@ import React from 'react';
 import style from './css/detail.css';
 import Boxlist from './List';
 import { connect } from 'dva';
-
-const tabs = [
-    { title: '狗狗最爱',shoplist: [
-        {name: '海澜之家', sale: 100, price: 150},
-        {name: '美汁源', sale: 60, price: 150},
-        {name: '点点之家', sale: 70, price: 150},
-        {name: '好丽友', sale: 80, price: 150},
-        {name: '爱上狗粮', sale: 120, price: 150},
-    ]},
-    { title: '每单必点',shoplist: [
-        {name: '海澜之家', sale: 100, price: 150},
-        {name: '美汁源', sale: 60, price: 150},
-        {name: '点点之家', sale: 70, price: 150},
-        {name: '好丽友', sale: 80, price: 150},
-        {name: '爱上狗粮', sale: 120, price: 150},
-    ] },
-    { title: '促销折扣',shoplist: [
-        {name: '海澜之家', sale: 100, price: 150},
-        {name: '美汁源', sale: 60, price: 150},
-        {name: '点点之家', sale: 70, price: 150},
-        {name: '好丽友', sale: 80, price: 150},
-        {name: '爱上狗粮', sale: 120, price: 150},
-    ] },
-];
-
-const arr = [];
+import axios from 'axios';
 
 class DetailBarLeft extends React.Component {
-
+    constructor(props){
+        super(props);
+        this.state = {
+            id: this.props.id,
+            data: [],
+            arr: []
+        }
+    }
     handleClick(item){
         this.props.dispatch({
             type: 'handlestyle/change',
             payload: item
         })
         let dom = this.refs.active;
+        let arr = this.state.arr;
         if( item === 0 ){
             dom.scrollTop = 0;
         }
@@ -47,6 +30,7 @@ class DetailBarLeft extends React.Component {
     
     findIndex( target ){
         let i=0;
+        let arr = this.state.arr;
         for ( i = 0; i < arr.length - 1 ; i++) {
                 if(target >= ( arr[i] - 200 ) && target <= arr[i+1] - 200){
                     return i+1;
@@ -70,15 +54,33 @@ class DetailBarLeft extends React.Component {
     }
 
     componentDidMount() {
-        const node = this.refs.active;
-        let temp = 0;
-        node.addEventListener('scroll',this.handleChange.bind(this));
-        tabs.forEach( (item, index)=>{
-            let height = temp + 50 + 120 * item.shoplist.length;
-            temp = height;
-            //console.log(height)
-            arr.push(height);
-        })
+        axios.post(`/stores/${this.state.id}`, {
+            id: this.state.id
+        }).then((response)=>{
+            if(! Array.isArray(response.data)){
+                throw new Error("data must be array !")
+            }
+            return response.data;
+        }).then((mydata)=>{
+            this.setState({
+                data: mydata
+            })
+            const node = this.refs.active;
+            let temp = 0;
+            node.addEventListener('scroll',this.handleChange.bind(this));
+            if(this.state.data.length){
+                let myarr = [];
+                this.state.data.forEach( (item, index)=>{
+                    let height = temp + 50 + 120 * item.shoplist.length;
+                    temp = height;
+                    //console.log(height)
+                    myarr.push(height);
+                })
+                this.setState({
+                    arr: myarr
+                })
+            }
+        }).catch(err => console.log(err));
     }
     
     componentWillUnmount = () => {
@@ -86,7 +88,7 @@ class DetailBarLeft extends React.Component {
     }
     
     render(){
-        const Tab_left = tabs.map( (item,index) => {
+        let Tab_left = this.state.data.map( (item,index) => {
             if(this.props.active === index ){
                 return <Boxitem getIndex={this.handleClick.bind(this)} title={item.title} active='true' key={index} it={index}/>
             }
@@ -104,7 +106,7 @@ class DetailBarLeft extends React.Component {
                     </div>
                     <div ref="active" className={style.box_right}>
                         <div className={style.wrap}>
-                            <Boxlist tabs={tabs}/>
+                            <Boxlist tabs={this.state.data}/>
                         </div>  
                     </div>  
                 </div>

@@ -6,7 +6,21 @@ export default {
     namespace: 'eval',
 
     state: {
-       
+       url: ''
+    },
+     subscriptions: {
+        setup({ dispatch, history }) {
+            history.listen(({ pathname }) => {
+                const address = pathname.includes('/eval/');
+                // console.log(state);
+                if (address) {
+                     dispatch({
+                       type: 'url',
+                       payload: pathname
+                     });
+                }
+            });
+        }
     },
 
     effects: {
@@ -25,6 +39,9 @@ export default {
         save(state, action) {
             return { ...state, ...action.payload };
         },
+        url(state, { payload }) {
+            return { ...state, url: payload}
+        }
     },
 
 };

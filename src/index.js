@@ -27,6 +27,8 @@ app.model(require('./models/my/address').default);
 app.model(require('./models/my/logistics').default);
 app.model(require('./models/my/eval').default);
 app.model(require('./models/my/write').default);
+app.model(require('./models/my/order').default);
+
 
 // 4. Router
 app.router(require('./router').default);

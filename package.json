@@ -10,6 +10,7 @@
   "dependencies": {
     "antd-mobile": "^2.1.8",
     "antd-mobile-demo-data": "^0.2.0",
+    "axios": "^0.18.0",
     "babel-plugin-import": "^1.7.0",
     "dva": "^2.2.2",
     "rc-form": "^2.2.0",

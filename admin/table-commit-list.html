@@ -207,6 +207,7 @@
               </li>
             </ul>
           </li>
+<<<<<<< HEAD
 
           <li class="tpl-left-nav-item">
             <a href="login.html" class="nav-link tpl-left-nav-link-list">
@@ -292,6 +293,70 @@
   <script src="assets/js/amazeui.min.js"></script>
   <script src="assets/js/app.js"></script>
 
+=======
+          <li class="am-active">添加商品</li>
+        </ol>
+      </div>
+</div>
+<div class="tpl-portlet-components">
+    <form class="am-form">
+    <fieldset>
+      <legend>表单标题</legend>
+        
+      <div class="am-form-group">
+        <label>商品名称</label>
+        <input type="text" id="goods_name" placeholder="请输入商品名称">
+      </div>
+      
+    <div class="am-form-group am-form-file"> 
+        <label>商品图片</label>
+        <div class="am-form-group am-form-file">
+            <button type="button" class="am-btn am-btn-default am-btn-sm">
+            <i class="am-icon-cloud-upload"></i> 选择要上传的图片</button>
+            <input type="file" id="goods_image" onchange="checkImg(this)" multiple>
+        </div>
+    </div>
+      <div class="am-form-group">
+        <label>商品价格</label>
+        <input type="text" id="goods_price" placeholder="请填写商品价格">
+      </div>
+      <div class="am-form-group">
+        <label>商品库存</label>
+        <input type="text" id="goods_save" placeholder="请填写商品库存">
+      </div>
+      <div class="am-form-group">
+        <label for="doc-select-1">选择商品分类</label>
+        <select id="doc-select-1">
+            <option value="option1"></option>
+            <option value="option2">选项一...</option>
+            <option value="option3">选项二.....</option>
+            <option value="option4">选项三........</option>
+        </select>
+      </div>
+      <div class="am-form-group">
+        <label for="doc-ta-1">请输入商品描述</label>
+        <textarea rows="5" id="goods_des"></textarea>
+      </div>
+      <p><button onclick="postForm()" type="button" class="am-btn am-btn-default">提交</button></p>
+    </fieldset>
+    </form>
+    <div class="am-modal am-modal-alert" tabindex="11" id="my-alert">
+      <div class="am-modal-dialog">
+        <div class="am-modal-hd">提交失败</div>
+        <div class="am-modal-bd" id="showMessage">
+          表单内容不能为空
+        </div>
+        <div class="am-modal-footer">
+          <span class="am-modal-btn">确定</span>
+        </div>
+      </div>
+    </div>
+</div>
+<script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/amazeui.min.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/mycommit.js"></script>
+>>>>>>> 1582becfde8c7d2664a42c599f1bbab2d6665b43
 </body>
 
 </html>

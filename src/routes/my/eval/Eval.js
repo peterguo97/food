@@ -10,7 +10,8 @@ class Eval extends Component {
     onClick = () => {
         this.props.form.validateFields((error, value) => {
             if(value.count) {
-                this.props.dispatch({ type: 'eval/fetch', payload: value.count})
+                const url = this.props.eval.url;
+                this.props.dispatch({ type: 'eval/fetch', payload: {text: value.count, url: url}})
             } else {
                 Toast.info('还没有填写', 1);
             }

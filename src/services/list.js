@@ -8,6 +8,12 @@ export function listItem(json) {
     });
 }
 
+export function orders(json) {   
+    return request('./order/show', {
+        method: 'GET'
+    });
+}
+
 // export function logistics(json) {
 //     console.log(json);
     

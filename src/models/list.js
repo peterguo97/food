@@ -23,13 +23,12 @@ export default {
     reducers: {
         addTolist(state, { payload }){
             const list = state.list;
-            let judge = hasItem(list, payload, "name");
-            // console.log(judge);
+            let judge = hasItem(list, payload, "id");
             if (judge) {
                 let recentlist = JSON.parse(JSON.stringify(list));
                 for (let index = 0; index < recentlist.length; index++) {
                     const element = recentlist[index];
-                    if (element.name === payload.name){
+                    if (element.id === payload.id){
                         element.num++;
                         break;
                     }                   
@@ -46,7 +45,7 @@ export default {
         decreaseFromlist(state, {payload}){
             const list =JSON.parse(JSON.stringify(state.list));
             let recentlist = list.filter((item)=>{
-                if ( item.name === payload.name ){
+                if ( item.id === payload.id ){
                     item.num--;
                 }
                 if( item.num === 0){
