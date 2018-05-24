@@ -58,7 +58,7 @@ class DetailBarLeft extends React.Component {
             id: this.state.id
         }).then((response)=>{
             if(! Array.isArray(response.data)){
-                throw new Error("data must be array !")
+                throw new TypeError("data must be array !");
             }
             return response.data;
         }).then((mydata)=>{

@@ -16,7 +16,7 @@ class ListItem extends React.Component {
         this.props.dispatch({
             type: 'shoplist/addTolist',
             payload: {
-                name: data.name,
+                id: data.id,
                 price: data.price,
                 num: data.num
             }
@@ -28,7 +28,7 @@ class ListItem extends React.Component {
         this.props.dispatch({
             type: 'shoplist/decreaseFromlist',
             payload: {
-                name: data.name,
+                id: data.id,
                 price: data.price,
                 num: data.num
             }
