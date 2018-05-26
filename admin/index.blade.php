@@ -10,21 +10,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <link rel="icon" type="image/png" href="assets/i/favicon.png">
-  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+  <link rel="icon" type="image/png" href="{{asset('/i/favicon.png')}}">
+  <link rel="apple-touch-icon-precomposed" href="{{asset('/i/app-icon72x72@2x.png')}}">
   <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-  <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-  <link rel="stylesheet" href="assets/css/admin.css">
-  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="{{asset('/css/admin/amazeui.min.css')}}" />
+  <link rel="stylesheet" href="{{asset('/css/admin/admin.css')}}">
+  <link rel="stylesheet" href="{{asset('/css/admin/app.css')}}">
+  <script src="{{asset('/css/admin/echarts.min.js')}}"></script>
 </head>
 
-<body data-type="generalComponents">
+<body data-type="index">
 
 
   <header class="am-topbar am-topbar-inverse admin-header">
     <div class="am-topbar-brand">
       <a href="javascript:;" class="tpl-logo">
-        <img src="assets/img/logo.png" alt="">
+        <img src="{{asset('/img/logo.png')}}" alt="">
       </a>
     </div>
     <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
@@ -81,7 +82,7 @@
             <li>
               <a href="#" class="tpl-dropdown-content-message">
                 <span class="tpl-dropdown-content-photo">
-                  <img src="assets/img/user02.png" alt=""> </span>
+                  <img src="{{asset('/img/user02.png')}}" alt=""> </span>
                 <span class="tpl-dropdown-content-subject">
                   <span class="tpl-dropdown-content-from"> 禁言小张 </span>
                   <span class="tpl-dropdown-content-time">10分钟前 </span>
@@ -90,7 +91,7 @@
               </a>
               <a href="#" class="tpl-dropdown-content-message">
                 <span class="tpl-dropdown-content-photo">
-                  <img src="assets/img/user03.png" alt=""> </span>
+                  <img src="{{asset('/img/user03.png')}}" alt=""> </span>
                 <span class="tpl-dropdown-content-subject">
                   <span class="tpl-dropdown-content-from"> Steam </span>
                   <span class="tpl-dropdown-content-time">18分钟前</span>
@@ -112,7 +113,7 @@
           <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
             <span class="tpl-header-list-user-nick">禁言小张</span>
             <span class="tpl-header-list-user-ico">
-              <img src="assets/img/user01.png">
+              <img src="{{asset('/img/user01.png')}}">
             </span>
           </a>
           <ul class="am-dropdown-content">
@@ -155,7 +156,7 @@
       <div class="tpl-left-nav-list">
         <ul class="tpl-left-nav-menu">
           <li class="tpl-left-nav-item">
-            <a href="index.html" class="nav-link">
+            <a href="{{router('admin.index')}}.html"  class="nav-link active">
               <i class="am-icon-home"></i>
               <span>首页</span>
             </a>
@@ -163,30 +164,30 @@
 
           <li class="tpl-left-nav-item">
             <!-- 打开状态 a 标签添加 active 即可   -->
-            <a href="javascript:;" class="nav-link tpl-left-nav-link-list active">
+            <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
               <i class="am-icon-table"></i>
               <span>商品</span>
               <!-- 列表打开状态的i标签添加 tpl-left-nav-more-ico-rotate 图表即90°旋转  -->
               <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
             </a>
-            <ul class="tpl-left-nav-sub-menu" style="display:block">
+            <ul class="tpl-left-nav-sub-menu">
               <li>
                 <!-- 打开状态 a 标签添加 active 即可   -->
-                <a href="table-font-list.html" class="active">
+                <a href="{{router('admin.table_font_list')}}.html">
                   <i class="am-icon-angle-right"></i>
                   <span>商品管理</span>
                   <!-- <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i> -->
                 </a>
-                <a href="table-classify.html">
+                <a href="{{router('admin.table_classify')}}.html">
                   <i class="am-icon-angle-right"></i>
                   <span>分类管理</span>
                   <!-- <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i> -->
                 </a>
+
                 <!-- <a href="table-commit-list.html">
                   <i class="am-icon-angle-right"></i>
-
                   <span>添加商品</span>
-                  <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                   <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
                 </a> -->
               </li>
             </ul>
@@ -200,20 +201,21 @@
             </a>
             <ul class="tpl-left-nav-sub-menu">
               <li>
-                <a href="list.html">
-                  <i class="am-icon-angle-right"></i>
-                  <span>订单管理</span>
+                 <a href="{{route('admin.list')}}.html">
+                    <i class="am-icon-angle-right"></i>
+                    <span>订单管理</span>
                 </a>
               </li>
             </ul>
           </li>
+
           <li class="tpl-left-nav-item">
-            <a href="login.html" class="nav-link tpl-left-nav-link-list">
+            <a href="{{route('admin.login')}}.html" class="nav-link tpl-left-nav-link-list">
               <i class="am-icon-key"></i>
               <span>登录</span>
 
             </a>
-            </li>
+          </li>
         </ul>
       </div>
     </div>
@@ -224,82 +226,96 @@
 
     <div class="tpl-content-wrapper">
       <div class="tpl-content-page-title">
-        Amaze UI 添加商品
+        Amaze UI 首页组件
       </div>
       <ol class="am-breadcrumb">
         <li>
           <a href="#" class="am-icon-home">首页</a>
         </li>
         <li>
-          <a href="#">商品</a>
+          <a href="#">分类</a>
         </li>
-        <li class="am-active">添加商品</li>
+        <li class="am-active">内容</li>
       </ol>
-      <div class="tpl-portlet-components">
-        <form class="am-form">
-          <fieldset>
-            <legend>表单标题</legend>
-
-            <div class="am-form-group">
-              <label>商品名称</label>
-              <input type="text" id="goods_name" placeholder="请输入商品名称">
-            </div>
-
-            <div class="am-form-group am-form-file">
-              <label>商品图片</label>
-              <div class="am-form-group am-form-file">
-                <button type="button" class="am-btn am-btn-default am-btn-sm">
-                  <i class="am-icon-cloud-upload"></i> 选择要上传的图片</button>
-                <input type="file" id="goods_image" onchange="checkImg(this)" multiple>
-              </div>
-            </div>
-            <div class="am-form-group">
-              <label>商品价格</label>
-              <input type="text" id="goods_price" placeholder="请填写商品价格">
-            </div>
-            <div class="am-form-group">
-              <label>商品库存</label>
-              <input type="text" id="goods_save" placeholder="请填写商品库存">
-            </div>
-            <div class="am-form-group">
-              <label for="doc-select-1">选择商品分类</label>
-              <select id="doc-select-1">
-                <option value="option1"></option>
-                <option value="option2">选项一...</option>
-                <option value="option3">选项二.....</option>
-                <option value="option4">选项三........</option>
-              </select>
-            </div>
-            <div class="am-form-group">
-              <label for="doc-ta-1">请输入商品描述</label>
-              <textarea rows="5" id="goods_des"></textarea>
-            </div>
-            <p>
-              <button onclick="postForm()" type="button" class="am-btn am-btn-default">提交</button>
-            </p>
-          </fieldset>
-        </form>
-        <div class="am-modal am-modal-alert" tabindex="11" id="my-alert">
-          <div class="am-modal-dialog">
-            <div class="am-modal-hd">提交失败</div>
-            <div class="am-modal-bd" id="showMessage">
-              表单内容不能为空
-            </div>
-            <div class="am-modal-footer">
-              <span class="am-modal-btn">确定</span>
-            </div>
-          </div>
+      <div class="tpl-content-scope">
+        <div class="note note-info">
+          <h3>简单介绍
+            <span class="close" data-close="note"></span>
+          </h3>
+          <p> 该网站是一个后台管理界面</p>
         </div>
       </div>
 
+      <div class="row">
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
+          <div class="dashboard-stat blue">
+            <div class="visual">
+              <i class="am-icon-comments-o"></i>
+            </div>
+            <div class="details">
+              <div class="number" id="waitlist"> 0 </div>
+              <div class="desc"> 待发货订单 </div>
+            </div>
+            <a class="more" href="#"> 查看更多
+              <i class="m-icon-swapright m-icon-white"></i>
+            </a>
+          </div>
+        </div>
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
+          <div class="dashboard-stat red">
+            <div class="visual">
+              <i class="am-icon-bar-chart-o"></i>
+            </div>
+            <div class="details">
+              <div class="number" id="giveuplist"> 0 </div>
+              <div class="desc"> 退款售后订单 </div>
+            </div>
+            <a class="more" href="#"> 查看更多
+              <i class="m-icon-swapright m-icon-white"></i>
+            </a>
+          </div>
+        </div>
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
+          <div class="dashboard-stat green">
+            <div class="visual">
+              <i class="am-icon-apple"></i>
+            </div>
+            <div class="details">
+              <div class="number" id="endlist"> 0 </div>
+              <div class="desc"> 已完成订单 </div>
+            </div>
+            <a class="more" href="#"> 查看更多
+              <i class="m-icon-swapright m-icon-white"></i>
+            </a>
+          </div>
+        </div>
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12">
+          <div class="dashboard-stat purple">
+            <div class="visual">
+              <i class="am-icon-android"></i>
+            </div>
+            <div class="details">
+              <div class="number" id="alllist"> 0 </div>
+              <div class="desc"> 所有订单 </div>
+            </div>
+            <a class="more" href="#"> 查看更多
+              <i class="m-icon-swapright m-icon-white"></i>
+            </a>
+          </div>
+        </div>
+
+
+
+      </div>
     </div>
+
   </div>
 
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/amazeui.min.js"></script>
-  <script src="assets/js/app.js"></script>
-  <script src="assets/js/mycommit.js"></script>
 
+  <script src="{{asset('/css/admin/jquery.min.js')}}"></script>
+  <script src="{{asset('/css/admin/amazeui.min.js')}}"></script>
+  <script src="{{asset('/css/admin/app.js')}}"></script>
+  <script src="{{asset('/css/admin/index.js')}}"></script>
 </body>
 
 </html>

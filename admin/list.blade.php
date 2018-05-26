@@ -10,13 +10,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <link rel="icon" type="image/png" href="assets/i/favicon.png">
-  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+  <link rel="icon" type="image/png" href="{{asset('/i/favicon.png')}}">
+  <link rel="apple-touch-icon-precomposed" href="{{asset('/i/app-icon72x72@2x.png')}}">
   <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-  <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-  <link rel="stylesheet" href="assets/css/admin.css">
-  <link rel="stylesheet" href="assets/css/app.css">
-  <link rel="stylesheet" href="assets/css/shoppingList.css">
+  <link rel="stylesheet" href="{{asset('/css/admin/amazeui.min.css')}}" />
+  <link rel="stylesheet" href="{{asset('/css/admin/admin.css')}}">
+  <link rel="stylesheet" href="{{asset('/css/admin/app.css')}}">
+  <link rel="stylesheet" href="{{asset('/css/admin/list.css')}}">
 </head>
 
 <body data-type="generalComponents">
@@ -25,7 +25,7 @@
   <header class="am-topbar am-topbar-inverse admin-header">
     <div class="am-topbar-brand">
       <a href="javascript:;" class="tpl-logo">
-        <img src="assets/img/logo.png" alt="">
+        <img src="{{asset('/img/logo.png')}}" alt="">
       </a>
     </div>
     <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
@@ -82,7 +82,7 @@
             <li>
               <a href="#" class="tpl-dropdown-content-message">
                 <span class="tpl-dropdown-content-photo">
-                  <img src="assets/img/user02.png" alt=""> </span>
+                  <img src="{{asset('/img/user02.png')}}" alt=""> </span>
                 <span class="tpl-dropdown-content-subject">
                   <span class="tpl-dropdown-content-from"> 禁言小张 </span>
                   <span class="tpl-dropdown-content-time">10分钟前 </span>
@@ -91,7 +91,7 @@
               </a>
               <a href="#" class="tpl-dropdown-content-message">
                 <span class="tpl-dropdown-content-photo">
-                  <img src="assets/img/user03.png" alt=""> </span>
+                  <img src="{{asset('/img/user03.png')}}" alt=""> </span>
                 <span class="tpl-dropdown-content-subject">
                   <span class="tpl-dropdown-content-from"> Steam </span>
                   <span class="tpl-dropdown-content-time">18分钟前</span>
@@ -99,7 +99,6 @@
                 <span class="tpl-dropdown-content-font"> 为了能最准确的传达所描述的问题， 建议你在反馈时附上演示，方便我们理解。 </span>
               </a>
             </li>
-
           </ul>
         </li>
         <li class="am-hide-sm-only">
@@ -113,7 +112,7 @@
           <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
             <span class="tpl-header-list-user-nick">禁言小张</span>
             <span class="tpl-header-list-user-ico">
-              <img src="assets/img/user01.png">
+              <img src="{{asset('/img/user01.png')}}">
             </span>
           </a>
           <ul class="am-dropdown-content">
@@ -147,8 +146,6 @@
 
 
   <div class="tpl-page-container tpl-page-header-fixed">
-
-
     <div class="tpl-left-nav tpl-left-nav-hover">
       <div class="tpl-left-nav-title">
         Amaze UI 列表
@@ -156,7 +153,7 @@
       <div class="tpl-left-nav-list">
         <ul class="tpl-left-nav-menu">
           <li class="tpl-left-nav-item">
-            <a href="index.html" class="nav-link">
+            <a href="{{router('admin.index')}}.html"  class="nav-link">
               <i class="am-icon-home"></i>
               <span>首页</span>
             </a>
@@ -164,28 +161,27 @@
 
           <li class="tpl-left-nav-item">
             <!-- 打开状态 a 标签添加 active 即可   -->
-            <a href="javascript:;" class="nav-link tpl-left-nav-link-list active">
+            <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
               <i class="am-icon-table"></i>
               <span>商品</span>
               <!-- 列表打开状态的i标签添加 tpl-left-nav-more-ico-rotate 图表即90°旋转  -->
               <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
             </a>
-            <ul class="tpl-left-nav-sub-menu" style="display:block">
+            <ul class="tpl-left-nav-sub-menu">
               <li>
                 <!-- 打开状态 a 标签添加 active 即可   -->
-                <a href="table-font-list.html" class="active">
+                <a href="{{router('admin.table_font_list')}}.html">
                   <i class="am-icon-angle-right"></i>
                   <span>商品管理</span>
                   <!-- <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i> -->
                 </a>
-                <a href="table-classify.html">
+                <a href="{{router('admin.table_classify')}}.html">
                   <i class="am-icon-angle-right"></i>
                   <span>分类管理</span>
                   <!-- <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i> -->
                 </a>
                 <!-- <a href="table-commit-list.html">
                   <i class="am-icon-angle-right"></i>
-
                   <span>添加商品</span>
                   <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
                 </a> -->
@@ -194,14 +190,14 @@
           </li>
 
           <li class="tpl-left-nav-item">
-            <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+            <a href="javascript:;" class="nav-link tpl-left-nav-link-list active">
               <i class="am-icon-wpforms"></i>
               <span>订单</span>
               <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
             </a>
-            <ul class="tpl-left-nav-sub-menu">
+            <ul class="tpl-left-nav-sub-menu" style="display:block">
               <li>
-                 <a href="list.html">
+                 <a href="{{route('admin.list')}}.html" class="active">
                     <i class="am-icon-angle-right"></i>
                     <span>订单管理</span>
                 </a>
@@ -210,7 +206,7 @@
           </li>
 
           <li class="tpl-left-nav-item">
-            <a href="login.html" class="nav-link tpl-left-nav-link-list">
+            <a href="{{route('admin.login')}}.html" class="nav-link tpl-left-nav-link-list">
               <i class="am-icon-key"></i>
               <span>登录</span>
 
@@ -226,21 +222,21 @@
 
     <div class="tpl-content-wrapper">
       <div class="tpl-content-page-title">
-        Amaze UI 商品管理
+        Amaze UI 订单
       </div>
       <ol class="am-breadcrumb">
         <li>
           <a href="#" class="am-icon-home">首页</a>
         </li>
         <li>
-          <a href="#">商品</a>
+          <a href="#">订单</a>
         </li>
-        <li class="am-active">商品管理</li>
+        <li class="am-active">订单管理</li>
       </ol>
       <div class="tpl-portlet-components">
         <div class="portlet-title">
           <div class="caption font-green bold">
-            <span class="am-icon-code"></span> 商品
+            <span class="am-icon-code"></span> 订单
           </div>
           <div class="tpl-portlet-input tpl-fz-ml">
             <div class="portlet-input input-small input-inline">
@@ -250,44 +246,30 @@
             </div>
           </div>
 
+
         </div>
         <div class="tpl-block">
-          <div class="am-g">
-            <div class="am-u-sm-12 am-u-md-6">
-            
-                <div class="list-header" id="list-header">
-                    <a href="#" class="list-bottom">全部</a>
-                    <a href="#">出售中</a>
-                    <a href="#">已售完</a>
-                    <a href="#">已下架</a>
-                </div>
-           
+          <div class="am-g" style="margin: 16px 0;">
+            <div class="am-u-sm-10">
+
+              <div class="list-header" id="list-header">
+                <a href="#" class="list-bottom">全部</a>
+                <a href="#">代发货</a>
+                <a href="#">待付款</a>
+                <a href="#">已发货</a>
+                <a href="#">退款</a>
+                <a href="#">已完成</a>
+                <a href="#">已关闭</a>
+              </div>
+
+            </div>
+            <div class="am-u-sm-2">
+                <button type="button" class="am-btn am-btn-default">批量发货</button>
             </div>
           </div>
           <div class="am-g">
-            <div class="am-u-sm-12 am-u-md-6">
-              <div class="am-btn-toolbar">
-                <div class="am-btn-group am-btn-group-xs">
-                  <button type="button" class="am-btn am-btn-default am-btn-success">
-                    
-                    <span class="am-icon-plus"></span> 
-                    <a href="table-commit-list.html" style="color: #fff;">
-                    添加商品
-                    </a>
-                  </button>
-
-                  <!-- <button type="button" class="am-btn am-btn-default am-btn-warning">
-                    <span class="am-icon-archive"></span> 审核</button> -->
-                  <button type="button" class="am-btn am-btn-default am-btn-danger">
-                    <span class="am-icon-trash-o"></span> 批量删除
-                  </button>
-                      <button type="button" class="am-btn am-btn-default am-btn-secondary">
-                    <span class="am-icon-save"></span> 库存</button>
-                </div>
-              </div>
-            </div>
             <div class="am-u-sm-12 am-u-md-3">
-              <div class="am-form-group">
+              <div class="am-form-group" style="padding-left: 2px;">
                 <select data-am-selected="{btnSize: 'sm'}">
                   <option value="option1">所有类别</option>
                   <option value="option2">IT业界</option>
@@ -311,7 +293,7 @@
           <div class="am-g">
             <div class="am-u-sm-12">
               <form class="am-form">
-                <table class="am-table am-table-striped am-table-hover table-main">
+                <!-- <table class="am-table am-table-striped am-table-hover table-main">
                   <thead>
                     <tr>
                       <th class="table-check">
@@ -334,7 +316,7 @@
                       </td>
                       <td>1</td>
                       <td>
-                        <img src="assets/img/logo.png" alt="" width="50" height="50">
+                        <img src="{{asset('/img/logo.png')}}" alt="" width="50" height="50">
                         <a href="#">Business management</a>
                       </td>
                       <td>22.00</td>
@@ -345,14 +327,10 @@
                       <td>
                         <div class="am-btn-toolbar">
                           <div class="am-btn-group am-btn-group-xs">
-                            <a href="table-commit-change.html">
-                              <!-- <button class="am-btn am-btn-default am-btn-xs am-text-secondary"> -->
-                                <span class="am-icon-pencil-square-o"></span>  
-                                编辑
-                              <!-- </button> -->
-                            </a>
+                            <button class="am-btn am-btn-default am-btn-xs am-text-secondary">
+                              <span class="am-icon-pencil-square-o"></span> 编辑</button>
                             <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only">
-                              <span class="am-icon-copy"></span> 上架</button>
+                              <span class="am-icon-copy"></span> 复制</button>
                             <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
                               <span class="am-icon-trash-o"></span> 删除</button>
                           </div>
@@ -685,7 +663,6 @@
                       <td>
                         <div class="am-btn-toolbar">
                           <div class="am-btn-group am-btn-group-xs">
-                            <a href=""></a>
                             <button class="am-btn am-btn-default am-btn-xs am-text-secondary">
                               <span class="am-icon-pencil-square-o"></span> 编辑</button>
                             <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only">
@@ -697,16 +674,69 @@
                       </td>
                     </tr>
                   </tbody>
-                </table>
+                </table> -->
+                <div class="am-cf table-header">
+                    <div class="am-u-sm-6">
+               
+                        <label style="float: left;">
+                            <input type="checkbox"> 全选
+                        </label>
+                      
+                        订单信息
+                    </div>
+                    <div class="am-u-sm-4">
+                        收货信息
+                    </div>
+                    <div class="am-u-sm-2">
+                        操作
+                    </div>
+                </div>
+                <div class="am-cf table">
+                    <div class="table-infromation">
+                        <div class="am-u-sm-6 header-table">
+                            <span>下单时间 2015-03-12 21:17:20</span>
+                            <span>订单号：1111020608</span>
+                        </div>
+                        <div class="am-u-sm-6 header-table">
+                            <span>共一件商品 合计：￥：0.10（含运费 ￥0.00）</span>
+                        </div>
+                        <div class="am-u-sm-6 body-table">
+                            <div class="am-u-sm-1">
+                                <label>
+                                    <input type="checkbox"> 发货
+                                </label>
+                            </div>
+                            <div class="am-u-sm-3">
+                              
+                                <img src="https://zos.alipayobjects.com/rmsportal/TekJlZRVCjLFexlOCuWn.png')}}" alt="" width="100%" height="100%">
+                            </div>
+                            <div class="am-u-sm-6">
+                                 【夏威夷果】12号正式开始营业东风大厦法定
+                            </div>
+                            <div class="am-u-sm-2">
+                                <p>￥23.00</p>
+                                <p>×1</p>
+                            </div>
+                        </div>
+                        <div class="am-u-sm-4  body-table">
+                            <p>小小 123456789</p>
+                            <p>河北省啥会受到健康的拉风的斯科拉的</p>
+                        </div>
+                        <div class="am-u-sm-2 body-table">
+                            <a href="#">完成</a>
+                            <a href="listdetail.html" target="_blank">订单详情</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="am-cf">
 
                   <div class="am-fr">
                     <ul class="am-pagination tpl-pagination">
                       <li class="am-disabled">
-                        <span href="#">«</span>
+                        <a href="#">«</a>
                       </li>
                       <li class="am-active">
-                        <span href="#">1</span>
+                        <a href="#">1</a>
                       </li>
                       <li>
                         <a href="#">2</a>
@@ -734,27 +764,17 @@
           </div>
         </div>
         <div class="tpl-alert"></div>
+
       </div>
-
-
-
-
-
-
-
-
-
-
     </div>
 
   </div>
 
 
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/amazeui.min.js"></script>
-  <script src="assets/js/app.js"></script>
-  <script src="assets/js/shoppingList.js"></script>
-
+  <script src="{{asset('/css/admin/jquery.min.js')}}"></script>
+  <script src="{{asset('/css/admin/amazeui.min.js')}}"></script>
+  <script src="{{asset('/css/admin/app.js')}}"></script>
+  <script src="{{asset('/css/admin/list.js')}}"></script>
 </body>
 
 </html>
