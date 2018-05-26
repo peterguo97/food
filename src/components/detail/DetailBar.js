@@ -38,7 +38,7 @@ export default class DetailBar extends React.Component {
                         <DetailBarLeft id={this.props.id}/>
                     </div>
                     <div style={{ backgroundColor: 'rgb(243,245,247)' }}>
-                        <Comment />
+                        <Comment id={this.props.id}/>
                     </div>
                     <div style={{ backgroundColor: 'rgb(243,245,247)',height: '100%' }}>
                        <ShopDetail />

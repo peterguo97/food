@@ -99,6 +99,16 @@
     height: 20px;
 }
 
+.footer_middle_right {
+    width: 30%;
+    display: flex;
+    height: 100%;
+    /* text-align: center; */
+    align-items: center;
+    justify-content: center;
+    background: cornflowerblue;
+}
+
 .footer_right {
     background: rgb(255, 0, 54);
     color: #fff;
@@ -122,7 +132,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50%;
+    width: 20%;
 }
 
 .footer_circle {

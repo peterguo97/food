@@ -6,15 +6,16 @@ import { connect } from 'dva';
 import { hasItem } from '../../publicapi';
 
 class ListItemRight extends React.Component {
+    
     constructor(props){
         super(props);
         this.state = {
-            num: 0
+            num: 0,
         }
     }
+
     handlePlus(){
-        const data = this.props.data;
-        // console.log(this.props);
+        let data = this.props.data;
         let recentlynum = this.state.num + 1;
         this.setState({
             num: recentlynum
@@ -30,7 +31,7 @@ class ListItemRight extends React.Component {
     }
 
     handleDecrease(){
-        const data = this.props.data;
+        let data = this.props.data;
         if(this.state.num === 0){
             return
         }
@@ -56,12 +57,12 @@ class ListItemRight extends React.Component {
         if (judge && judge1) {
             for (let index = 0; index < list.length; index++) {
                 const element = list[index];
-                if(element.name === item1.name){
+                if(element.id === item1.id){
                     this.setState({
                         num: element.num,
                     })
                     break;
-                } 
+                }
             }
         }
         if(judge && !judge1){
@@ -78,6 +79,22 @@ class ListItemRight extends React.Component {
        else{
            return false;
        }
+    }
+
+    componentDidMount(){
+        let data = this.props.data;
+        let list = this.props.list;
+        if(!list.length){
+            return
+        }
+        list.forEach((item)=>{
+            if(item.id === data.id){
+                this.setState({
+                    num: item.num
+                })
+            }
+        })
+
     }
 
     render(){

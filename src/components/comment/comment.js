@@ -1,6 +1,7 @@
 import React from 'react';
 import CommentListItem from './CommentListItem';
 import style from './css/comment.css';
+import axios from 'axios';
 
 const data = [
     { id:12342553,name: 'John', description: '真的好吃，狗狗很爱' ,comment:4.5, sex: 'man'},
@@ -14,10 +15,29 @@ const data = [
 
 
 class Comment extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            data: []
+        }
+    }
+    componentDidMount() {
+        axios.get(`comments/${this.props.id}`)
+        .then((response)=>{
+            if(Object.prototype.toString.call(response.data) === '[object Array]'){
+                this.setState({
+                    data: response.data
+                })
+            }
+        }).catch(err=>{
+            console.log(err);
+        })
+    }
+    
     render(){
-        let list = data.map((item,index)=>{
+        let list = this.state.data.map((item,index)=>{
             return(
-                <div className={style.listItem} key={index}>
+                <div className={style.hello} key={index}>
                     <CommentListItem data={item}/>
                 </div>
             )
