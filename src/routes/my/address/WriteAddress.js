@@ -3,6 +3,7 @@ import { List, TextareaItem, InputItem, Button, Picker, Toast } from 'antd-mobil
 import { district } from 'antd-mobile-demo-data';
 import { createForm } from 'rc-form';
 import { connect } from "dva";
+import { routerRedux } from 'dva/router';
 
 const Item = List.Item;
 
@@ -49,11 +50,13 @@ class WriteAddress extends Component {
                         return null;
                     });
                     
-                    value['mainAddress'] = mainAddress;      
+                    value['mainAddress'] = mainAddress;    
                     this.props.dispatch({ type: 'writeAddress/sendInfo', payload: value });
                 }
-                
-                
+                console.log(this.props.match);
+                if(this.props.match.params.jump){
+                    this.props.dispatch(routerRedux.push('/list'));
+                }
             } else {
                 Toast.info('你还没有填完！', 1);
             }

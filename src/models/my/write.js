@@ -1,5 +1,6 @@
 import { address } from "../../services/writeAddress";
 import { addressInfo } from "../../services/writeAddress";
+import { routerRedux } from 'dva/router';
 
 export default {
 
@@ -36,7 +37,10 @@ export default {
             yield put({ type: 'save', payload: data });
         },
         *sendInfo( { payload }, { call, put }) {
-            yield call(addressInfo, payload);
+            const data = yield call(addressInfo, payload);
+            if(data.data.message) {
+                yield put(routerRedux.push('/address'));
+            }
         }
     },
 
