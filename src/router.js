@@ -33,7 +33,7 @@ function RouterConfig({ history }) {
         <Route path="/listdetail/:id" component={ListDetail} />
         <Route path="/shopping" component={Shopping} />
         <Route path="/address" component={Address} />
-        <Route path="/write/:id" component={Write} />
+        <Route path="/write/:id/:jump?" component={Write} />
         <Route path="/aboutus" component={Aboutus} />
         <Route path="/logistics/:id" component={Logistics} />
         <Route path="/eval/:id" component={Eval} />

@@ -73,13 +73,16 @@ class ListFooter extends React.Component {
         axios.post("/payment/store",{
             list: arr
         }).then((response)=>{
-            if(response.status >= 200 && response.status <= 300){
-                Toast.success('下单成功!', 1);
-                return response.data.payment;
-            }
-        }).then((payment)=>{
+            let payment = response.data.payment;
             console.log(payment);
-            this.props.dispatch(routerRedux.push(`/order/${payment}`));
+            if(response.data.message === 1){
+                Toast.success('下单成功!', 1);
+                this.props.dispatch(routerRedux.push(`/order/${payment}`));
+            }
+            else{
+                Toast.fail('请添加收货地址!', 1);
+                this.props.dispatch(routerRedux.push('/write/0'));
+            }
         }).catch((err)=>{
             console.log(err);
             Toast.fail('下单失败!',1);
