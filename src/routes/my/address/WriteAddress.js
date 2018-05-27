@@ -28,7 +28,6 @@ class WriteAddress extends Component {
                 if (!reg.test(phoneNum)) {
                    Toast.info('手机号有误！', 1); 
                 } else {
-                    console.log('填写成功');
                     let mainAddress = '';
                     district.map(e => {
                       
@@ -67,7 +66,6 @@ class WriteAddress extends Component {
         });
     }
     render() {
-        console.log(district);
         
         const { getFieldProps } = this.props.form;
         const { name, phone, address, information } = this.props.writeAddress;

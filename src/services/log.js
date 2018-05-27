@@ -5,6 +5,10 @@ export function log(json) {
     
     return request('/api/users', {
         method: 'post',
+         headers: {
+           'Content-Type': 'application/json'
+         },
+
         body: JSON.stringify(json)
     });
 };
@@ -14,6 +18,10 @@ export function evals(json) {
 
     return request('/comment/store', {
         method: 'post',
+         headers: {
+           'Content-Type': 'application/json'
+         },
+
         body: JSON.stringify(json)
     });
 }

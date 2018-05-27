@@ -4,6 +4,10 @@ export function listItem(json) {
     json = json || 'list';
     return request('./list/data', {
         method: 'POST',
+         headers: {
+           'Content-Type': 'application/json'
+         },
+
         body: JSON.stringify(json)
     });
 }

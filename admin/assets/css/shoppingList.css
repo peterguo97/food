@@ -7,3 +7,16 @@
   border-bottom: 3px solid #000; }
 
 /*# sourceMappingURL=shoppingList.css.map */
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.myButton {
+  width: 66px;
+  height: 30px;
+  background: #fff;
+  text-align: center;
+  margin-right: 3px;
+}

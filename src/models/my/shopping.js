@@ -1,4 +1,9 @@
 import { getShopping } from "../../services/shopping";
+import { isPay } from "../../services/shopping";
+import { deleteList } from "../../services/shopping";
+
+import { routerRedux } from 'dva/router';
+
 export default {
 
     namespace: 'shopping',
@@ -30,13 +35,25 @@ export default {
             const data = yield call(getShopping)
             yield put({ type: 'save', payload: data });
         },
+        *pay({ payload }, { call, put}) {
+            const data = yield call(isPay, payload);
+            if(data.message === 'address') {
+                yield put(routerRedux.push('/address'));
+            } else if(data.message === 'order') {
+                yield put(routerRedux.push('/order'));
+            }
+        },
+        *deleteChange({ payload }, { call, put}) {
+            const data = yield call(deleteList, payload);
+            yield put({ type: 'change', payload: data});
+        }
     },
 
     reducers: {
         save(state, action) {
             return { ...state, ...action.payload };
         },
-        change(state, { payload }) {    
+        change(state, { payload }) {  
             return { ...state, ...payload };
         }
     },

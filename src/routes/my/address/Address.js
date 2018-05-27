@@ -27,6 +27,7 @@ class Address extends Component {
         alert('确定删除吗？', '', [
             { text: '取消', onPress: () => console.log('cancel') },
             { text: '确定', onPress: () => {
+                
                 const datas = this.props.address.data;
                 let arr = [];
                 datas.map(i => {
@@ -34,8 +35,8 @@ class Address extends Component {
                         arr.push(i);
                     };
                     return null;
-                });
-                this.props.dispatch({ type: 'address/change', payload: { data: arr } });
+                }); 
+                this.props.dispatch({ type: 'address/deleteChange', payload: arr});
             } },
         ])
     }

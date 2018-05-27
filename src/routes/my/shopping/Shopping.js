@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Checkbox, List, Flex, Button } from "antd-mobile";
-import food from "../../../assets/yay.jpg";
+import { Checkbox, List, Flex, Button, Toast } from "antd-mobile";
+// import food from "../../../assets/yay.jpg";
 import styles from "./Shopping.css";
 import { connect } from "dva";
 
@@ -11,7 +11,7 @@ const Item = List.Item;
 function removeItem(_arr) {
     let arr = [];
     for (let i = 0; i < _arr.length; i++) {
-        if(!_arr[i].checked) {
+        if(_arr[i].checked) {
             arr.push(_arr[i]);
         }
     }
@@ -128,12 +128,36 @@ class Shopping extends Component {
             check = false;
         }
         const data = removeItem(datas);
-        this.props.dispatch({ type: 'shopping/change', payload: { data: data, priceAll: 0.00, checkedAll: check } });
+        if(data.length) {
+             this.props.dispatch({ type: 'shopping/deleteChange', payload: { data: data, priceAll: 0.00, checkedAll: check } });
+        } else {
+              Toast.info('未选择', 1);
+        }
+       
         // this.setState({
         //     data: data,
         //     priceAll: 0.00,
         //     checkedAll: check
         // })
+    }
+    pay = () => {
+        const { data, id } = this.props.shopping;
+        let datas = [];
+        data.map(i => {
+            if(i.checked) {
+                datas.push(i);
+            }
+            return null;
+        });
+
+        if(datas.length) {
+            this.props.dispatch({ type: 'shopping/pay', payload: {id: id, data: datas} });    
+        } else {
+            Toast.info('未选择任何商品', 1);
+        }
+        
+        
+        
     }
     render() {
         const datas = this.props.shopping.data; 
@@ -144,7 +168,7 @@ class Shopping extends Component {
                 <List>
                     {datas.map(i => 
                         <CheckboxItem key={i.id} onChange={(item) => { this.change(i)}} style={{backgroundColor: '#fff'}} checked={i.checked}>
-                                <Item thumb={food} multipleLine="true" className={styles.item} wrap>
+                                <Item thumb={i.img} multipleLine="true" className={styles.item} wrap>
                                 <Flex className={styles.intro}>
                                         <Flex.Item>
                                             {i.intro}
@@ -176,7 +200,7 @@ class Shopping extends Component {
                     <Flex.Item className={styles.remove} onClick={this.remove}>
                         清除
                     </Flex.Item>
-                    <Flex.Item className={styles.pay}>
+                    <Flex.Item className={styles.pay} onClick={this.pay}>
                         支付
                     </Flex.Item>
                 </Flex>
