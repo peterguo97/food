@@ -2,21 +2,21 @@ import React, { Component } from "react";
 import { List, Flex } from "antd-mobile";
 import { connect } from "dva";
 import { Link } from "dva/router";
-import food from "../../../assets/food5.jpg";
 import yay from "../../../assets/yay.jpg";
 import styles from "./ListDetail.css";
 
 const Item = List.Item;
 class ListDetail extends Component {
-    multiply = (a, b) => {
-        return a * b;
-    }
     refund = () => {     
         this.props.dispatch({ type: 'listdetail/refund'});
     }
     render() {
-        const { name, phone, list, footer } = this.props.listdetail;
-        console.log(name);
+        const { name, phone, store, result, list, footer, storeId } = this.props.listdetail;
+        let price = 0.00;
+        list.map(i => {
+            price += i.num * i.price;
+            return null;
+        });
         
         return(
             <div className={styles.main}>
@@ -26,13 +26,14 @@ class ListDetail extends Component {
                     <p>电话号码：{phone}</p>
                 </header>
                 <List className={styles.list}>
-                    <Link to={`../${list.id}/detail`} className={styles.color}>
+                    <Link to={`../${storeId}/detail`} className={styles.color}>
                         <Flex className={styles.listheader}>
-                            <Flex.Item>{list.store}</Flex.Item>
-                            <Flex.Item className={styles.textalign}>{list.result}</Flex.Item>
+                            <Flex.Item>{store}</Flex.Item>
+                            <Flex.Item className={styles.textalign}>{result}</Flex.Item>
                         </Flex>
                    
-                        <Item thumb={food} multipleLine="true" className={styles.item}>
+                       { list.map( (list, index) => 
+                        <Item thumb={list.img} multipleLine="true" className={styles.item} key={index}>
                             <Flex>
                                 <Flex.Item>
                                     <div>{list.title}</div>
@@ -44,10 +45,10 @@ class ListDetail extends Component {
                                 </Flex.Item>
 
                             </Flex>
-                        </Item>
+                        </Item>)}
                     </Link>
                     <Flex className={styles.listheader}>
-                        <Flex.Item className={styles.textalign}>共{list.num}件商品 合计: ￥{this.multiply(list.num, list.price)}</Flex.Item>
+                        <Flex.Item className={styles.textalign}>合计: ￥{price}</Flex.Item>
                     </Flex>
                     <div className={styles.refund}>
                         <span onClick={this.refund}>申请退款</span>

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { List, Flex, Modal } from "antd-mobile";
 import { Link } from "dva/router";
-import  food  from "../../../assets/dog.jpg";
 import styles from "./ShoppingList.css";
 import { connect } from "dva";
 const Item = List.Item;
@@ -35,8 +34,13 @@ class ShoppingList extends Component {
         ]);
     }
     // 单价乘以数量
-    multiply = (a, b) => {
-        return a * b;
+    multiply = (i) => {
+        let price = 0.00;
+        i.main.map(list => {
+            price += list.price * list.num;
+            return null;
+        })
+        return price;
     }
     // 查看物流
     // logistics(id) {
@@ -47,44 +51,53 @@ class ShoppingList extends Component {
     //     this.props.dispatch({ type: 'shoppingList/eval', payload: id }); 
     // }
     render() {
-        const data = this.props.shoppingList.data;  
+        const { data } = this.props.shoppingList;
+        // data.main.map(i => {
+        //     price += i.num * i.price;
+        //     return null;
+        // })
         return(
-            <List className={styles.list}>
-                {
-                    data.map(list => <div className={styles.contain} key={list.id}>
-                        <Link to={`../${list.id}/detail`} className={styles.color}>
-                            <Flex className={styles.listheader}>
-                                <Flex.Item>{list.store}</Flex.Item>
-                                <Flex.Item className={styles.textalign}>{list.result}</Flex.Item>
-                            </Flex>
-                        </Link>
-                        <Link to={`./listdetail/${list.id}`} className={styles.color}>
-                            <Item thumb={food} multipleLine="true" className={styles.item}>
-                                <Flex>
-                                    <Flex.Item>
-                                        <div>{list.title}</div>
-                                        <div>{list.sub}</div>
-                                    </Flex.Item>
-                                    <Flex.Item className={styles.flexitem}>
-                                        <div>￥{list.price}</div>
-                                        <div>×{list.num}</div>
-                                    </Flex.Item>
-                                    
-                                </Flex>
-                            </Item>
-                        </Link>
+            <div>
+                {data.map((i, index) => 
+                <List className={styles.list} key={index}>
+                    <Link to={`../${i.id}/detail`} className={styles.color}>
                         <Flex className={styles.listheader}>
-                            <Flex.Item className={styles.textalign}>共{list.num}件商品 合计: ￥{this.multiply(list.num, list.price)}</Flex.Item>
+                            <Flex.Item>{i.store}</Flex.Item>
+                            <Flex.Item className={styles.textalign}>{i.result}</Flex.Item>
                         </Flex>
-                        <div className={styles.listfooter}>
-                            <Link to={`./eval/${list.id}`} className={styles.eval}>评价</Link>
-                            {/* <Link to="./logistics" className={styles.eval} onClick={this.logistics.bind(this, list.id)}>查看物流</Link> */}
-                            <Link to={`./logistics/${list.id}`} className={styles.eval}>查看物流</Link>
-                            <div className={styles.eval} onClick={this.delete.bind(this, list.id)}>删除订单</div>
-                        </div>
-                    </div>)
-                }
-            </List>
+                    </Link>
+                    <Link to={`./listdetail/${i.id}`} className={styles.color}>
+                    {
+                        i.main.map((list, index) => <div className={styles.contain} key={index}>
+                                <Item multipleLine="true" className={styles.item}>
+                                    <Flex>
+                                        <Flex.Item>
+                                            <div>{list.title}</div>
+                                            <div>{list.sub}</div>
+                                        </Flex.Item>
+                                        <Flex.Item className={styles.flexitem}>
+                                            <div>￥{list.price}</div>
+                                            <div>×{list.num}</div>
+                                        </Flex.Item> 
+                                    </Flex>
+                                </Item>
+                            
+                        </div>)
+                    }
+                    </Link>
+                    <Flex className={styles.allPrice}>
+                        <Flex.Item className={styles.price}>总价￥{this.multiply(i)}</Flex.Item>
+                    </Flex>
+
+                    <div className={styles.listfooter}>
+                        <Link to={`./eval/${i.id}`} className={styles.eval}>评价</Link>
+                        {/* <Link to="./logistics" className={styles.eval} onClick={this.logistics.bind(this, list.id)}>查看物流</Link> */}
+                        <Link to={`./logistics/${i.id}`} className={styles.eval}>查看物流</Link>
+                        <div className={styles.eval} onClick={this.delete.bind(this, i.id)}>删除订单</div>
+                    </div>
+                </List>
+                )}
+            </div>
         )
     }
 }

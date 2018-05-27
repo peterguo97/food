@@ -37,7 +37,7 @@ function RouterConfig({ history }) {
         <Route path="/aboutus" component={Aboutus} />
         <Route path="/logistics/:id" component={Logistics} />
         <Route path="/eval/:id" component={Eval} />
-        <Route path="/order" component={Order} />
+        <Route path="/order/:payment" component={Order} />
         {/* <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
         <Route path="/forget" exact component={ForgetPas} /> */}

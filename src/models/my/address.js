@@ -37,8 +37,10 @@ export default {
         },
         *deleteChange( { payload }, { call, put }) {        
             const message = yield call(deleteList, payload.datas);
-            console.log(message);
-            
+            console.log(message.data);
+            console.log(message.message);
+            console.log(message.data.message);
+              
             if(message) {
                  yield put({ type: 'change', payload: { data: payload.data} }); 
             }  
