@@ -5,6 +5,7 @@ import { Link } from "dva/router";
 import food from "../../../assets/food5.jpg";
 import yay from "../../../assets/yay.jpg";
 import styles from "./order.css";
+import { routerRedux } from 'dva/router';
 
 const Item = List.Item;
 class Order extends Component {
@@ -14,7 +15,10 @@ class Order extends Component {
     refund = () => {   
         this.props.dispatch({ type: 'listdetail/refund'});
     }
-
+    // 确认跳转
+    submit = () => { 
+        this.props.dispatch(routerRedux.push('/logout'));
+    }
     render() {
         const { name, phone, list, address } = this.props.order;
         let price = 0.00;
@@ -60,7 +64,7 @@ class Order extends Component {
                 )}
                 <p style={{color: 'red', float: 'right', paddingRight: 15}}>总价￥{price}</p>
                 <footer className={styles.footer}>
-                   <Button type="primary">确认</Button>
+                   <Button type="primary" onClick={this.submit}>确认</Button>
                 </footer>
             </div>
         );
