@@ -5,6 +5,7 @@ import Detail from './components/detail';
 
 import List from './routes/my/list/ShoppingList';
 import ListDetail from './routes/my/list/ListDetail';
+import Order from './routes/my/list/Order';
 import Shopping from './routes/my/shopping/Shopping';
 import Aboutus from './routes/my/aboutus/Aboutus';
 import Address from './routes/my/address/Address';
@@ -36,7 +37,7 @@ function RouterConfig({ history }) {
         <Route path="/aboutus" component={Aboutus} />
         <Route path="/logistics/:id" component={Logistics} />
         <Route path="/eval/:id" component={Eval} />
-
+        <Route path="/order/:payment" component={Order} />
         {/* <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
         <Route path="/forget" exact component={ForgetPas} /> */}

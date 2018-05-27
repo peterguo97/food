@@ -1478,7 +1478,8 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
 }
 
 .tpl-pagination .am-disabled a,
-.tpl-pagination li a {
+.tpl-pagination li a,
+.tpl-pagination li span {
     color: #23abf0;
     border-radius: 3px;
     padding: 6px 12px;

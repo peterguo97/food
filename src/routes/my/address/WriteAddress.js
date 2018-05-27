@@ -7,16 +7,19 @@ import { connect } from "dva";
 const Item = List.Item;
 
 class WriteAddress extends Component {
+    value(e) {
+        console.log(e)
+    }
     submit = () => {
         this.props.form.validateFields((error, value) => {
             let num = 0;
-            let j = 0;
+            let j = 0; 
             for(let i in value) {
                 if(value[i]) {
                     num++;     
                 }
                 j++;
-            }   
+            }
             if(num === j) {
                
                 const reg = /^(13[0-9]|14[579]|15[012356789]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;
@@ -26,6 +29,28 @@ class WriteAddress extends Component {
                    Toast.info('手机号有误！', 1); 
                 } else {
                     console.log('填写成功');
+                    let mainAddress = '';
+                    district.map(e => {
+                      
+                        if (e.value === value.district[0]) {
+                            mainAddress += e.label;
+                            e.children.map(i => {
+                                if (i.value === value.district[1]) {
+                                    mainAddress += i.label;
+                                    i.children.map(j => {
+                                        if (j.value === value.district[2]) {
+                                            mainAddress += j.label;
+                                        }
+                                        return null;
+                                    });
+                                }
+                                return null;
+                            })
+                        }
+                        return null;
+                    });
+                    
+                    value['mainAddress'] = mainAddress;      
                     this.props.dispatch({ type: 'writeAddress/sendInfo', payload: value });
                 }
                 
@@ -42,6 +67,8 @@ class WriteAddress extends Component {
         });
     }
     render() {
+        console.log(district);
+        
         const { getFieldProps } = this.props.form;
         const { name, phone, address, information } = this.props.writeAddress;
         return (
@@ -64,10 +91,7 @@ class WriteAddress extends Component {
                         initialValue: address,
                     })}
                     title="地址"
-                    onOk={e => {
-                        
-                        console.log(district)
-                    }}
+                    onOk={e => console.log(e)}
                     onDismiss={e => console.log('dismiss', e)}
                 >
                     <Item arrow="horizontal">地址</Item>

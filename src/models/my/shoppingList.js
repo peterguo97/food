@@ -31,8 +31,14 @@ export default {
             yield put({ type: 'save', payload: data });
         },
         *delete({ payload }, { call, put }) {
-            yield call(listItem, payload.id);
-            yield put({ type: 'deleteSave', payload: payload.data});
+            const data = yield call(listItem, payload.id);         
+            if(data.data) {
+                 yield put({
+                   type: 'deleteSave',
+                   payload: payload.data
+                 });
+            }
+           
         },
         // *logis({ payload }, { call, put}) {
         //     const  data = yield call(logistics, payload);

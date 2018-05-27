@@ -98,58 +98,6 @@
                 <span class="tpl-dropdown-content-font"> 为了能最准确的传达所描述的问题， 建议你在反馈时附上演示，方便我们理解。 </span>
               </a>
             </li>
-          </ul>
-        </li>
-        <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-          <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-            <span class="am-icon-calendar"></span> 进度
-            <span class="am-badge tpl-badge-primary am-round">4</span>
-          </a>
-          <ul class="am-dropdown-content tpl-dropdown-content">
-            <li class="tpl-dropdown-content-external">
-              <h3>你有
-                <span class="tpl-color-primary">4</span> 个任务进度</h3>
-              <a href="###">全部</a>
-            </li>
-            <li>
-              <a href="javascript:;" class="tpl-dropdown-content-progress">
-                <span class="task">
-                  <span class="desc">Amaze UI 用户中心 v1.2 </span>
-                  <span class="percent">45%</span>
-                </span>
-                <span class="progress">
-                  <div class="am-progress tpl-progress am-progress-striped">
-                    <div class="am-progress-bar am-progress-bar-success" style="width:45%"></div>
-                  </div>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:;" class="tpl-dropdown-content-progress">
-                <span class="task">
-                  <span class="desc">新闻内容页 </span>
-                  <span class="percent">30%</span>
-                </span>
-                <span class="progress">
-                  <div class="am-progress tpl-progress am-progress-striped">
-                    <div class="am-progress-bar am-progress-bar-secondary" style="width:30%"></div>
-                  </div>
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:;" class="tpl-dropdown-content-progress">
-                <span class="task">
-                  <span class="desc">管理中心 </span>
-                  <span class="percent">60%</span>
-                </span>
-                <span class="progress">
-                  <div class="am-progress tpl-progress am-progress-striped">
-                    <div class="am-progress-bar am-progress-bar-warning" style="width:60%"></div>
-                  </div>
-                </span>
-              </a>
-            </li>
 
           </ul>
         </li>
@@ -198,6 +146,8 @@
 
 
   <div class="tpl-page-container tpl-page-header-fixed">
+
+
     <div class="tpl-left-nav tpl-left-nav-hover">
       <div class="tpl-left-nav-title">
         Amaze UI 列表
@@ -210,80 +160,49 @@
               <span>首页</span>
             </a>
           </li>
-          <li class="tpl-left-nav-item">
-            <a href="chart.html" class="nav-link tpl-left-nav-link-list">
-              <i class="am-icon-bar-chart"></i>
-              <span>数据表</span>
-              <i class="tpl-left-nav-content tpl-badge-danger">
-                12
-              </i>
-            </a>
-          </li>
 
           <li class="tpl-left-nav-item">
-            <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+            <!-- 打开状态 a 标签添加 active 即可   -->
+            <a href="javascript:;" class="nav-link tpl-left-nav-link-list active">
               <i class="am-icon-table"></i>
-              <span>表格</span>
-              <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+              <span>商品</span>
+              <!-- 列表打开状态的i标签添加 tpl-left-nav-more-ico-rotate 图表即90°旋转  -->
+              <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
             </a>
-            <ul class="tpl-left-nav-sub-menu">
+            <ul class="tpl-left-nav-sub-menu" style="display:block">
               <li>
-                <a href="table-font-list.html">
+                <!-- 打开状态 a 标签添加 active 即可   -->
+                <a href="table-font-list.html" class="active">
                   <i class="am-icon-angle-right"></i>
-                  <span>文字表格</span>
+                  <span>商品管理</span>
+                  <!-- <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i> -->
+                </a>
+                <a href="table-classify.html">
+                  <i class="am-icon-angle-right"></i>
+                  <span>分类管理</span>
+                  <!-- <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i> -->
+                </a>
+                <!-- <a href="table-commit-list.html">
+                  <i class="am-icon-angle-right"></i>
+
+                  <span>添加商品</span>
                   <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
-                </a>
-
-                <a href="table-images-list.html">
-                    <i class="am-icon-angle-right"></i>
-                    <span>图片表格</span>
-                    <i class="tpl-left-nav-content tpl-badge-success">
-                    18
-                    </i>
-                </a>
-
-                <a href="form-news.html">
-                    <i class="am-icon-angle-right"></i>
-                    <span>消息列表</span>
-                    <i class="tpl-left-nav-content tpl-badge-primary">
-                        5
-                    </i>
-                </a>
-
-                <a href="form-news-list.html">
-                    <i class="am-icon-angle-right"></i>
-                    <span>文字列表</span>
-
-                </a>
+                </a> -->
               </li>
             </ul>
           </li>
 
           <li class="tpl-left-nav-item">
-            <!-- 打开状态 a 标签添加 active 即可   -->
-            <a href="javascript:;" class="nav-link tpl-left-nav-link-list active">
+            <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
               <i class="am-icon-wpforms"></i>
               <span>订单</span>
-              <!-- 列表打开状态的i标签添加 tpl-left-nav-more-ico-rotate 图表即90°旋转  -->
-              <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
+              <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
             </a>
-            <!-- 打开状态 添加 display:block-->
-            <ul class="tpl-left-nav-sub-menu" style="display: block;">
+            <ul class="tpl-left-nav-sub-menu">
               <li>
-                <!-- 打开状态 a 标签添加 active 即可   -->
                 <a href="list.html">
-                    <i class="am-icon-angle-right"></i>
-                    <span>订单管理</span>
-                </a>
-                <a href="form-amazeui.html" class="active">
                   <i class="am-icon-angle-right"></i>
-                  <span>Amaze UI 表单</span>
-                  <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
-                </a>
-
-                <a href="form-line.html">
-                  <i class="am-icon-angle-right"></i>
-                  <span>线条表单</span>
+                  <span>订单管理</span>
                 </a>
               </li>
             </ul>
@@ -306,105 +225,64 @@
 
     <div class="tpl-content-wrapper">
       <div class="tpl-content-page-title">
-        Amaze UI 表单
+        Amaze UI 添加商品
       </div>
       <ol class="am-breadcrumb">
         <li>
           <a href="#" class="am-icon-home">首页</a>
         </li>
         <li>
-          <a href="#">表单</a>
+          <a href="#">商品</a>
         </li>
-        <li class="am-active">Amaze UI 表单</li>
+        <li class="am-active">编辑商品</li>
       </ol>
       <div class="tpl-portlet-components">
-        <div class="portlet-title">
-          <div class="caption font-green bold">
-            <span class="am-icon-code"></span> 表单
-          </div>
-          <div class="tpl-portlet-input tpl-fz-ml">
-            <div class="portlet-input input-small input-inline">
-              <div class="input-icon right">
-                <i class="am-icon-search"></i>
-                <input type="text" class="form-control form-control-solid" placeholder="搜索..."> </div>
+        <form class="am-form">
+          <fieldset>
+            <legend>表单标题</legend>
+
+            <div class="am-form-group">
+              <label>商品名称</label>
+              <input type="text" class="" id="goods_name" placeholder="">
             </div>
-          </div>
 
-
-        </div>
-        <div class="tpl-block ">
-
-          <div class="am-g tpl-amazeui-form">
-
-
-            <div class="am-u-sm-12 am-u-md-9">
-              <form class="am-form am-form-horizontal">
-                <div class="am-form-group">
-                  <label for="user-name" class="am-u-sm-3 am-form-label">姓名 / Name</label>
-                  <div class="am-u-sm-9">
-                    <input type="text" id="user-name" placeholder="姓名 / Name">
-                    <small>输入你的名字，让我们记住你。</small>
-                  </div>
-                </div>
-
-                <div class="am-form-group">
-                  <label for="user-email" class="am-u-sm-3 am-form-label">电子邮件 / Email</label>
-                  <div class="am-u-sm-9">
-                    <input type="email" id="user-email" placeholder="输入你的电子邮件 / Email">
-                    <small>邮箱你懂得...</small>
-                  </div>
-                </div>
-
-                <div class="am-form-group">
-                  <label for="user-phone" class="am-u-sm-3 am-form-label">电话 / Telephone</label>
-                  <div class="am-u-sm-9">
-                    <input type="tel" id="user-phone" placeholder="输入你的电话号码 / Telephone">
-                  </div>
-                </div>
-
-                <div class="am-form-group">
-                  <label for="user-QQ" class="am-u-sm-3 am-form-label">QQ</label>
-                  <div class="am-u-sm-9">
-                    <input type="number" pattern="[0-9]*" id="user-QQ" placeholder="输入你的QQ号码">
-                  </div>
-                </div>
-
-                <div class="am-form-group">
-                  <label for="user-weibo" class="am-u-sm-3 am-form-label">微博 / Twitter</label>
-                  <div class="am-u-sm-9">
-                    <input type="text" id="user-weibo" placeholder="输入你的微博 / Twitter">
-                  </div>
-                </div>
-
-                <div class="am-form-group">
-                  <label for="user-intro" class="am-u-sm-3 am-form-label">简介 / Intro</label>
-                  <div class="am-u-sm-9">
-                    <textarea class="" rows="5" id="user-intro" placeholder="输入个人简介"></textarea>
-                    <small>250字以内写出你的一生...</small>
-                  </div>
-                </div>
-
-                <div class="am-form-group">
-                  <div class="am-u-sm-9 am-u-sm-push-3">
-                    <button type="button" class="am-btn am-btn-primary">保存修改</button>
-                  </div>
-                </div>
-              </form>
+            <div class="am-form-group am-form-file">
+              <label>商品图片</label>
+              <div class="am-form-group am-form-file">
+                <button type="button" class="am-btn am-btn-default am-btn-sm">
+                  <i class="am-icon-cloud-upload"></i> 选择要上传的图片</button>
+                <input type="file" multiple>
+              </div>
             </div>
-          </div>
-        </div>
+            <div class="am-form-group">
+              <label>商品价格</label>
+              <input type="text" class="" id="goods_1" placeholder="">
+            </div>
+            <div class="am-form-group">
+              <label>商品库存</label>
+              <input type="text" class="" id="goods_2" placeholder="">
+            </div>
+            <div class="am-form-group">
+              <label for="doc-select-1">选择商品分类</label>
+              <select id="doc-select-1">
+                <option value="option1">......</option>
+                <option value="option1">选项一...</option>
+                <option value="option2">选项二.....</option>
+                <option value="option3">选项三........</option>
+              </select>
+              <span class="am-form-caret"></span>
+            </div>
+            <div class="am-form-group">
+              <label for="doc-ta-1">请输入商品描述</label>
+              <textarea class="" rows="5" id="doc-ta-1"></textarea>
+            </div>
 
+            <p>
+              <button type="submit" class="am-btn am-btn-default">提交</button>
+            </p>
+          </fieldset>
+        </form>
       </div>
-
-
-
-
-
-
-
-
-
-
     </div>
 
   </div>
@@ -413,6 +291,7 @@
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/amazeui.min.js"></script>
   <script src="assets/js/app.js"></script>
+
 </body>
 
 </html>

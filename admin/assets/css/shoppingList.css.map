@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAEI,cAAE;EACE,OAAO,EAAE,SAAS;EAClB,OAAO,EAAE,YAAY;EACrB,KAAK,EAAE,IAAI;AAGX,YAAa;EACR,aAAa,EAAE,cAAc",
+"mappings": "AAEI,cAAE;EACE,aAAa,EAAE,IAAI;EACnB,OAAO,EAAE,SAAS;EAClB,OAAO,EAAE,YAAY;EACrB,KAAK,EAAE,IAAI;AAGX,YAAa;EACR,aAAa,EAAE,cAAc",
 "sources": ["shoppingList.scss"],
 "names": [],
 "file": "shoppingList.css"

@@ -1,4 +1,4 @@
-
+import { getShopping } from "../../services/shopping";
 export default {
 
     namespace: 'shopping',
@@ -15,12 +15,20 @@ export default {
 
     subscriptions: {
         setup({ dispatch, history }) {  // eslint-disable-line
+             history.listen(({ pathname }) => {
+                if (pathname === '/shopping') {         
+                     dispatch({
+                       type: 'fetch'
+                     });
+                }
+            });
         },
     },
 
     effects: {
         *fetch({ payload }, { call, put }) {  // eslint-disable-line
-            yield put({ type: 'save' });
+            const data = yield call(getShopping)
+            yield put({ type: 'save', payload: data });
         },
     },
 
@@ -28,9 +36,7 @@ export default {
         save(state, action) {
             return { ...state, ...action.payload };
         },
-        change(state, { payload }) {
-            console.log(payload);
-            
+        change(state, { payload }) {    
             return { ...state, ...payload };
         }
     },
