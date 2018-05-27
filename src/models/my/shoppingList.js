@@ -42,7 +42,7 @@ export default {
         },
         *delete({ payload }, { call, put }) {
             const data = yield call(listItem, payload.id);
-            if(data) {
+            if(data.data.message) {
                  yield put({
                    type: 'deleteSave',
                    payload: payload.data

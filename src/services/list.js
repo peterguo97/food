@@ -1,14 +1,8 @@
 import request from '../utils/request';
 
 export function listItem(json) {
-    json = json || 'list';
-    return request('./list/data', {
-        method: 'POST',
-         headers: {
-           'Content-Type': 'application/json'
-         },
-
-        body: JSON.stringify(json)
+    return request('./list/show', {
+        method: 'get',
     });
 }
 

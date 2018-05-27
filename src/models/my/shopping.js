@@ -37,10 +37,10 @@ export default {
         },
         *pay({ payload }, { call, put}) {
             const data = yield call(isPay, payload);
-            if(data.message === 'address') {
-                yield put(routerRedux.push('/address'));
-            } else if(data.message === 'order') {
-                yield put(routerRedux.push('/order'));
+            if(data.data.message === 'address') {
+                yield put(routerRedux.push(`/write/0/${data.data.id}`));
+            } else if(data.data.message === 'success') {
+                yield put(routerRedux.push(`/order/${data.data.id}`));
             }
         },
         *deleteChange({ payload }, { call, put}) {
