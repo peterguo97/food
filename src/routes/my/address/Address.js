@@ -30,13 +30,16 @@ class Address extends Component {
                 
                 const datas = this.props.address.data;
                 let arr = [];
+                let arrAfter = [];
                 datas.map(i => {
-                    if(i.id !== id) {
+                    if(i.id === id) {
                         arr.push(i);
+                    } else {
+                        arrAfter.push(i);
                     };
                     return null;
-                }); 
-                this.props.dispatch({ type: 'address/deleteChange', payload: arr});
+                });
+                this.props.dispatch({ type: 'address/deleteChange', payload: {datas: arr, data: arrAfter}});
             } },
         ])
     }

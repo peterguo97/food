@@ -36,16 +36,20 @@ export default {
             yield put({ type: 'change', payload: payload })
         },
         *deleteChange( { payload }, { call, put }) {        
-            const { data }= yield call(deleteList, payload);
-            yield put({ type: 'change', paylaod: data})
+            const message = yield call(deleteList, payload.datas);
+            console.log(message);
+            
+            if(message) {
+                 yield put({ type: 'change', payload: { data: payload.data} }); 
+            }  
         }
     },
 
     reducers: {
-        save(state, action) {
+        save(state, action) { 
             return { ...state, ...action.payload };
         },
-        change(state, { payload}) {
+        change(state, { payload }) {
             return { ...state, ...payload };
         }
     },

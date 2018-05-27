@@ -31,8 +31,8 @@ export default {
             yield put({ type: 'save', payload: data });
         },
         *delete({ payload }, { call, put }) {
-            const data = yield call(listItem, payload.id);         
-            if(data.data) {
+            const data = yield call(listItem, payload.id);
+            if(data) {
                  yield put({
                    type: 'deleteSave',
                    payload: payload.data
@@ -63,7 +63,6 @@ export default {
             return { ...state, ...action.payload };
         },
         deleteSave(state, { payload }) {
-
             return { ...state, data: payload };
         }
     },
