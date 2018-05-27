@@ -7,14 +7,14 @@ export default {
 
     state: {
         data: [
-            { id: 5, store: '饲料公司', result: '交易成功',
+            { id: 5, store: '饲料公司', result: '交易成功', isPay: true,
                 main: [
                     {title: '商品', num: 2, price: 250},
                     {title: '商品', num: 2, price: 250},
                     {title: '商品', num: 2, price: 250}
                 ]
             },
-            { id: 6, store: '饲料公司', result: '交易成功',
+            { id: 6, store: '饲料公司', result: '交易成功', isPay: false,
                 main: [
                     {title: '商品', num: 2, price: 250},
                 ]

@@ -90,9 +90,8 @@ class ShoppingList extends Component {
                     </Flex>
 
                     <div className={styles.listfooter}>
-                        <Link to={`./eval/${i.id}`} className={styles.eval}>评价</Link>
+                        {i.isPay?<Link to={`./order/${i.id}`} className={styles.eval}>待付款</Link>:<Link to={`./eval/${i.id}`} className={styles.eval}>评价</Link>}
                         {/* <Link to="./logistics" className={styles.eval} onClick={this.logistics.bind(this, list.id)}>查看物流</Link> */}
-                        <Link to={`./logistics/${i.id}`} className={styles.eval}>查看物流</Link>
                         <div className={styles.eval} onClick={this.delete.bind(this, i.id)}>删除订单</div>
                     </div>
                 </List>
