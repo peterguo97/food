@@ -51,6 +51,27 @@ class ListFooter extends React.Component {
             Toast.fail('下单失败!',1);
         })
     }
+    
+    addList(){
+        let list = this.props.list;
+        let arr = [];
+        list.forEach((item)=>{
+            let obj={};
+            obj.id = item.id;
+            obj.num = item.num;
+            arr.push(obj);
+        })
+        axios.post("/shopcart/store",{
+            list: arr
+        }).then((response)=>{
+            if(response.status >= 200 && response.status <= 300){
+                Toast.success('已加入购物车!', 1);
+            }
+        }).catch((err)=>{
+            console.log(err);
+            Toast.fail('加入购物车失败!',1);
+        })
+    }
 
     getPrice(arr){
         let tempprice = 0;

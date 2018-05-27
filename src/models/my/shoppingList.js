@@ -7,10 +7,20 @@ export default {
 
     state: {
         data: [
-            { id: 5, title: '商品', sub: '1', price: 250, num: 2, store: '饲料公司', result: '交易成功', img: '' },
-            { id: 2, title: '评价', sub: '2', price: 250, num: 2, store: '饲料公司', result: '交易成功', img: '' },
-            { id: 3, title: '商家', sub: '3', price: 250, num: 2, store: '饲料公司', result: '交易成功', img: '' },
+            { id: 5, store: '饲料公司', result: '交易成功',
+                main: [
+                    {title: '商品', num: 2, price: 250},
+                    {title: '商品', num: 2, price: 250},
+                    {title: '商品', num: 2, price: 250}
+                ]
+            },
+            { id: 6, store: '饲料公司', result: '交易成功',
+                main: [
+                    {title: '商品', num: 2, price: 250},
+                ]
+            }
         ]
+       
     },
 
     subscriptions: {
@@ -31,8 +41,8 @@ export default {
             yield put({ type: 'save', payload: data });
         },
         *delete({ payload }, { call, put }) {
-            const data = yield call(listItem, payload.id);         
-            if(data.data) {
+            const data = yield call(listItem, payload.id);
+            if(data) {
                  yield put({
                    type: 'deleteSave',
                    payload: payload.data
@@ -63,7 +73,6 @@ export default {
             return { ...state, ...action.payload };
         },
         deleteSave(state, { payload }) {
-
             return { ...state, data: payload };
         }
     },

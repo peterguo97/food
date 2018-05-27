@@ -4,13 +4,24 @@ export function listItem(json) {
     json = json || 'list';
     return request('./list/data', {
         method: 'POST',
+         headers: {
+           'Content-Type': 'application/json'
+         },
+
         body: JSON.stringify(json)
     });
 }
 
-export function orders(json) {   
+export function orders(json) {  
+  
     return request('./order/show', {
-        method: 'GET'
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify(json)
+
     });
 }
 

@@ -41,9 +41,9 @@
     border-radius: 10px; }
 
 .footer {
-  position: fixed;
-  bottom: 0;
   width: 100%;
-  height: 46px; }
+  margin-top: 20px;
+  height: 46px;
+  clear: both; }
 
-/*# sourceMappingURL=order.css.map */
+/*# sourceMappingURL=Order.css.map */

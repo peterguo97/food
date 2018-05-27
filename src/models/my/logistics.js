@@ -10,7 +10,7 @@ export default {
     subscriptions: {
         setup({ dispatch, history }) {
             history.listen(({ pathname }) => {
-                const address = pathname.includes('/logistics/');            
+                const address = pathname.includes('/logistics/'); 
                 if (address) {
                     dispatch({
                         type: 'fetch',

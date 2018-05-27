@@ -7,7 +7,7 @@ export default {
 
     state: {
         id: '',
-        name: '小小',
+        name: '',
         phone: '',
         address: [
             '11', '1101', '110101'
@@ -32,7 +32,7 @@ export default {
 
     effects: {
         *fetch({ payload }, { call, put }) {  // eslint-disable-line
-            const data = yield call(address, payload);
+            const { data } = yield call(address, payload);
             yield put({ type: 'save', payload: data });
         },
         *sendInfo( { payload }, { call, put }) {

@@ -1,11 +1,13 @@
 .color {
   color: #000; }
 
+.list {
+  margin-bottom: 15px; }
+
 .list > div {
   background-color: #f5f5f9; }
 
 .contain {
-  margin-bottom: 15px;
   background-color: #eee; }
   .contain img {
     width: 44px;
@@ -22,10 +24,17 @@
 .item {
   background-color: rgba(255, 255, 255, 0.8); }
 
+.allPrice {
+  background-color: #fff;
+  padding: 10px 5px; }
+  .price {
+    text-align: right; }
+
 .listfooter {
   display: flex;
   flex-direction: row-reverse;
-  padding-top: 5px; }
+  padding-top: 5px;
+  clear: both; }
   .eval {
     margin-left: 5px;
     padding: 5px 15px;

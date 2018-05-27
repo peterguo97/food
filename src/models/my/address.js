@@ -1,5 +1,6 @@
 import { address } from "../../services/address";
 import { staticAddress } from "../../services/address";
+import { deleteList } from "../../services/address";
 
 export default {
 
@@ -33,14 +34,24 @@ export default {
         *staticaddress( { payload }, { call, put }) {          
             yield call(staticAddress, {id: payload.id, staticaddress: payload.staticaddress});
             yield put({ type: 'change', payload: payload })
+        },
+        *deleteChange( { payload }, { call, put }) {        
+            const message = yield call(deleteList, payload.datas);
+            console.log(message.data);
+            console.log(message.message);
+            console.log(message.data.message);
+              
+            if(message) {
+                 yield put({ type: 'change', payload: { data: payload.data} }); 
+            }  
         }
     },
 
     reducers: {
-        save(state, action) {
+        save(state, action) { 
             return { ...state, ...action.payload };
         },
-        change(state, { payload}) {
+        change(state, { payload }) {
             return { ...state, ...payload };
         }
     },

@@ -17,8 +17,11 @@ class Order extends Component {
 
     render() {
         const { name, phone, list, address } = this.props.order;
-        console.log(name);
-        
+        let price = 0.00;
+        list.map(i => {     
+            price += i.price * i.num;
+            return null;
+        })
         return(
             <div className={styles.main}>
                 <img src={yay} alt="交易成功" height="80" width="100%"/>
@@ -27,31 +30,35 @@ class Order extends Component {
                     <p>电话号码：{phone}</p>
                     <p>收货地址：{address}</p>
                 </header>
-                <List className={styles.list}>
-                    <Link to={`../${list.id}/detail`} className={styles.color}>
-                        <Flex className={styles.listheader}>
-                            <Flex.Item>{list.store}</Flex.Item>
-                            <Flex.Item className={styles.textalign}>{list.result}</Flex.Item>
-                        </Flex>
-                   
-                        <Item thumb={food} multipleLine="true" className={styles.item}>
-                            <Flex>
-                                <Flex.Item>
-                                    <div>{list.title}</div>
-                                    <div>{list.sub}</div>
-                                </Flex.Item>
-                                <Flex.Item className={styles.flexitem}>
-                                    <div>￥{list.price}</div>
-                                    <div>×{list.num}</div>
-                                </Flex.Item>
-
+                {
+                  list.map(i => 
+                     <List className={styles.list} key={i.id}>
+                        <Link to={`../${list.id}/detail`} className={styles.color} key={i.id}>
+                            <Flex className={styles.listheader}>
+                                <Flex.Item>{i.store}</Flex.Item>
+                                <Flex.Item className={styles.textalign}>{i.result}</Flex.Item>
                             </Flex>
-                        </Item>
-                    </Link>
-                    <Flex className={styles.listheader}>
-                        <Flex.Item className={styles.textalign}>共{list.num}件商品 合计: ￥{this.multiply(list.num, list.price)}</Flex.Item>
-                    </Flex>
-                </List>
+                    
+                            <Item thumb={food} multipleLine="true" className={styles.item}>
+                                <Flex>
+                                    <Flex.Item>
+                                        <div>{i.title}</div>
+                                        <div>{i.sub}</div>
+                                    </Flex.Item>
+                                    <Flex.Item className={styles.flexitem}>
+                                        <div>￥{i.price}</div>
+                                        <div>×{i.num}</div>
+                                    </Flex.Item>
+
+                                </Flex>
+                            </Item>
+                        </Link>
+                        <Flex className={styles.listheader}>
+                            <Flex.Item className={styles.textalign}>共{i.num}件商品 合计: ￥{this.multiply(i.num, i.price)}</Flex.Item>
+                        </Flex>
+                    </List>
+                )}
+                <p style={{color: 'red', float: 'right', paddingRight: 15}}>总价￥{price}</p>
                 <footer className={styles.footer}>
                    <Button type="primary">确认</Button>
                 </footer>
