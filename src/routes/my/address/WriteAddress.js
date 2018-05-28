@@ -29,33 +29,35 @@ class WriteAddress extends Component {
                 if (!reg.test(phoneNum)) {
                    Toast.info('手机号有误！', 1); 
                 } else {
-                    let mainAddress = '';
-                    district.map(e => {
-                      
-                        if (e.value === value.district[0]) {
-                            mainAddress += e.label;
-                            e.children.map(i => {
-                                if (i.value === value.district[1]) {
-                                    mainAddress += i.label;
-                                    i.children.map(j => {
-                                        if (j.value === value.district[2]) {
-                                            mainAddress += j.label;
-                                        }
-                                        return null;
-                                    });
-                                }
-                                return null;
-                            })
-                        }
-                        return null;
-                    });
-                    
-                    value['mainAddress'] = mainAddress;    
-                    this.props.dispatch({ type: 'writeAddress/sendInfo', payload: value });
-                }
-                console.log(this.props.match);
-                if(this.props.match.params.jump){
-                    this.props.dispatch(routerRedux.push('/list'));
+                   
+                    if(this.props.match.params.jump){
+                        this.props.dispatch({ type: 'writeAddress/sendInfoLink', payload: value});
+                        // this.props.dispatch(routerRedux.push('/list'));
+                    } else {
+                        let mainAddress = '';
+                        district.map(e => {
+                        
+                            if (e.value === value.district[0]) {
+                                mainAddress += e.label;
+                                e.children.map(i => {
+                                    if (i.value === value.district[1]) {
+                                        mainAddress += i.label;
+                                        i.children.map(j => {
+                                            if (j.value === value.district[2]) {
+                                                mainAddress += j.label;
+                                            }
+                                            return null;
+                                        });
+                                    }
+                                    return null;
+                                })
+                            }
+                            return null;
+                        });
+                        
+                        value['mainAddress'] = mainAddress;    
+                        this.props.dispatch({ type: 'writeAddress/sendInfo', payload: value });     
+                    }
                 }
             } else {
                 Toast.info('你还没有填完！', 1);

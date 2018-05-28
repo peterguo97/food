@@ -41,12 +41,17 @@ export default {
             if(data.data.message) {
                 yield put(routerRedux.push('/address'));
             }
+        },
+        *sendInfoLink( { payload }, { call, put }) {
+            const data = yield call(addressInfo, payload);
+            if (data.data.message) {
+              yield put(routerRedux.push('/list'));
+            }
         }
     },
 
     reducers: {
-        save(state, action) {
-            
+        save(state, action) {  
             return { ...state, ...action.payload };
         },
     },
