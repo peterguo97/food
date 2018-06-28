@@ -5,22 +5,14 @@ export default {
     namespace: 'listdetail',
 
     state: {
-        id: 5,
+        id: '',
         name: '',
         phone: '',
-        store: 'XXX公司',
-        result: '交易成功',
-        list: [
-           {img: '', num: 2, price: 250, title: '商品1'},
-           {img: '', num: 2, price: 250, title: '商品2'}
-        ],
-        footer: {
-            // 订单编号
-            num1: 20505466,
-            time: '2018-5-11 08:12:55',
-            endtime: '2018-5-20 08:12:55'
-        },
-        storeId: 5
+        store: '',
+        result: '',
+        list: [],
+        footer: {},
+        storeId: ''
     },
 
     subscriptions: {

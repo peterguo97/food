@@ -19,18 +19,6 @@ function removeItem(_arr) {
 }
 
 class Shopping extends Component {
-    // constructor() {
-    //     super();
-    //     this.state = {
-    //         data: [
-    //             {id: 1, intro: '这是一袋小狗饲料啦啦啦啦啦啦啦啦啦啦啦', checked: false, num: 1, price: 250},
-    //             {id: 2, intro: '这是一袋小狗饲料啦啦啦啦啦啦啦啦啦啦啦', checked: false, num: 1, price: 250},
-    //             {id: 3, intro: '这是一袋小狗饲料啦啦啦啦啦啦啦啦啦啦啦', checked: false, num: 1, price: 250}
-    //         ],
-    //         checkedAll: false,
-    //         priceAll: 0.00
-    //     }
-    // }
     change = (item) => {
         const datas = this.props.shopping.data;
         
@@ -119,6 +107,7 @@ class Shopping extends Component {
         //     checkedAll: !checked
         // })
     }
+
     remove = () => {
         const datas = this.props.shopping.data;
         const checked = this.props.shopping.checkedAll;
@@ -155,10 +144,8 @@ class Shopping extends Component {
         } else {
             Toast.info('未选择任何商品', 1);
         }
-        
-        
-        
     }
+
     render() {
         const datas = this.props.shopping.data; 
         const checked = this.props.shopping.checkedAll;

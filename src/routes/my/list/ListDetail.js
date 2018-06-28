@@ -43,7 +43,6 @@ class ListDetail extends Component {
                                     <div>￥{list.price}</div>
                                     <div>×{list.num}</div>
                                 </Flex.Item>
-
                             </Flex>
                         </Item>)}
                     </Link>

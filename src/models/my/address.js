@@ -7,10 +7,7 @@ export default {
     namespace: 'address',
 
     state: {
-        data: [
-            { id: 1, name: '小小', phone: 12345678910, address: '河北省保定市莲池区华电路689号河北省啦啦啦啦', checked: true },
-            { id: 2, name: '小小', phone: 12345678910, address: '河北省保定市莲池区华电路689号河北省啦啦啦啦', checked: false }
-        ]
+        data: []
     },
 
     subscriptions: {

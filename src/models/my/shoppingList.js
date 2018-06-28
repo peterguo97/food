@@ -1,13 +1,6 @@
 import { listItem } from "../../services/list";
 // import { routerRedux } from 'dva/router';
-
-export default {
-
-    namespace: 'shoppingList',
-
-    state: {
-        data: [
-            { id: 5, store: '饲料公司', result: '交易成功', isPay: true,
+/* //  { id: 5, store: '饲料公司', result: '交易成功', isPay: true,
                 main: [
                     {title: '商品', num: 2, price: 250},
                     {title: '商品', num: 2, price: 250},
@@ -18,9 +11,14 @@ export default {
                 main: [
                     {title: '商品', num: 2, price: 250},
                 ]
-            }
-        ]
-       
+            } */
+        
+export default {
+
+    namespace: 'shoppingList',
+
+    state: {
+        data: []
     },
 
     subscriptions: {

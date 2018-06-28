@@ -4,8 +4,8 @@ export default {
     namespace: 'user',
 
     state: {
-        img: '!#',
-        name: '我的'
+        img: '',
+        name: ''
     },
 
     subscriptions: {

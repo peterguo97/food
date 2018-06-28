@@ -6,7 +6,7 @@ import { connect } from "dva";
 
 class User extends Component {
     render() {
-        const { img, name} = this.props.user;   
+        const { img, name} = this.props.user;
         return (
             <div className={styles.user}>
                 {/* <img src={UserLogo} alt="头像"/> */}

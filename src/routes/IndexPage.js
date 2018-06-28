@@ -8,8 +8,14 @@ import ShopList from '../components/ShopList';
 import { TabBar } from 'antd-mobile';
 import My from './my/Account';
 import Discover from '../components/discover';
+import user from '../assets/user.svg';
+import userSelect from '../assets/user-select.svg';
+import find from '../assets/find.svg';
+import findSelect from '../assets/find-select.svg';
+import home from '../assets/home.svg';
+import homeSelect from '../assets/home-select.svg';
 
-// <<<<<<< HEAD
+
 class TabBarExample extends React.Component {
   constructor(props) {
     super(props);
@@ -63,13 +69,13 @@ class TabBarExample extends React.Component {
             icon={<div style={{
               width: '22px',
               height: '22px',
-              background: 'url(http://pic.sfont.cn/svg/img/722d8d.svg) center center /  21px 21px no-repeat' }}
+              background: `url(${home}) center center /  21px 21px no-repeat` }}
             />
             }
             selectedIcon={<div style={{
               width: '22px',
               height: '22px',
-              background: 'url(http://pic.sfont.cn/svg/img/8.svg) center center /  21px 21px no-repeat' }}
+              background: `url(${homeSelect}) center center /  21px 21px no-repeat` }}
             />
             }
             selected={this.state.selectedTab === 'blueTab'}
@@ -92,14 +98,14 @@ class TabBarExample extends React.Component {
               <div style={{
                 width: '22px',
                 height: '22px',
-                background: 'url(http://pic.sfont.cn/svg/img/dhjjde.svg) center center /  21px 21px no-repeat' }}        
+                background: `url(${find}) center center /  21px 21px no-repeat` }}        
          />
        }
             selectedIcon={
               <div style={{
                 width: '22px',
                 height: '22px',
-                background: 'url(http://pic.sfont.cn/svg/img/deckej.svg) center center /  21px 21px no-repeat' }}
+                background: `url(${findSelect}) center center /  21px 21px no-repeat` }}
               />
             }
             title="发现"
@@ -115,8 +121,8 @@ class TabBarExample extends React.Component {
             <Discover />
           </TabBar.Item>
           <TabBar.Item
-            icon={{ uri: 'http://pic.sfont.cn/svg/img/e7cdj.svg' }}
-            selectedIcon={{ uri: 'http://pic.sfont.cn/svg/img/827.svg' }}
+            icon={{ uri: `${user}` }}
+            selectedIcon={{ uri: `${userSelect}` }}
             title="我的"
             key="my"
             selected={this.state.selectedTab === 'yellowTab'}

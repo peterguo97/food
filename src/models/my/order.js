@@ -9,11 +9,7 @@ export default {
         name: '',
         phone: '',
         address: '',
-        list: [
-            {id: 1, store: 'XXX公司', result: '确认订单', price: 250,num: 2},
-            {id: 2, store: 'XXX公司', result: '确认订单', price: 250,num: 3},
-            {id: 3, store: 'XXX公司', result: '确认订单', price: 250,num: 3}
-        ]
+        list: []
   },
   subscriptions: {
         setup({ dispatch, history }) {

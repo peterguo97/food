@@ -3,7 +3,6 @@ import { List, TextareaItem, InputItem, Button, Picker, Toast } from 'antd-mobil
 import { district } from 'antd-mobile-demo-data';
 import { createForm } from 'rc-form';
 import { connect } from "dva";
-import { routerRedux } from 'dva/router';
 
 const Item = List.Item;
 
@@ -27,7 +26,7 @@ class WriteAddress extends Component {
                 const num = value.phone.replace(/\s/g, '');
                 const phoneNum = Number(num);
                 if (!reg.test(phoneNum)) {
-                   Toast.info('手机号有误！', 1); 
+                   Toast.info('手机号有误！', 1);
                 } else {
                    
                     if(this.props.match.params.jump){
