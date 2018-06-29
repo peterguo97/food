@@ -1,7 +1,6 @@
 import { getShopping } from "../../services/shopping";
 import { isPay } from "../../services/shopping";
 import { deleteList } from "../../services/shopping";
-
 import { routerRedux } from 'dva/router';
 
 export default {
@@ -14,7 +13,24 @@ export default {
             { id: 2, intro: '这是一袋小狗饲料啦啦啦啦啦啦啦啦啦啦啦', checked: false, num: 1, price: 250, img: '' },
             { id: 3, intro: '这是一袋小狗饲料啦啦啦啦啦啦啦啦啦啦啦', checked: false, num: 1, price: 250, img: '' } */
         
-        data: [],
+        data: [
+            {
+              id: 1,
+              intro: '这是一袋小狗饲料啦dsafd打的地方撒旦地方撒范德萨发撒的发生 法撒旦法撒旦是费大发大发的发顺丰是的发生都十分大方的发生啦啦啦啦啦啦啦啦啦啦',
+              checked: false,
+              num: 1,
+              price: 250,
+              img: ''
+            },
+             {
+               id: 2,
+               intro: '这是发送到',
+               checked: false,
+               num: 1,
+               price: 250,
+               img: ''
+             },
+        ],
         checkedAll: false,
         priceAll: 0.00
     },

@@ -1,16 +1,20 @@
-.checkbox {
-  width: 100%;
-  background-color: #fff; }
+.foodItem {
+  display: flex;
+  padding-bottom: 10px;
+  flex: 1 9; }
+  .itemRight {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    background-color: #fff; }
 
-.item {
-  padding-left: 0; }
-  .intro {
-    font-size: 12px;
+  .imgRight {
+    width: 100%;
     padding-left: 10px; }
-  .item img {
+  .foodItem img {
     width: 50px;
-    height: 50px;
-    margin-top: -10px; }
+    height: 50px; }
 
 .footer {
   position: fixed;
@@ -49,4 +53,4 @@
   .stepper .num {
     line-height: 27px; }
 
-/*# sourceMappingURL=Shopping.css.map */
+/*# sourceMappingURL=shopping.css.map */

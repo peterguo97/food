@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Checkbox, List, Flex, Button, Toast } from "antd-mobile";
-// import food from "../../../assets/yay.jpg";
+import { Checkbox, Flex, Button, Toast } from "antd-mobile";
+import food from "../../../assets/test.png";
 import styles from "./Shopping.css";
 import { connect } from "dva";
 
 const CheckboxItem = Checkbox.CheckboxItem;
-const Item = List.Item;
+// const Item = List.Item;
 
 
 function removeItem(_arr) {
@@ -21,9 +21,9 @@ function removeItem(_arr) {
 class Shopping extends Component {
     change = (item) => {
         const datas = this.props.shopping.data;
-        
         let price = this.props.shopping.priceAll;
-
+        console.log(item);
+        
         datas.map(i => {
             if(i.id === item.id) {
                 i.checked = !item.checked;
@@ -149,49 +149,57 @@ class Shopping extends Component {
     render() {
         const datas = this.props.shopping.data; 
         const checked = this.props.shopping.checkedAll;
-        
+        const checkbox = {
+            backgroundColor: '#fff',
+            overflow: 'inherit',
+            paddingLeft: 5
+        }
         return(
-            <div>
-                <List>
-                    {datas.map(i => 
-                        <CheckboxItem key={i.id} onChange={(item) => { this.change(i)}} style={{backgroundColor: '#fff'}} checked={i.checked}>
-                                <Item thumb={i.img} multipleLine="true" className={styles.item} wrap>
-                                <Flex className={styles.intro}>
-                                        <Flex.Item>
-                                            {i.intro}
-                                        </Flex.Item>
-                                    </Flex>
-                                    <Flex className={styles.intro}>
-                                        <Flex.Item>
-                                            ￥{i.price}
-                                        </Flex.Item>
-                                        <Flex.Item className={styles.stepper}>
-                                            <Button onClick={(item) => this.decrease(i)}>-</Button>
-                                            <div className={styles.num}>{i.num}</div>
-                                            <Button onClick={(item) => this.add(i)}>+</Button>
-                                        </Flex.Item>
-                                    </Flex>
-                                </Item>
-                        </CheckboxItem>
-                    )}
-                </List>
-                <Flex className={styles.footer}>
-                    <Flex.Item className={styles.btn}>
-                        <CheckboxItem style={{ backgroundColor: '#fff' }} checked={checked} onChange={this.checkAll}>
-                            全选
-                        </CheckboxItem>
-                    </Flex.Item>
-                    <Flex.Item className={styles.price}>
-                        ￥{this.props.shopping.priceAll}
-                    </Flex.Item>
-                    <Flex.Item className={styles.remove} onClick={this.remove}>
-                        清除
-                    </Flex.Item>
-                    <Flex.Item className={styles.pay} onClick={this.pay}>
-                        支付
-                    </Flex.Item>
-                </Flex>
-            </div>
+        <div>
+            {datas.map(i => 
+                <div key={i.id} className={styles.foodItem}>
+                    <CheckboxItem key={i.id} onChange={(item) => { this.change(i)} } checked={i.checked} style={checkbox}>
+                    </CheckboxItem>
+                    <div className={styles.itemRight}>
+                        <img src={food} alt={i.id}/>
+                        <div className={styles.imgRight}>
+                            <Flex className={styles.intro}>
+                                <Flex.Item>
+                                    {i.intro.length>20?i.intro.substr(0,20):i.intro}
+                                </Flex.Item>
+                            </Flex>
+                            <Flex className={styles.intro}>
+                                <Flex.Item>
+                                    ￥{i.price}
+                                </Flex.Item>
+                                <Flex.Item className={styles.stepper}>
+                                    <Button onClick={(item) => this.decrease(i)}>-</Button>
+                                    <div className={styles.num}>{i.num}</div>
+                                    <Button onClick={(item) => this.add(i)}>+</Button>
+                                </Flex.Item>
+                            </Flex>
+                        </div>   
+                    </div>
+                </div>
+            )}
+            
+            <Flex className={styles.footer}>
+                <Flex.Item className={styles.btn}>
+                    <CheckboxItem style={{ backgroundColor: '#fff' }} checked={checked} onChange={this.checkAll}>
+                        全选
+                    </CheckboxItem>
+                </Flex.Item>
+                <Flex.Item className={styles.price}>
+                    ￥{this.props.shopping.priceAll}
+                </Flex.Item>
+                <Flex.Item className={styles.remove} onClick={this.remove}>
+                    清除
+                </Flex.Item>
+                <Flex.Item className={styles.pay} onClick={this.pay}>
+                    支付
+                </Flex.Item>
+            </Flex>
+        </div>
         )
     }
 }
