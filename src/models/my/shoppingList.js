@@ -18,7 +18,30 @@ export default {
     namespace: 'shoppingList',
 
     state: {
-        data: []
+        data: [
+            {
+              id: 5,
+              store: '饲料公司',
+              result: '交易成功',
+              isPay: true,
+              main: [{
+                  title: '商品',
+                  num: 2,
+                  price: 250
+                },
+                {
+                  title: '商品',
+                  num: 2,
+                  price: 250
+                },
+                {
+                  title: '商品',
+                  num: 2,
+                  price: 250
+                }
+              ]
+            },
+        ]
     },
 
     subscriptions: {
@@ -45,6 +68,8 @@ export default {
                    type: 'deleteSave',
                    payload: payload.data
                  });
+            } else {
+
             }
            
         },
