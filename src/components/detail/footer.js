@@ -102,7 +102,9 @@ class ListFooter extends React.Component {
             }
             else{
                 Toast.fail('请添加收货地址!', 1);
-                this.props.dispatch(routerRedux.push('/write/0/hello'));
+                setTimeout(() => {
+                    this.props.dispatch(routerRedux.push(`/write/0/${payment}`));
+                }, 1500);
             }
         }).catch((err)=>{
             console.log(err);

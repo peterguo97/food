@@ -3,7 +3,7 @@
   "scripts": {
     "start": "roadhog server",
     "build": "roadhog build",
-    "precommit": "npm run lint"
+    "lint": "eslint --ext .js src test"
   },
   "license": "MIT",
   "dependencies": {

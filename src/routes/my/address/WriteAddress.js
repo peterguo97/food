@@ -3,7 +3,8 @@ import { List, TextareaItem, InputItem, Button, Picker, Toast } from 'antd-mobil
 import { district } from 'antd-mobile-demo-data';
 import { createForm } from 'rc-form';
 import { connect } from "dva";
-
+import axios from 'axios';
+import { routerRedux } from 'dva/router';
 const Item = List.Item;
 
 class WriteAddress extends Component {
@@ -28,34 +29,40 @@ class WriteAddress extends Component {
                 if (!reg.test(phoneNum)) {
                    Toast.info('手机号有误！', 1);
                 } else {
-                   
-                    if(this.props.match.params.jump){
-                        this.props.dispatch({ type: 'writeAddress/sendInfoLink', payload: value});
-                        // this.props.dispatch(routerRedux.push('/list'));
-                    } else {
-                        let mainAddress = '';
-                        district.map(e => {
-                        
-                            if (e.value === value.district[0]) {
-                                mainAddress += e.label;
-                                e.children.map(i => {
-                                    if (i.value === value.district[1]) {
-                                        mainAddress += i.label;
-                                        i.children.map(j => {
-                                            if (j.value === value.district[2]) {
-                                                mainAddress += j.label;
-                                            }
-                                            return null;
-                                        });
-                                    }
-                                    return null;
-                                })
+                    let mainAddress = '';
+                    district.map(e => {
+                        if (e.value === value.district[0]) {
+                            mainAddress += e.label;
+                            e.children.map(i => {
+                                if (i.value === value.district[1]) {
+                                    mainAddress += i.label;
+                                    i.children.map(j => {
+                                        if (j.value === value.district[2]) {
+                                            mainAddress += j.label;
+                                        }
+                                        return null;
+                                    });
+                                }
+                                return null;
+                            })
+                        }
+                        return null;
+                    });
+                    
+                    value['mainAddress'] = mainAddress; 
+                    if(this.props.match.params.payment){
+                        let payment = this.props.match.params.payment;
+                        axios.post('/address/store',value).then((message)=>{
+                            if(message.status === 200){
+                                this.props.dispatch(routerRedux.push(`/order/${payment}`));
                             }
-                            return null;
-                        });
-                        
-                        value['mainAddress'] = mainAddress;    
-                        this.props.dispatch({ type: 'writeAddress/sendInfo', payload: value });     
+                        })
+                    }
+                    else {
+                      this.props.dispatch({
+                        type: 'writeAddress/sendInfoLink',
+                        payload: value
+                      });
                     }
                 }
             } else {

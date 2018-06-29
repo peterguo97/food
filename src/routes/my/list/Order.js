@@ -20,6 +20,7 @@ class Order extends Component {
     submit = () => { 
         let paymentid = this.props.match.params.payment;
         axios.post('/pay',{ listId: paymentid}).then((message)=>{
+            var WeixinJSBridge;
             let data = message.data;
             console.log(data);
             WeixinJSBridge.invoke(
@@ -33,7 +34,11 @@ class Order extends Component {
               },
               function (res) {
                 if (res.err_msg === "get_brand_wcpay_request:ok") {
-                    alert('hello');
+                    axios.post('/payrc',{listId: paymentid,status: 1}).then((message)=>{
+                        this.props.dispatch(routerRedux.push(`/`));
+                    }).catch((e)=>{
+                        console.log(e);
+                    })
                 } // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
               }
             );
