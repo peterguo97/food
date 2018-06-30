@@ -20,7 +20,7 @@ class TabBarExample extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'blueTab',
+      selectedTab: sessionStorage.getItem('selectedTab') || 'blueTab',
       hidden: false,
       fullScreen: true,
     };
@@ -54,16 +54,12 @@ class TabBarExample extends React.Component {
     );
   }
 
-//   componentDidUpdate(prevState) {
-// 	if(this.state.selectedTab !== prevState.selectedTab) {
-// 		console.log(prevState);
-		
-// 		// this.setState({
-// 		// 	selectedTab: prevState
-// 		// })
-// 	}
-//   }
   render() {
+	//  存储数据
+	const selectedTab = 'selectedTab';
+	sessionStorage.setItem(selectedTab, this.state.selectedTab);
+	// console.log(tab);
+	
 	
     return (
       <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0 } : { height: 400 }}>

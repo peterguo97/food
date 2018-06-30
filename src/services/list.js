@@ -19,6 +19,16 @@ export function orders(json) {
     });
 }
 
+export function listDestroy(json) {
+    return request('./payment/destroy', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+          },
+
+        body: JSON.stringify(json)
+    })
+};
 // export function logistics(json) {
 //     console.log(json);
     

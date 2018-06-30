@@ -17,6 +17,7 @@ class ListItemRight extends React.Component {
     handlePlus(){
         let data = this.props.data;
         let recentlynum = this.state.num + 1;
+
         if(recentlynum <= ( +data.max )){
             this.setState({
                 num: recentlynum
@@ -107,7 +108,7 @@ class ListItemRight extends React.Component {
         return(
             <div className={style.detail}>
                 <div className={style.title}>{item1.name}</div>
-                <div className={style.sale}>月售{item1.sale}份</div>
+                <div className={style.sale}>库存{item1.sale}份</div>
                 <div className={style.price}>
                     <span>¥{item1.price}</span>
                     <span className={style.detailbutton}>

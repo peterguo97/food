@@ -1,5 +1,6 @@
 import { listItem } from "../../services/list";
-import { Toast } from "antd-mobile";
+import { listDestroy } from "../../services/list";
+
 // import { routerRedux } from 'dva/router';
 /* //  { id: 5, store: '饲料公司', result: '交易成功', isPay: true,
                 main: [
@@ -40,16 +41,13 @@ export default {
             yield put({ type: 'save', payload: data });
         },
         *delete({ payload }, { call, put }) {
-            const data = yield call(listItem, payload.id);
+            const data = yield call(listDestroy, payload.id);
             if(data.data.message) {
-                 yield put({
-                   type: 'deleteSave',
-                   payload: payload.data
-                 });
-            } else {
-                Toast.info('您的订单还不能删除！', 1)
+                yield put({
+                  type: 'deleteSave',
+                  payload: payload.data
+                });
             }
-           
         },
         // *logis({ payload }, { call, put}) {
         //     const  data = yield call(logistics, payload);
