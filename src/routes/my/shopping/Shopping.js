@@ -85,6 +85,7 @@ class Shopping extends Component {
                     }
                 }
                 if(i.num > i.max) {
+                    Toast.offline('超过最大库存了！', 1);
                     i.num = i.max;
                 }
             }

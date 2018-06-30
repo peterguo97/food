@@ -14,7 +14,15 @@ export default {
             { id: 2, intro: '这是一袋小狗饲料啦啦啦啦啦啦啦啦啦啦啦', checked: false, num: 1, price: 250, img: '' },
             { id: 3, intro: '这是一袋小狗饲料啦啦啦啦啦啦啦啦啦啦啦', checked: false, num: 1, price: 250, img: '' } */
         
-        data: [],
+        data: [{
+          id: 1,
+          intro: '这是一袋小狗饲料啦啦啦啦啦啦啦啦啦啦啦',
+          checked: false,
+          num: 1,
+          price: 280,
+          img: 'https://www.sample-videos.com/img/Sample-jpg-image-500kb.jpg',
+          max: '5'
+        }, ],
         checkedAll: false
     },
 
