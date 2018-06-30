@@ -17,7 +17,7 @@ class Merchant extends Component {
                             // onClick={()}
                         >关于我们</Item>
                     </Link>
-                    <Link to="./contactus">
+                    <Link to="./connect">
                         <Item
                             // thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
                             onClick={() => { }}
@@ -26,15 +26,6 @@ class Merchant extends Component {
                             联系我们
                         </Item>
                     </Link>
-                    <a href="!#">
-                        <Item
-                            // thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
-                            onClick={() => { }}
-                            arrow="horizontal"
-                        >
-                            退出登录
-                        </Item>
-                    </a>
                 </List>
             </div>
         );

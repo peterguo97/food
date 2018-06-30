@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Checkbox, Flex, Button, Toast } from "antd-mobile";
-import food from "../../../assets/test.png";
+// import food from "../../../assets/test.png";
 import styles from "./Shopping.css";
 import { connect } from "dva";
 
@@ -161,7 +161,7 @@ class Shopping extends Component {
                     <CheckboxItem key={i.id} onChange={(item) => { this.change(i)} } checked={i.checked} style={checkbox}>
                     </CheckboxItem>
                     <div className={styles.itemRight}>
-                        <img src={food} alt={i.id}/>
+                        <img src={i.img} alt={i.id}/>
                         <div className={styles.imgRight}>
                             <Flex className={styles.intro}>
                                 <Flex.Item>

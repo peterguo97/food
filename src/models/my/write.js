@@ -36,16 +36,11 @@ export default {
             const { data } = yield call(address, payload);
             yield put({ type: 'save', payload: data });
         },
-        *sendInfo( { payload }, { call, put }) {
-            const data = yield call(addressInfo, payload);
-            if(data.data.message) {
-                yield put(routerRedux.push('/address'));
-            }
-        },
+    
         *sendInfoLink( { payload }, { call, put }) {
             const data = yield call(addressInfo, payload);
             if (data.data.message) {
-              yield put(routerRedux.push('/list'));
+              yield put(routerRedux.push('/address'));
             }
         }
     },

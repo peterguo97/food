@@ -59,7 +59,7 @@ class Address extends Component {
                                 {i.name} {i.phone}<Brief>{i.address}</Brief>
                             </Item>
                             <div className={styles.radio}>
-                                <Radio className={styles.myradio} onChange={(e, id) => {this.change(e, i.id)}} checked={i.checked}>设为默认地址</Radio>
+                                <Radio className={styles.myradio} onChange={(e, id) => {this.change(e, i.id)}} checked={+i.checked}>设为默认地址</Radio>
                                 <i className="fa fa-trash" style={{ float: 'right', marginRight: '20px'}} onClick={(id) => this.delete(i.id)}></i>
                             </div>
                         </List>

@@ -1,5 +1,6 @@
 {
     "extraBabelPlugins": [
         ["import", { "libraryName": "antd-mobile",  "style": "css" }]
-    ]
+    ],
+    "es5ImcompatibleVersions": true
 }

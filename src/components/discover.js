@@ -1,33 +1,24 @@
 import React from 'react';
 import normal from './css/basic.css';
 import DiscoverListitem from './DiscoverListItem';
-import Chicken from '../assets/chicken.jpg';
-
-const data = [
-    {
-        name: '黄焖鸡',
-        url: '/1/detail',
-        img: Chicken
-    },
-    {
-        name: '黄焖鸡',
-        url: '/1/detail',
-        img: Chicken
-    },
-    {
-        name: '黄焖鸡',
-        url: '/1/detail',
-        img: Chicken
-    },
-    {
-        name: '黄焖鸡',
-        url: '/1/detail',
-        img: Chicken
-    },
-]
-
+import axios from 'axios';
 class Discover extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            data: []
+        }
+    }
+    componentDidMount = () => {
+      axios.get('/gofun').then((message)=>{
+          this.setState({
+              data: message.data
+          })
+      })
+    }
+    
     render(){
+        let data = this.state.data;
         return(
             <div className={normal.Wrapper}>
                 <div className={normal.back}>

@@ -2,13 +2,13 @@ import React from 'react';
 import { Router, Route, Switch } from 'dva/router';
 import IndexPage from './routes/IndexPage';
 import Detail from './components/detail';
+import Connect from './components/connect';
 
 import List from './routes/my/list/ShoppingList';
 import ListDetail from './routes/my/list/ListDetail';
 import Order from './routes/my/list/Order';
 import Shopping from './routes/my/shopping/Shopping';
 import Aboutus from './routes/my/aboutus/Aboutus';
-import Contactus from './routes/my/contactus/Contactus';
 import Address from './routes/my/address/Address';
 import Write from './routes/my/address/WriteAddress';
 import Logistics from './routes/my/logistics/Logistics';
@@ -34,13 +34,13 @@ function RouterConfig({ history }) {
         <Route path="/listdetail/:id" component={ListDetail} />
         <Route path="/shopping" component={Shopping} />
         <Route path="/address" component={Address} />
-        <Route path="/write/:id/:jump?" component={Write} />
+        <Route path="/write/:id/:payment?" component={Write} />
         <Route path="/aboutus" component={Aboutus} />
-        <Route path="/contactus" component={Contactus} />
         <Route path="/logistics/:id" component={Logistics} />
         <Route path="/eval/:id" component={Eval} />
         <Route path="/order/:payment" component={Order} />
         <Route path='/search/:value' component={SearchResult} />
+        <Route path='/connect' component={Connect} />
 
       </Switch>
     </Router>
