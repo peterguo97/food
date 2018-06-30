@@ -19,23 +19,30 @@ function removeItem(_arr) {
 }
 
 class Shopping extends Component {
+    constructor() {
+        super();
+        this.state = {
+            priceAll: 0.00
+        }
+    }
     change = (item) => {
         const datas = this.props.shopping.data;
-        let price = this.props.shopping.priceAll;
-        console.log(item);
-        
+        let price = Number(this.state.priceAll);
         datas.map(i => {
             if(i.id === item.id) {
                 i.checked = !item.checked;
                 if(i.checked) {
-                    price += i.num * i.price;
+                    price += (+i.num) * (+i.price);
                 } else {
-                    price -= i.num * i.price;
+                    price -= (+i.num) * (+i.price);
                 }
             }
             return null;
         });
-        this.props.dispatch({ type: 'shopping/change', payload: {data: datas, priceAll: price}});
+        this.props.dispatch({ type: 'shopping/change', payload: {data: datas}});
+        this.setState({
+            priceAll: price
+        });
         // this.setState({
         //     data: datas,
         //     priceAll: price
@@ -44,44 +51,49 @@ class Shopping extends Component {
     }
     decrease = (item) => {
         const datas = this.props.shopping.data;
-        let price = this.props.shopping.priceAll;    
-        if(item.num) {  
+        let price = this.state.priceAll;
+        
+        console.log(item.num);
+        
+        if(item.num > 1) {  
             datas.map(i => {
                 if(i.id === item.id) {
                     i.num = item.num - 1;
-                    if(item.checked) {
+                    if(item.checked) { 
                         price -= i.price;
-                    }
-                    if(i.num === 0) {
-                        i.checked = false;
                     }
                 }
                 return null;
             });
-            this.props.dispatch({ type: 'shopping/change', payload: { data: datas, priceAll: price } });
-            // this.setState({
-            //     data: datas,
-            //     priceAll: price
-            // })
+            this.props.dispatch({ type: 'shopping/change', payload: { data: datas } });
+            this.setState({
+                priceAll: price
+            });
+        } else {
+            Toast.info('不能减少了！', 1);
         }
     }
     add = (item) => {
         const datas = this.props.shopping.data;
-        let price = this.props.shopping.priceAll;
+        let price = +this.state.priceAll;
         datas.map(i => {
             if (i.id === item.id) {
-                i.num = item.num + 1;
-                if(item.checked) {
-                    price += i.price;
+                i.num = +item.num + 1;
+                if (item.checked) {
+                    if (i.num <= i.max) {
+                        price += +i.price;
+                    }
+                }
+                if(i.num > i.max) {
+                    i.num = i.max;
                 }
             }
             return null;
         });
-        this.props.dispatch({ type: 'shopping/change', payload: { data: datas, priceAll: price } });
-        // this.setState({
-        //     data: datas,
-        //     priceAll: price
-        // })
+        this.props.dispatch({ type: 'shopping/change', payload: { data: datas } });
+        this.setState({
+            priceAll: price
+        });
     }
     checkAll = () => {
         const checked = this.props.shopping.checkedAll;
@@ -100,7 +112,10 @@ class Shopping extends Component {
                 return null;
             }) 
         };
-        this.props.dispatch({ type: 'shopping/change', payload: { data: datas, priceAll: price, checkedAll: !checked } });
+        this.props.dispatch({ type: 'shopping/change', payload: { data: datas, checkedAll: !checked } });
+        this.setState({
+            priceAll: price
+        });
         // this.setState({
         //     data: datas,
         //     priceAll: price,
@@ -118,16 +133,14 @@ class Shopping extends Component {
         }
         const data = removeItem(datas);
         if(data.length) {
-             this.props.dispatch({ type: 'shopping/deleteChange', payload: { data: data, priceAll: 0.00, checkedAll: check } });
+             this.props.dispatch({ type: 'shopping/deleteChange', payload: { data: data, checkedAll: check } });
         } else {
               Toast.info('未选择', 1);
         }
        
-        // this.setState({
-        //     data: data,
-        //     priceAll: 0.00,
-        //     checkedAll: check
-        // })
+        this.setState({
+            priceAll: 0.00
+        })
     }
     pay = () => {
         const { data, id } = this.props.shopping;
@@ -140,7 +153,7 @@ class Shopping extends Component {
         });
 
         if(datas.length) {
-            this.props.dispatch({ type: 'shopping/pay', payload: {id: id, data: datas} });    
+            this.props.dispatch({ type: 'shopping/pay', payload: {id: id, data: datas} });
         } else {
             Toast.info('未选择任何商品', 1);
         }
@@ -190,7 +203,7 @@ class Shopping extends Component {
                     </CheckboxItem>
                 </Flex.Item>
                 <Flex.Item className={styles.price}>
-                    ￥{this.props.shopping.priceAll}
+                    ￥{this.state.priceAll}
                 </Flex.Item>
                 <Flex.Item className={styles.remove} onClick={this.remove}>
                     清除

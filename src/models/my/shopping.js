@@ -2,6 +2,7 @@ import { getShopping } from "../../services/shopping";
 import { isPay } from "../../services/shopping";
 import { deleteList } from "../../services/shopping";
 import { routerRedux } from 'dva/router';
+import { Toast } from "antd-mobile";
 
 export default {
 
@@ -14,8 +15,7 @@ export default {
             { id: 3, intro: '这是一袋小狗饲料啦啦啦啦啦啦啦啦啦啦啦', checked: false, num: 1, price: 250, img: '' } */
         
         data: [],
-        checkedAll: false,
-        priceAll: 0.00
+        checkedAll: false
     },
 
     subscriptions: {
@@ -41,6 +41,8 @@ export default {
                 yield put(routerRedux.push(`/write/0/${data.data.id}`));
             } else if(data.data.message === 'success') {
                 yield put(routerRedux.push(`/order/${data.data.id}`));
+            } else if(data.data.message === 'understock') {
+                Toast.info('库存不足', 1);
             }
         },
         *deleteChange({ payload }, { call, put}) {
