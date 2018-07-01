@@ -4,7 +4,7 @@ import plus from '../../assets/plus.png';
 import decrease from '../../assets/decrease.png';
 import { connect } from 'dva';
 import { hasItem } from '../../publicapi';
-
+import { Toast } from 'antd-mobile';
 class ListItemRight extends React.Component {
     
     constructor(props){
@@ -17,18 +17,23 @@ class ListItemRight extends React.Component {
     handlePlus(){
         let data = this.props.data;
         let recentlynum = this.state.num + 1;
-        
-        this.setState({
-            num: recentlynum
-        })
-        this.props.dispatch({
-            type: 'shoplist/addTolist',
-            payload: {
-                id: data.id,
-                price: data.price,
-                num: data.num
-            }
-        })
+
+        if(recentlynum <= ( +data.max )){
+            this.setState({
+                num: recentlynum
+            })
+            this.props.dispatch({
+                type: 'shoplist/addTolist',
+                payload: {
+                    id: data.id,
+                    price: data.price,
+                    num: data.num
+                }
+            })
+        }
+        else {
+            Toast.fail('超过最大库存',1);
+        }
     }
 
     handleDecrease(){

@@ -3,7 +3,7 @@ import style from './css/item.css';
 import { connect } from 'dva';
 import plus from '../../assets/plus.png';
 import decrease from '../../assets/decrease.png';
-
+import { Toast } from 'antd-mobile';
 class ListItem extends React.Component {
     constructor(props){
         super(props);
@@ -13,14 +13,19 @@ class ListItem extends React.Component {
     }
     handlePlus(){
         const data = this.props.data;
-        this.props.dispatch({
-            type: 'shoplist/addTolist',
-            payload: {
-                id: data.id,
-                price: data.price,
-                num: data.num
-            }
-        })
+        if( data.num <= data.max ){
+            this.props.dispatch({
+                type: 'shoplist/addTolist',
+                payload: {
+                    id: data.id,
+                    price: data.price,
+                    num: data.num
+                }
+            })
+        }
+        else{
+            Toast.fail('超过商品最大库存',1);
+        }
     }
 
     handleDecrease(){
