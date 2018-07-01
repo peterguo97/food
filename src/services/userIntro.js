@@ -2,12 +2,12 @@ import request from '../utils/request';
 
 export function userIntro(datas) {
     console.log(datas);
-    return request('/wechatUser', {
+    return request('api/home/wechatUser', {
         method: 'post',
-         headers: {
+        headers: {
            'Content-Type': 'application/json'
-         },
-
+        },
+        credentials: 'include',
         body: JSON.stringify(datas),
     });
 }

@@ -8,24 +8,24 @@ export function listItem(json) {
 
 export function orders(json) {  
   
-    return request('./order/show', {
+    return request('api/home/order/show', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-
+        credentials: 'include',
         body: JSON.stringify(json)
 
     });
 }
 
 export function listDestroy(json) {
-    return request('./payment/destroy', {
+    return request('api/home/payment/destroy', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
           },
-
+        credentials: 'include',
         body: JSON.stringify(json)
     })
 };

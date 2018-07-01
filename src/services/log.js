@@ -8,7 +8,7 @@ export function log(json) {
          headers: {
            'Content-Type': 'application/json'
          },
-
+         credentials: 'include',
         body: JSON.stringify(json)
     });
 };
@@ -21,7 +21,7 @@ export function evals(json) {
          headers: {
            'Content-Type': 'application/json'
          },
-
+         credentials: 'include',
         body: JSON.stringify(json)
     });
 }
