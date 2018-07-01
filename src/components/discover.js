@@ -10,7 +10,7 @@ class Discover extends React.Component {
         }
     }
     componentDidMount = () => {
-      axios.get('/gofun').then((message)=>{
+      axios.get('/api/gofun').then((message)=>{
           this.setState({
               data: message.data
           })

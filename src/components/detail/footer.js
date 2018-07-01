@@ -36,7 +36,7 @@ class ListFooter extends React.Component {
             obj.num = item.num;
             arr.push(obj);
         })
-        axios.post("/shopcart/store",{
+        axios.post("/api/shopcart/store",{
             list: arr
         }).then((response)=>{
             if(response.status >= 200 && response.status <= 300){
@@ -61,7 +61,7 @@ class ListFooter extends React.Component {
             obj.num = item.num;
             arr.push(obj);
         })
-        axios.post("/shopcart/store",{
+        axios.post("/api/shopcart/store",{
             list: arr
         }).then((response)=>{
             if(response.status >= 200 && response.status <= 300){
@@ -91,7 +91,7 @@ class ListFooter extends React.Component {
             obj.num = item.num;
             arr.push(obj);
         })
-        axios.post("/payment/store",{
+        axios.post("/api/payment/store",{
             list: arr
         }).then((response)=>{
             let payment = response.data.payment;

@@ -11,7 +11,7 @@ class ShopList extends React.Component {
     }
 
     componentDidMount(){
-        axios.get('/stores').then((res)=>{
+        axios.get('/api/stores').then((res)=>{
             let mydata = res.data;
             if(!Array.isArray(mydata)){
                 throw new Error("请传入数组");

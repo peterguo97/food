@@ -16,7 +16,7 @@ export function log(json) {
 export function evals(json) {
     console.log(json);
 
-    return request('/comment/store', {
+    return request('/api/comment/store', {
         method: 'post',
          headers: {
            'Content-Type': 'application/json'

@@ -1,14 +1,14 @@
 import request from '../utils/request';
 
 export function getShopping() {
-  return request('/shopcart/show', {
+  return request('api/shopcart/show', {
     credentials: 'include'
   });
 }
 
 export function deleteList(json) {
 
-  return request('/shopcart/destroy', {
+  return request('/api/shopcart/destroy', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -20,7 +20,7 @@ export function deleteList(json) {
 
 export function isPay(json) {
 
-  return request('/shopcart/pay', {
+  return request('/api/shopcart/pay', {
       method: 'POST',
        headers: {
          'Content-Type': 'application/json'
