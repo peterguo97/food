@@ -49,20 +49,21 @@ class WriteAddress extends Component {
                         return null;
                     });
                     
-                    value['mainAddress'] = mainAddress; 
+                    value['mainAddress'] = mainAddress;
                     if(this.props.match.params.payment){
                         let payment = this.props.match.params.payment;
-                        axios.post('/addresses/store',value).then((message)=>{
+                        axios.post('/api/addresses/store',value).then((message)=>{
                             if(message.status === 200){
                                 this.props.dispatch(routerRedux.push(`/order/${payment}`));
                             }
                         })
                     }
                     else {
-                      this.props.dispatch({
-                        type: 'writeAddress/sendInfoLink',
-                        payload: value
-                      });
+                        value['id'] = this.props.writeAddress.id;           
+                        this.props.dispatch({
+                            type: 'writeAddress/sendInfoLink',
+                            payload: value
+                        });
                     }
                 }
             } else {

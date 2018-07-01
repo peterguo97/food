@@ -19,7 +19,7 @@ class Order extends Component {
     // 确认跳转
     submit = () => { 
         let paymentid = this.props.match.params.payment;
-        axios.post('/pay',{ listId: paymentid}).then((message)=>{
+        axios.post('/api/pay',{ listId: paymentid}).then((message)=>{
             var WeixinJSBridge;
             let data = message.data;
             console.log(data);
@@ -34,7 +34,7 @@ class Order extends Component {
               },
               function (res) {
                 if (res.err_msg === "get_brand_wcpay_request:ok") {
-                    axios.post('/payrc',{listId: paymentid,status: 1}).then((message)=>{
+                    axios.post('/api/payrc',{listId: paymentid,status: 1}).then((message)=>{
                         this.props.dispatch(routerRedux.push(`/`));
                     }).catch((e)=>{
                         console.log(e);

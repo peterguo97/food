@@ -11,10 +11,6 @@ const app = dva({
 // app.use({});
 
 // 3. Model
-// app.model(require('./models/example').default);
-// app.model(require('./models/login').default);
-// app.model(require('./models/register').default);
-// app.model(require('./models/forgetPas').default);
 app.model(require('./models/handlestyle').default);
 app.model(require('./models/list').default);
 

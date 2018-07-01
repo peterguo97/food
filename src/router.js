@@ -13,13 +13,6 @@ import Address from './routes/my/address/Address';
 import Write from './routes/my/address/WriteAddress';
 import Logistics from './routes/my/logistics/Logistics';
 import Eval from './routes/my/eval/Eval';
-
-// 注册登录
-// import Login from "./routes/login/Login";
-// import Register from "./routes/login/Register";
-// import ForgetPas from "./routes/login/ForgetPas";
-
-
 import SearchResult from './components/searchResult';
 
 
