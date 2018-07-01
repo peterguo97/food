@@ -175,7 +175,7 @@ class Shopping extends Component {
                     <CheckboxItem key={i.id} onChange={(item) => { this.change(i)} } checked={i.checked} style={checkbox}>
                     </CheckboxItem>
                     <div className={styles.itemRight}>
-                        <img src={i.img} alt={i.id}/>
+                        <img src={i.img} alt={i.id} width="50" height="50" />
                         <div className={styles.imgRight}>
                             <Flex className={styles.intro}>
                                 <Flex.Item>
