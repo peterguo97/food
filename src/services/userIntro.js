@@ -2,7 +2,7 @@ import request from '../utils/request';
 
 export function userIntro(datas) {
     console.log(datas);
-    return request('/wechatUser', {
+    return request('/api/wechatUser', {
         method: 'post',
          headers: {
            'Content-Type': 'application/json'

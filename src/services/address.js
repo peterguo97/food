@@ -3,7 +3,7 @@ import request from '../utils/request';
 export function address(json) {
     console.log(json);
     
-    return request('/address/users', {
+    return request('/api/address/users', {
         method: 'post',
         body: JSON.stringify(json)
     });
@@ -11,7 +11,7 @@ export function address(json) {
 
 export function staticAddress(json) {
     console.log(json);
-    return request('/address/users', {
+    return request('/api/address/users', {
         method: 'post',
          headers: {
            'Content-Type': 'application/json'
@@ -23,7 +23,7 @@ export function staticAddress(json) {
 
 export function deleteList(json) {
   console.log(json);
-  return request('/address/destroy', {
+  return request('/api/address/destroy', {
     method: 'post',
     headers: {
       'Content-Type': 'application/json'

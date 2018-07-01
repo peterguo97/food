@@ -54,7 +54,7 @@ class DetailBarLeft extends React.Component {
     }
 
     componentDidMount() {
-        axios.post(`/stores/${this.state.id}`, {
+        axios.post(`/api/stores/${this.state.id}`, {
             id: this.state.id
         }).then((response)=>{
             if(! Array.isArray(response.data)){

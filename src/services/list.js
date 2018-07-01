@@ -1,14 +1,14 @@
 import request from '../utils/request';
 
 export function listItem(json) {
-    return request('./list/show', {
+    return request('./api/list/show', {
         method: 'get',
     });
 }
 
 export function orders(json) {  
   
-    return request('./order/show', {
+    return request('./api/order/show', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -20,7 +20,7 @@ export function orders(json) {
 }
 
 export function listDestroy(json) {
-    return request('./payment/destroy', {
+    return request('./api/payment/destroy', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
