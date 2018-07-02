@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { List, Flex, Button } from "antd-mobile";
 import { connect } from "dva";
 import { Link } from "dva/router";
-import yay from "../../../assets/yay.jpg";
+// import yay from "../../../assets/yay.jpg";
 import styles from "./order.css";
 import { routerRedux } from 'dva/router';
 import axios from 'axios'; 
@@ -52,7 +52,7 @@ class Order extends Component {
         })
         return(
             <div className={styles.main}>
-                <img src={yay} alt="交易成功" height="80" width="100%"/>
+                {/* <img src={yay} alt="交易成功" height="80" width="100%"/> */}
                 <header className={styles.header}>
                     <p>收货人：{name}</p>
                     <p>电话号码：{phone}</p>

@@ -12,7 +12,9 @@ class User extends Component {
             all: {
                 home: home,
                 find: find,
-                user: userSelect
+                user: userSelect,
+                page: '/user',
+                font: '我的',
             }
 		}
 	}

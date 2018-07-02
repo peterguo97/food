@@ -17,7 +17,9 @@ class TabBarExample extends React.Component {
 			all: {
 				home: homeSelect,
 				find: find,
-				user: user
+				user: user,
+				page: '/',
+				font: '首页',
 			}
 		}
 	}

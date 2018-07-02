@@ -5,36 +5,47 @@ import styles from './TabBar.css';
 
 class TabBar extends Component {
 	render() {
-        const { home, find, user } = this.props.all;        
+        const { home, find, user, page, font } = this.props.all;
+        let [homeSelcet, findSelect, userSelect] = [false, false, false];
+        if(page === '/') {
+            homeSelcet = true;
+        } else if(page === '/find') {
+            findSelect = true;
+        } else if(page === '/user') {
+            userSelect = true;
+        }
 		return(
 			<Flex className={styles.tab}>
-				<Flex.Item className="Item">
-                    <Link to="/">
-                        <figure>
-                            <img src={home} alt="home" />
-                            <figcaption>我的</figcaption>
-                        </figure>
-                    </Link>
-				</Flex.Item>
-				<Flex.Item className="Item">
-                    <Link to="find">
-                        <figure>
-                            <img src={find} alt="find" />
-                            <figcaption>发现</figcaption>
-					    </figure>
-                    </Link>
-                </Flex.Item>
-				<Flex.Item className="Item">
-                    <Link to="user">
-                        <figure>
-                            <img src={user} alt="user" />
-                            <figcaption>我的</figcaption>
-					    </figure>
-                    </Link>
-                </Flex.Item>
+                <TabList src={home} page={'/'} font={font} isSelect={homeSelcet}/>
+                <TabList src={find} page={'/find'} font={font} isSelect={findSelect}/>
+                <TabList src={user} page={'/user'} font={font} isSelect={userSelect}/>     
 			</Flex>
 		)
 	}
 }
 
+class TabList extends Component {
+    render() {
+        const { src, page, font, isSelect } = this.props;
+        let oDiv;
+        if(isSelect) {
+            oDiv = <figure>
+                        <img src={src} alt={`${font}`} />
+                        <figcaption>{font}</figcaption>
+					</figure>
+        } else {
+            oDiv = <Link to={page}>
+                        <figure>
+                            <img src={src} alt={`${font}`} />
+                            <figcaption>{font}</figcaption>
+					    </figure>
+                    </Link>
+        }
+        return(
+            <Flex.Item className="Item">
+                {oDiv}
+            </Flex.Item>
+        );
+    }
+}
 export default TabBar;
