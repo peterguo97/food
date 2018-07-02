@@ -5,9 +5,16 @@ import { createForm } from 'rc-form';
 import { connect } from "dva";
 import axios from 'axios';
 import { routerRedux } from 'dva/router';
+import Return from "../../../components/return/return.js";
 const Item = List.Item;
 
 class WriteAddress extends Component {
+    constructor() {
+        super();
+        this.state = {
+            prevPage: `/address`
+        }
+    }
     value(e) {
         console.log(e)
     }
@@ -59,7 +66,7 @@ class WriteAddress extends Component {
                         })
                     }
                     else {
-                        value['id'] = this.props.writeAddress.id;           
+                        value['id'] = this.props.writeAddress.id;                         
                         this.props.dispatch({
                             type: 'writeAddress/sendInfoLink',
                             payload: value
@@ -82,41 +89,45 @@ class WriteAddress extends Component {
         const { getFieldProps } = this.props.form;
         const { name, phone, address, information } = this.props.writeAddress;
         return (
-            <List>
-                <InputItem
-                    {...getFieldProps('name', {
-                        initialValue: name
-                    })}
-                >姓名</InputItem>
-                <InputItem
-                    {...getFieldProps('phone', {
-                        initialValue: phone
-                    })}
-                    type="phone"
-                    placeholder="186 1234 1234"
-                >手机号码</InputItem>
-                <Picker extra="请选择(可选)"
-                    data={district}
-                    {...getFieldProps('district', {
-                        initialValue: address,
-                    })}
-                    title="地址"
-                    onOk={e => console.log(e)}
-                    onDismiss={e => console.log('dismiss', e)}
-                >
-                    <Item arrow="horizontal">地址</Item>
-                </Picker>
-                <TextareaItem
-                    {...getFieldProps('information', {
-                        initialValue: information
-                    })}
-                    title="详细地址"
-                    data-seed="logId"
-                    placeholder="详细地址（如门牌号）"
-                    autoHeight
-                />
-                <Button type="primary" onClick={this.submit}>确定</Button>
-            </List>
+            <div>
+                <Return page={this.state.prevPage} />
+                <List>
+                    <InputItem
+                        {...getFieldProps('name', {
+                            initialValue: name
+                        })}
+                    >姓名</InputItem>
+                    <InputItem
+                        {...getFieldProps('phone', {
+                            initialValue: phone
+                        })}
+                        type="phone"
+                        placeholder="186 1234 1234"
+                    >手机号码</InputItem>
+                    <Picker extra="请选择(可选)"
+                        data={district}
+                        {...getFieldProps('district', {
+                            initialValue: address,
+                        })}
+                        title="地址"
+                        onOk={e => console.log(e)}
+                        onDismiss={e => console.log('dismiss', e)}
+                    >
+                        <Item arrow="horizontal">地址</Item>
+                    </Picker>
+                    <TextareaItem
+                        {...getFieldProps('information', {
+                            initialValue: information
+                        })}
+                        title="详细地址"
+                        data-seed="logId"
+                        placeholder="详细地址（如门牌号）"
+                        autoHeight
+                    />
+                    <Button type="primary" onClick={this.submit}>确定</Button>
+                </List>
+            </div>
+          
         )
     }
 }

@@ -1,0 +1,23 @@
+.tab {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  padding: 5px 0;
+  background-color: #fff;
+  text-align: center;
+}
+
+.tab figure {
+  margin: 0;
+}
+
+.tab img {
+  width: 20px;
+  height: 20px;
+}
+
+.tab figcaption {
+  font-size: 0.75em;
+  color: #000;
+}

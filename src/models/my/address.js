@@ -7,9 +7,7 @@ export default {
     namespace: 'address',
 
     state: {
-        data: [
-       
-        ]
+        data: []
     },
 
     subscriptions: {

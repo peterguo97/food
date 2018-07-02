@@ -20,8 +20,8 @@ export default {
         setup({ dispatch, history }) {  // eslint-disable-line
             history.listen(({ pathname }) => {
                 const address = pathname.includes('/write/');
-                const getId = pathname.substr(7);
-                if (address) {
+                const getId = pathname.substr(7);                 
+                if (address && +getId) {       
                     dispatch({
                         type: 'fetch',
                         payload: getId
@@ -39,6 +39,9 @@ export default {
     
         *sendInfoLink( { payload }, { call, put }) {
             const data = yield call(addressInfo, payload);
+            console.log(payload);
+            console.log(data);
+            
             if (data.data.message) {
               yield put(routerRedux.push('/address'));
             }
