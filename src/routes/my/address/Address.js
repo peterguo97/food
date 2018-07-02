@@ -53,6 +53,8 @@ class Address extends Component {
     }
     render() {
         const data = this.props.address.data;
+        console.log(data);
+        
         return (
             <div>
                 <Return page={this.state.prevPage} />

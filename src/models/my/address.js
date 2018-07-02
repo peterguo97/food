@@ -7,7 +7,9 @@ export default {
     namespace: 'address',
 
     state: {
-        data: []
+        data: [
+            // { name: '刘鑫', phone: '188', address: '河南省', id: '2'}
+        ]
     },
 
     subscriptions: {

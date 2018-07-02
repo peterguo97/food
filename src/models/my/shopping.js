@@ -4,16 +4,20 @@ import { deleteList } from "../../services/shopping";
 import { routerRedux } from 'dva/router';
 import { Toast } from "antd-mobile";
 
+// {
+//   id: 3,
+//   intro: '这是一袋小狗饲料啦啦啦啦啦啦啦啦啦啦啦',
+//   checked: false,
+//   num: 1,
+//   price: 250,
+//   img: '',
+//   max: '0'
+// }
 export default {
 
     namespace: 'shopping',
 
     state: {
-        
-          /*   { id: 1, intro: '这是一袋小狗饲料啦啦啦啦啦啦啦啦啦啦啦', checked: false, num: 1, price: 250, img: '' },
-            { id: 2, intro: '这是一袋小狗饲料啦啦啦啦啦啦啦啦啦啦啦', checked: false, num: 1, price: 250, img: '' },
-            { id: 3, intro: '这是一袋小狗饲料啦啦啦啦啦啦啦啦啦啦啦', checked: false, num: 1, price: 250, img: '' } */
-        
         data: [],
         checkedAll: false
     },

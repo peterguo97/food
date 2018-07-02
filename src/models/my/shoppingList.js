@@ -20,40 +20,7 @@ export default {
     namespace: 'shoppingList',
 
     state: {
-        data: [{
-            id: 5,
-            store: '饲料公司',
-            result: '交易成功',
-            isPay: 0,
-            main: [{
-                title: '商品',
-                num: 2,
-                price: 250
-              },
-              {
-                title: '商品',
-                num: 2,
-                price: 250
-              },
-              {
-                title: '商品',
-                num: 2,
-                price: 250
-              }
-            ]
-          },
-          {
-            id: 6,
-            store: '饲料公司',
-            result: '交易成功',
-            isPay: 2,
-            main: [{
-              title: '商品',
-              num: 2,
-              price: 250
-            }, ]
-          }
-        ]
+        data: []
     },
 
     subscriptions: {

@@ -32,14 +32,19 @@ class Shopping extends Component {
         const datas = this.props.shopping.data;
         let price = Number(this.state.priceAll);
         datas.map(i => {
-            if(i.id === item.id) {
-                i.checked = !item.checked;
-                if(i.checked) {
-                    price += (+i.num) * (+i.price);
-                } else {
-                    price -= (+i.num) * (+i.price);
-                }
+            if(!Number(item.max)) {
+                Toast.offline('没有库存了！', 1);
+            } else {
+                 if (i.id === item.id) {
+                   i.checked = !item.checked;
+                   if (i.checked) {
+                     price += (+i.num) * (+i.price);
+                   } else {
+                     price -= (+i.num) * (+i.price);
+                   }
+                 }
             }
+           
             return null;
         });
         this.props.dispatch({ type: 'shopping/change', payload: {data: datas}});
