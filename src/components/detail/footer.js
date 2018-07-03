@@ -43,15 +43,14 @@ class ListFooter extends React.Component {
             list: arr
         }).then((response)=>{
             if(response.status >= 200 && response.status <= 300){
-                Toast.success('下单成功!', 1);
+                Toast.success('成功加入购物车!', 1);
             }
         }).then(()=>{
             routerRedux.push({
                 pathname: '/shopping'
               });
         }).catch((err)=>{
-            console.log(err);
-            Toast.fail('下单失败!',1);
+            Toast.fail('加入购物车失败!',1);
         })
     }
     
@@ -91,7 +90,7 @@ class ListFooter extends React.Component {
             return;
         }
         let arr = [];
-        list.forEach((item)=>{
+        list.forEach((item)=> {
             let obj={};
             obj.id = item.id;
             obj.num = item.num;

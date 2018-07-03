@@ -13,8 +13,7 @@ class Find extends Component {
                 home: home,
                 find: findSelect,
                 user: user,
-                page: '/find',
-                font: '发现',
+                page: '/find'
             }
 		}
 	}

@@ -5,8 +5,9 @@ import styles from './TabBar.css';
 
 class TabBar extends Component {
 	render() {
-        const { home, find, user, page, font } = this.props.all;
+        const { home, find, user, page } = this.props.all;
         let [homeSelcet, findSelect, userSelect] = [false, false, false];
+        const [font1, font2, font3] = ['首页', '发现', '我的'];
         if(page === '/') {
             homeSelcet = true;
         } else if(page === '/find') {
@@ -16,9 +17,9 @@ class TabBar extends Component {
         }
 		return(
 			<Flex className={styles.tab}>
-                <TabList src={home} page={'/'} font={font} isSelect={homeSelcet}/>
-                <TabList src={find} page={'/find'} font={font} isSelect={findSelect}/>
-                <TabList src={user} page={'/user'} font={font} isSelect={userSelect}/>     
+                <TabList src={home} page={'/'} font={font1} isSelect={homeSelcet}/>
+                <TabList src={find} page={'/find'} font={font2} isSelect={findSelect}/>
+                <TabList src={user} page={'/user'} font={font3} isSelect={userSelect}/>     
 			</Flex>
 		)
 	}
