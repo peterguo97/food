@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './css/detail.css';
-import img_title from '../assets/yay.jpg';
+import img_title from '../assets/logo.jpg';
 import back from '../assets/back.png';
 import { Link } from 'dva/router';
 import DetailBar from './detail/DetailBar.js';
@@ -48,9 +48,9 @@ class Detail extends React.Component {
                             <img src={img_title} alt="shop" />
                         </div>
                         <div className={style.mid}>
-                            <div style={{color: '#fff', fontWeight: 'bold' ,fontSize: 16}}>宠物狗饲料</div>
-                            <div style={{ color: '#fff', fontSize: 12, marginTop: 10 }}>蜂鸟专送/极速送达</div>
-                            <div style={{ color: '#fff', fontSize: 12, marginTop: 10 }}>在线支付满xx减xx</div>
+                            <div style={{color: '#fff', fontWeight: 'bold' ,fontSize: 16}}>公司：山西碧望生物科技有限公司</div>
+                            {/* <div style={{ color: '#fff', fontSize: 12, marginTop: 10 }}>蜂鸟专送/极速送达</div> */}
+                            {/* <div style={{ color: '#fff', fontSize: 12, marginTop: 10 }}>在线支付满xx减xx</div> */}
                         </div>
                         <div className={style.backimg}>
                             <div style={{width: 40, height: 40, borderRadius: 20, background: 'rgb(104,108,111)'}}>

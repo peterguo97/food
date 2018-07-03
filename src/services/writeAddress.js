@@ -8,6 +8,7 @@ export function address(json) {
         headers: {
             'Content-Type': 'application/json'
         },
+        credentials: 'include',
         body: JSON.stringify(json)
     });
 }
@@ -20,6 +21,7 @@ export function addressInfo(json) {
         headers: {
             'Content-Type': 'application/json'
         },
+        credentials: 'include',
         body: JSON.stringify(json)
     });
 }

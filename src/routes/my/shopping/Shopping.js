@@ -3,6 +3,8 @@ import { Checkbox, Flex, Button, Toast } from "antd-mobile";
 // import food from "../../../assets/test.png";
 import styles from "./Shopping.css";
 import { connect } from "dva";
+import Return  from "../../../components/return/return.js";
+
 
 const CheckboxItem = Checkbox.CheckboxItem;
 // const Item = List.Item;
@@ -22,21 +24,27 @@ class Shopping extends Component {
     constructor() {
         super();
         this.state = {
-            priceAll: 0.00
+            priceAll: 0.00,
+            prevPage: '/user'
         }
     }
     change = (item) => {
         const datas = this.props.shopping.data;
         let price = Number(this.state.priceAll);
         datas.map(i => {
-            if(i.id === item.id) {
-                i.checked = !item.checked;
-                if(i.checked) {
-                    price += (+i.num) * (+i.price);
-                } else {
-                    price -= (+i.num) * (+i.price);
-                }
+            if(!Number(item.max)) {
+                Toast.offline('没有库存了！', 1);
+            } else {
+                 if (i.id === item.id) {
+                   i.checked = !item.checked;
+                   if (i.checked) {
+                     price += (+i.num) * (+i.price);
+                   } else {
+                     price -= (+i.num) * (+i.price);
+                   }
+                 }
             }
+           
             return null;
         });
         this.props.dispatch({ type: 'shopping/change', payload: {data: datas}});
@@ -85,6 +93,7 @@ class Shopping extends Component {
                     }
                 }
                 if(i.num > i.max) {
+                    Toast.offline('超过最大库存了！', 1);
                     i.num = i.max;
                 }
             }
@@ -166,19 +175,27 @@ class Shopping extends Component {
             backgroundColor: '#fff',
             overflow: 'inherit',
             paddingLeft: 5
-        }
+        };
+        // 字数的限制
+        const data = 30;
         return(
         <div>
+            <Return page={this.state.prevPage}/>
             {datas.map(i => 
                 <div key={i.id} className={styles.foodItem}>
                     <CheckboxItem key={i.id} onChange={(item) => { this.change(i)} } checked={i.checked} style={checkbox}>
                     </CheckboxItem>
                     <div className={styles.itemRight}>
-                        <img src={i.img} alt={i.id}/>
+                        <Flex style={{overflow: 'inherit'}}>
+                            <Flex.Item>
+                                 <img src={i.img} alt={i.id} width="50" height="50" />
+                            </Flex.Item>
+                        </Flex>
+                       
                         <div className={styles.imgRight}>
                             <Flex className={styles.intro}>
                                 <Flex.Item>
-                                    {i.intro.length>20?i.intro.substr(0,20):i.intro}
+                                    {i.intro.length>data?i.intro.substr(0,data):i.intro}
                                 </Flex.Item>
                             </Flex>
                             <Flex className={styles.intro}>

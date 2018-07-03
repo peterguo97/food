@@ -1,7 +1,9 @@
 import request from '../utils/request';
 
 export function getShopping() {
-  return request('/api/shopcart/show');
+  return request('api/shopcart/show', {
+    credentials: 'include'
+  });
 }
 
 export function deleteList(json) {
@@ -11,6 +13,7 @@ export function deleteList(json) {
     headers: {
       'Content-Type': 'application/json'
     },
+    credentials: 'include',
     body: JSON.stringify(json)
   });
 }
@@ -22,7 +25,7 @@ export function isPay(json) {
        headers: {
          'Content-Type': 'application/json'
        },
-
+       credentials: 'include',
       body: JSON.stringify(json)
   });
 }

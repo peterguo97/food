@@ -1,22 +1,23 @@
 import request from '../utils/request';
 
 export function address(json) {
-    console.log(json);
-    
     return request('/api/address/users', {
-        method: 'post',
-        body: JSON.stringify(json)
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include',
+      body: JSON.stringify(json)
     });
 }
 
 export function staticAddress(json) {
-    console.log(json);
     return request('/api/address/users', {
         method: 'post',
          headers: {
            'Content-Type': 'application/json'
          },
-
+         credentials: 'include',
         body: JSON.stringify(json)
     });
 }
@@ -28,6 +29,7 @@ export function deleteList(json) {
     headers: {
       'Content-Type': 'application/json'
     },
+    credentials: 'include',
     body: JSON.stringify(json)
   });
 }

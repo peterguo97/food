@@ -8,7 +8,7 @@ export default {
 
     state: {
         data: [
-       
+            // { name: '刘鑫', phone: '188', address: '河南省', id: '2'}
         ]
     },
 

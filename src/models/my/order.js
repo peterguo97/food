@@ -28,7 +28,7 @@ export default {
     effects: {
         *fetch({ payload }, { call, put }) {  // eslint-disable-line  
             const { data } = yield call(orders, payload);
-            yield put({ type: 'save', payload: data});     
+            yield put({ type: 'save', payload: data});
         }
     },
 

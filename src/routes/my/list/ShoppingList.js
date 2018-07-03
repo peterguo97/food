@@ -3,6 +3,8 @@ import { List, Flex, Modal } from "antd-mobile";
 import { Link } from "dva/router";
 import styles from "./ShoppingList.css";
 import { connect } from "dva";
+import Return from "../../../components/return/return.js";
+
 const Item = List.Item;
 const alert = Modal.alert;
 
@@ -12,6 +14,12 @@ const alert = Modal.alert;
 //     { id: 3, title: '商家', sub: '3', price: 250, num: 2, store: '饲料公司', result: '交易成功'},
 // ];
 class ShoppingList extends Component {
+    constructor() {
+        super();
+        this.state = {
+            prevPage: '/user'
+        }
+    }
     delete(list) {
         // console.log(datas)
         alert('删除订单', '确定删除吗?', [
@@ -58,6 +66,7 @@ class ShoppingList extends Component {
         // })
         return(
             <div>
+                <Return page={this.state.prevPage} />
                 {data.map((i, index) => 
                 <List className={styles.list} key={index}>
                     <Link to={`../${i.id}/detail`} className={styles.color}>
@@ -90,8 +99,9 @@ class ShoppingList extends Component {
                     </Flex>
 
                     <div className={styles.listfooter}>
-                        {i.isPay?<Link to={`./order/${i.id}`} className={styles.eval}>待付款</Link>:<Link to={`./eval/${i.id}`} className={styles.eval}>评价</Link>}
+                        {/* {i.isPay?<Link to={`./order/${i.id}`} className={styles.eval}>待付款</Link>:<Link to={`./eval/${i.id}`} className={styles.eval}>评价</Link>} */}
                         {/* <Link to="./logistics" className={styles.eval} onClick={this.logistics.bind(this, list.id)}>查看物流</Link> */}
+                        <IsPay isPay={i.isPay} id={i.id} />
                         <div className={styles.eval} onClick={this.delete.bind(this, i.id)}>删除订单</div>
                     </div>
                 </List>
@@ -101,6 +111,29 @@ class ShoppingList extends Component {
     }
 }
 
+class IsPay extends Component {
+    render() {
+        const isPay = this.props.isPay;
+        const id = this.props.id;
+        const color = {
+            color: '#000'
+        }
+        let btnState;
+        if(isPay === 0) {
+            btnState = <Link to={`./order/${id}`} style={color}>待付款</Link>
+        } else if(isPay === 1) {
+            btnState = '待收货'
+        } else if(isPay === 2) {
+            btnState = <Link to={`./eval/${id}`} style={color}>评价</Link>
+        }
+        return(
+            <div className={styles.eval}>
+                { btnState }
+            </div>
+           
+        )
+    }
+}
 function mapStateToProps(state) {
     return { shoppingList: state.shoppingList };
 }

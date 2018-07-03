@@ -1,5 +1,6 @@
 import React from 'react';
 import { List, WingBlank } from 'antd-mobile';
+import shopImg from '../assets/logo.jpg';
 import normal from './css/basic.css';
 import IndexListitem from './IndexListItem';
 import axios from 'axios';
@@ -7,7 +8,7 @@ import axios from 'axios';
 class ShopList extends React.Component {
     state = {
         disabled: false,
-        data : [{id:1,name:'hello',abstract:'测试'}]
+        data : [{id:1,name:'爱畜牧',abstract:'测试', img: shopImg}]
     }
 
     componentDidMount(){

@@ -11,7 +11,7 @@ export default {
     subscriptions: {
         setup({ dispatch, history }) {
             history.listen(({ pathname }) => {
-                if (pathname === '/') {
+                if (pathname === '/user') {
                     dispatch({
                         type: 'user',
                         payload: 'personInformation'

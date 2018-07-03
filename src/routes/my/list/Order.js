@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { List, Flex, Button } from "antd-mobile";
 import { connect } from "dva";
 import { Link } from "dva/router";
-import food from "../../../assets/food5.jpg";
-import yay from "../../../assets/yay.jpg";
+// import yay from "../../../assets/yay.jpg";
 import styles from "./order.css";
 import { routerRedux } from 'dva/router';
 import axios from 'axios'; 
@@ -19,7 +18,7 @@ class Order extends Component {
     // 确认跳转
     submit = () => { 
         let paymentid = this.props.match.params.payment;
-        axios.post('/pay',{ listId: paymentid}).then((message)=>{
+        axios.post('/api/pay',{ listId: paymentid}).then((message)=>{
             var WeixinJSBridge;
             let data = message.data;
             console.log(data);
@@ -34,7 +33,7 @@ class Order extends Component {
               },
               function (res) {
                 if (res.err_msg === "get_brand_wcpay_request:ok") {
-                    axios.post('/payrc',{listId: paymentid,status: 1}).then((message)=>{
+                    axios.post('/respay',{listId: paymentid,status: 1}).then((message)=>{
                         this.props.dispatch(routerRedux.push(`/`));
                     }).catch((e)=>{
                         console.log(e);
@@ -53,7 +52,7 @@ class Order extends Component {
         })
         return(
             <div className={styles.main}>
-                <img src={yay} alt="交易成功" height="80" width="100%"/>
+                {/* <img src={yay} alt="交易成功" height="80" width="100%"/> */}
                 <header className={styles.header}>
                     <p>收货人：{name}</p>
                     <p>电话号码：{phone}</p>
@@ -68,7 +67,7 @@ class Order extends Component {
                                 <Flex.Item className={styles.textalign}>{i.result}</Flex.Item>
                             </Flex>
                     
-                            <Item thumb={food} multipleLine="true" className={styles.item}>
+                            <Item thumb={i.img} multipleLine="true" className={styles.item}>
                                 <Flex>
                                     <Flex.Item>
                                         <div>{i.title}</div>

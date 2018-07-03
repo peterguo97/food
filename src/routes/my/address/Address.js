@@ -3,12 +3,20 @@ import { Link } from "dva/router";
 import { List, Radio, Modal } from 'antd-mobile';
 import { connect } from "dva";
 import styles from "./Address.css";
+import Return from "../../../components/return/return.js";
+
 
 const Item = List.Item;
 const Brief = Item.Brief;
 const alert = Modal.alert;
 
 class Address extends Component {
+    constructor() {
+        super();
+        this.state = {
+            prevPage: '/user'
+        }
+    }
     change = (e, id) =>{
         const datas = this.props.address.data;
         let staticaddress;
@@ -45,8 +53,11 @@ class Address extends Component {
     }
     render() {
         const data = this.props.address.data;
+        console.log(data);
+        
         return (
             <div>
+                <Return page={this.state.prevPage} />
                { 
                    data.map(i => 
                         <List className="my-list" key={i.id}>

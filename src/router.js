@@ -1,6 +1,9 @@
 import React from 'react';
 import { Router, Route, Switch } from 'dva/router';
 import IndexPage from './routes/IndexPage';
+import Find from './routes/Find';
+import User from './routes/User';
+
 import Detail from './components/detail';
 import Connect from './components/connect';
 
@@ -13,13 +16,6 @@ import Address from './routes/my/address/Address';
 import Write from './routes/my/address/WriteAddress';
 import Logistics from './routes/my/logistics/Logistics';
 import Eval from './routes/my/eval/Eval';
-
-// 注册登录
-// import Login from "./routes/login/Login";
-// import Register from "./routes/login/Register";
-// import ForgetPas from "./routes/login/ForgetPas";
-
-
 import SearchResult from './components/searchResult';
 
 
@@ -28,6 +24,8 @@ function RouterConfig({ history }) {
     <Router history={history}>
       <Switch>
         <Route path="/" exact component={IndexPage} />
+        <Route path="/find" component={Find} />
+        <Route path="/user" component={User} />
         <Route path="/:id/detail" component={Detail} />
 
         <Route path="/list" component={List} />
