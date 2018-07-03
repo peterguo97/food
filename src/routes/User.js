@@ -14,7 +14,6 @@ class User extends Component {
                 find: find,
                 user: userSelect,
                 page: '/user',
-                font: '我的',
             }
 		}
 	}
