@@ -5,7 +5,16 @@ import ListItemRight from './ListItemRight';
 
 const Item = List.Item;
 
-class BoxList extends React.Component {  
+class BoxList extends React.Component {
+    state = {
+        show: false
+    }
+    handleClick = () => {
+        let show = this.state.show;
+        this.setState({
+            show: !show
+        })
+    }
     render() {
         const tabs = this.props.tabs;
         const list = tabs.map((item, index) => {
@@ -15,7 +24,7 @@ class BoxList extends React.Component {
                         item.shoplist.map((item1,index)=>{
                             return(
                                 <div key={index}>
-                                    <Item thumb={item1.img} className={style.item}>
+                                    <Item thumb={<div onClick={this.handleClick.bind(this)}><img src={item1.img} alt="detail" /></div>} className={style.item}>
                                         <ListItemRight data={item1}/>
                                     </Item>
                                 </div>

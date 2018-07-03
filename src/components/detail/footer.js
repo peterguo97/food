@@ -28,7 +28,10 @@ class ListFooter extends React.Component {
 
     handleListToShopCart(){
         let list = this.props.list;
-        console.log(list);
+        if (list.length === 0) {
+          Toast.fail('请添加商品!', 1);
+          return;
+        }
         let arr = [];
         list.forEach((item)=>{
             let obj={};
@@ -83,7 +86,10 @@ class ListFooter extends React.Component {
 
     handleList(){
         let list = this.props.list;
-        console.log(list);
+        if(list.length === 0){
+            Toast.fail('请添加商品!', 1);
+            return;
+        }
         let arr = [];
         list.forEach((item)=>{
             let obj={};
@@ -112,7 +118,7 @@ class ListFooter extends React.Component {
         })
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         let list = nextProps.list;
         let  tempprice = this.getPrice(list);
         this.setState({
