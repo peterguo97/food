@@ -84,7 +84,7 @@ class ListFooter extends React.Component {
         let list = this.props.list;
         console.log(list);
         let arr = [];
-        list.forEach((item)=>{
+        list.forEach((item)=> {
             let obj={};
             obj.id = item.id;
             obj.num = item.num;

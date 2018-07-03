@@ -4,7 +4,7 @@ import { Carousel, WingBlank } from 'antd-mobile';
 
 class Nav extends React.Component {
     state = {
-        data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
+        data: [1, 2, 3],
         imgHeight: 176,
     }
 
@@ -21,7 +21,7 @@ class Nav extends React.Component {
                             style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
                         >
                             <img
-                                src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
+                                src={`http://www.aixumu.net/static/images/${val}.png`}
                                 alt=""
                                 style={{ width: '100%', verticalAlign: 'top' }}
                                /*  onLoad={() => {

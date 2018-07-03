@@ -1,2 +1,38 @@
 export default {
+    'POST /api/wechatUser': {
+        name: 'zjgyb',
+        img: 'http://qnimate.com/wp-content/uploads/2014/03/images2.jpg'
+    },
+    'POST /api/stores/1': 
+        [{
+          "title": "饲料",
+          "shoplist": [{
+              "name": "奥美乐（高能蛋白原料）",
+              "sale": "100",
+              "price": "160.00",
+              "id": "5",
+              "max": "100",
+              "img": "http://www.aixumu.net/uploads/images/goodsAvatars/201807/03/goods_1530612964_CtixD6QHdp.jpg"
+            },
+            {
+              "name": "测试",
+              "sale": "0",
+              "price": "0.01",
+              "id": "7",
+              "max": "0",
+              "img": "http://www.aixumu.net/uploads/images/goodsAvatars/201807/02/goods_1530521014_Pm4OzdQuQb.png"
+            }
+          ]
+        }],
+    'POST /api/goods/detail/5': {
+      "categorie": "饲料",
+      "store": "山西碧望生物科技有限公司",
+      "name": "奥美乐（高能蛋白原料）",
+      "img": "http://www.aixumu.net/uploads/images/goodsAvatars/201807/03/goods_1530612964_CtixD6QHdp.jpg",
+      "abstract": "奥美乐，160元/袋（40公斤）\r\n奥美乐产品特点：\r\n（1）富含酵母菌代谢产物甘露寡糖、葡聚糖、小肽、氨基酸，提高羊只免疫力，改善羊只胃肠道健康，减少腹泻，提高饲草料消化率；\r\n（2）富含过瘤胃和高吸收率的蛋白，可替代全部或部分粕类，促进羊的肌肉骨骼的发育，提高日增重；\r\n（3）纤维低，能量高，为羊只提供充足的能量，提高羊只的生长速度；\r\n（4）平衡的矿物质，有效降低因使用麸皮、麻饼等高磷原料引起的尿\r\n结石现象。\r\n\r\n奥美乐使用方法：\r\n（1）本产品可做为生长和育肥羊的蛋白原料，替代全部或部分豆粕、",
+      "quntity": "100",
+      "created_at": "2018-07-02 15:52:19",
+      "updated_at": "2018-07-03 18:16:04"
+    }
+    
 };

@@ -13,6 +13,7 @@ const app = dva({
 // 3. Model
 app.model(require('./models/handlestyle').default);
 app.model(require('./models/list').default);
+app.model(require('./models/modal').default);
 
 // 我的界面
 app.model(require('./models/my/user').default);
@@ -24,6 +25,7 @@ app.model(require('./models/my/logistics').default);
 app.model(require('./models/my/eval').default);
 app.model(require('./models/my/write').default);
 app.model(require('./models/my/order').default);
+
 
 
 // 4. Router
