@@ -11,7 +11,7 @@ class Comment extends React.Component {
         }
     }
     componentDidMount() {
-        axios.get(`comments/${this.props.id}`)
+        axios.get(`/api/comments/${this.props.id}`)
         .then((response)=>{
             if(Object.prototype.toString.call(response.data) === '[object Array]'){
                 this.setState({
