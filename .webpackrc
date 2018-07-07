@@ -1,6 +1,28 @@
 {
+    "entry": {
+        "app": "./src/index.js",
+        "common": "./src/vendor.js"
+    },
+    "commons": [{
+        "name": "common",
+        "filename": "common.js"
+    }],
+    "html": {
+        "template": "./src/index.ejs",
+        "title": "myApp"
+    },
     "extraBabelPlugins": [
         ["import", { "libraryName": "antd-mobile",  "style": "css" }]
     ],
-    "es5ImcompatibleVersions": true
+    "es5ImcompatibleVersions": true,
+    "env": {
+        "production":{
+            "extraBabelPlugins":["transform-remove-console", "dva-hmr"]
+        }
+    },
+    "externals": { 
+        "react": "window.React",
+        "react-dom": "window.ReactDOM",
+        "react-router": "window.ReactRouter"
+    }
 }

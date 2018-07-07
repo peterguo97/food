@@ -1,4 +1,5 @@
 import dva from 'dva';
+import './index.ejs';
 // import browserHistory from 'history/createBrowserHistory';
 import './index.css';
 

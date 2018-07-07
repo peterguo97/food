@@ -45,7 +45,7 @@ class BoxList extends React.Component {
         return (
             <div>
                 {list}
-                {state?<Model modal1={state}/>:''}
+                {state === true && <Model modal1={state}/>}
             </div>
             );
     }
