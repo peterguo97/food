@@ -1,5 +1,5 @@
 import dva from 'dva';
-import './index.ejs';
+// import './index.ejs';
 // import browserHistory from 'history/createBrowserHistory';
 import './index.css';
 
@@ -14,7 +14,6 @@ const app = dva({
 // 3. Model
 app.model(require('./models/handlestyle').default);
 app.model(require('./models/list').default);
-app.model(require('./models/modal').default);
 
 // 我的界面
 app.model(require('./models/my/user').default);

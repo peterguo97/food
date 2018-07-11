@@ -17,7 +17,7 @@ class Detail extends React.Component {
     }
 
     
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         let index = this.state.index;
         if( this.props.showlist !== nextProps.showlist ){
             this.setState({

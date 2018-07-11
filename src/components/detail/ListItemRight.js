@@ -55,7 +55,7 @@ class ListItemRight extends React.Component {
         })
     }
 
-    componentWillReceiveProps = (nextProps)=>{
+    UNSAFE_componentWillReceiveProps = (nextProps) => {
         const list = nextProps.list;
         const item1 = this.props.data;
         let judge = hasItem(this.props.list, this.props.data, "id");

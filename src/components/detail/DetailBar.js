@@ -2,12 +2,12 @@ import { Tabs, WhiteSpace } from 'antd-mobile';
 import React from 'react';
 import DetailBarLeft from './DetailBar_Left';
 import Comment from '../comment/comment';
-import ShopDetail from '../shop';
+import GoodsDetail from '../goodsDetail';
 
 const tabs2 = [
     { title: '商品', sub: '1' },
-    { title: '评价', sub: '2' },
-    { title: '商家', sub: '3' },
+    { title: '详情', sub: '2' },
+    { title: '评价', sub: '3' },
 ];
 
 export default class DetailBar extends React.Component {
@@ -38,11 +38,11 @@ export default class DetailBar extends React.Component {
                         <DetailBarLeft id={this.props.id}/>
                     </div>
                     <div style={{ backgroundColor: 'rgb(243,245,247)' }}>
-                        <Comment id={this.props.id}/>
+                       <GoodsDetail />
                     </div>
                     <div style={{ backgroundColor: 'rgb(243,245,247)',height: '100%' }}>
-                       <ShopDetail />
-                </div>
+                        <Comment id={this.props.id}/>
+                    </div>
                 </Tabs>
                 <WhiteSpace />
             </div>
