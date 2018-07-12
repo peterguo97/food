@@ -14,6 +14,10 @@ class ListItemRight extends React.Component {
         }
     }
 
+    prevent(e) {
+        e.stopPropagation();
+    }
+    
     handlePlus(){
         let data = this.props.data;
         let recentlynum = this.state.num + 1;
@@ -55,7 +59,7 @@ class ListItemRight extends React.Component {
         })
     }
 
-    componentWillReceiveProps = (nextProps)=>{
+    UNSAFE_componentWillReceiveProps = (nextProps) => {
         const list = nextProps.list;
         const item1 = this.props.data;
         let judge = hasItem(this.props.list, this.props.data, "id");
@@ -111,7 +115,7 @@ class ListItemRight extends React.Component {
                 <div className={style.sale}>库存{item1.sale}份</div>
                 <div className={style.price}>
                     <span>¥{item1.price}</span>
-                    <span className={style.detailbutton}>
+                    <span className={style.detailbutton} onClick={this.prevent}>
                         <div className={style.decrease} onClick={this.handleDecrease.bind(this)}>
                             <img src={decrease} alt="-"/>
                         </div>

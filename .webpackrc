@@ -1,6 +1,18 @@
 {
+    "entry": {
+        "app": "./src/index.js",
+        "common": "./src/vendor.js"
+    },
+    "commons": [{
+        "name": "common",
+        "filename": "common.js"
+    }],
+    "html": {
+        "template": "./src/index.ejs",
+        "title": "myApp"
+    },
     "extraBabelPlugins": [
-        ["import", { "libraryName": "antd-mobile",  "style": "css" }]
+        ["import", { "libraryName": "antd-mobile",  "style": "css" }, "transform-remove-console"]
     ],
     "es5ImcompatibleVersions": true
 }

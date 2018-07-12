@@ -33,6 +33,16 @@ export default {
       "quntity": "100",
       "created_at": "2018-07-02 15:52:19",
       "updated_at": "2018-07-03 18:16:04"
-    }
-    
+    },
+    'GET /api/gofun': [{
+        "name": "测试",
+        "url": "/1/detail",
+        "img": "http://www.aixumu.net/uploads/images/goodsAvatars/201807/02/goods_1530521014_Pm4OzdQuQb.png"
+      },
+      {
+        "name": "奥美乐（高能蛋白原料）shdasdfhasj好大护法就是的范德萨阿斯蒂芬哈哈第三方哈市分行的萨芬好",
+        "url": "/1/detail",
+        "img": "http://www.aixumu.net/uploads/images/goodsAvatars/201807/03/goods_1530612964_CtixD6QHdp.jpg"
+      }
+    ]
 };
