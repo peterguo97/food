@@ -1,29 +1,31 @@
-import { hasItem } from "../publicapi";
+import { hasItem } from '../publicapi';
 
 export default {
 
     namespace: 'shoplist',
-  
+
     state: {
         showlist: false,
         list: [],
+        page:  0,
+        goodsdata: {}
     },
-  
+
     subscriptions: {
       setup({ dispatch, history }) {  // eslint-disable-line
-      },
+      }
     },
-  
+
     effects: {
       *fetch({ payload }, { call, put }) {  // eslint-disable-line
         yield put({ type: 'save' });
-      },
+      }
     },
-  
+
     reducers: {
         addTolist(state, { payload }){
             const list = state.list;
-            let judge = hasItem(list, payload, "id");
+            let judge = hasItem(list, payload, 'id');
             if (judge) {
                 let recentlist = JSON.parse(JSON.stringify(list));
                 for (let index = 0; index < recentlist.length; index++) {
@@ -31,7 +33,7 @@ export default {
                     if (element.id === payload.id){
                         element.num++;
                         break;
-                    }                   
+                    }
                 }
                 return Object.assign({},state,{list: recentlist});
             }
@@ -58,6 +60,16 @@ export default {
             return Object.assign({}, state, { list: recentlist });
         },
 
+        changePage(state,{payload}){
+            let page = payload.page;
+            return Object.assign({},state,{page: page});
+        },
+
+        goodsDetail(state,{payload}){
+            const data = payload.data;
+            return Object.assign({},state,{goodsdata: data})
+        },
+
         showOrNotShow(state,{payload}){
             let temp = state.showlist;
             if(temp){
@@ -68,7 +80,5 @@ export default {
             }
             return Object.assign({}, state, {showlist: temp});
         }
-    },
-  
-  };
-  
+    }
+};

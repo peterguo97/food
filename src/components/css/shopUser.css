@@ -1,6 +1,10 @@
 .shopbox {
     display: flex;
     flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    overflow: scroll;
 }
 
 .shopItemDetail {
@@ -24,5 +28,9 @@
 
 .shopItemPhone p {
     margin-top: 0;
+}
+
+.title {
+    height: 100px;
 }
 

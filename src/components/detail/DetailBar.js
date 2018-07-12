@@ -3,14 +3,15 @@ import React from 'react';
 import DetailBarLeft from './DetailBar_Left';
 import Comment from '../comment/comment';
 import GoodsDetail from '../goodsDetail';
+import { connect } from 'dva';
 
 const tabs2 = [
     { title: '商品', sub: '1' },
     { title: '详情', sub: '2' },
-    { title: '评价', sub: '3' },
+    { title: '评价', sub: '3' }
 ];
 
-export default class DetailBar extends React.Component {
+class DetailBar extends React.Component {
     handleClick = (data,index) => {
         if(index){
            if(this.props.handleChange){
@@ -22,23 +23,30 @@ export default class DetailBar extends React.Component {
                 this.props.handleChange(true);
             }
         }
+        this.props.dispatch({
+            type: 'shoplist/changePage',
+            payload: {
+                page: index
+            }
+        })
     }
     render(){
+        const page = this.props.page;
         return(
             <div style={{ position: 'fixed', top: '20%', left: 0, width: '100%', height: '80%'}}>
-                <Tabs tabs={tabs2}
-                    initialPage={0}
-                    tabBarPosition="top"
-                    renderTab={tab => <span>{tab.title}</span>}
-                    usePaged={false}
-                    swipeable={false}
+                <Tabs initialPage={0}
                     onTabClick={this.handleClick.bind(this)}
+                    renderTab={tab => <span>{tab.title}</span>}
+                    swipeable={false}
+                    tabBarPosition="top"
+                    tabs={tabs2}
+                    page={page}
                 >
                     <div style={{height: '100%'}}>
                         <DetailBarLeft id={this.props.id}/>
                     </div>
-                    <div style={{ backgroundColor: 'rgb(243,245,247)' }}>
-                       <GoodsDetail />
+                    <div style={{height: '100%'}}>
+                       <GoodsDetail/>
                     </div>
                     <div style={{ backgroundColor: 'rgb(243,245,247)',height: '100%' }}>
                         <Comment id={this.props.id}/>
@@ -49,3 +57,14 @@ export default class DetailBar extends React.Component {
         )
     }
 }
+
+const mapStateToProps = ({shoplist}) => {
+    return {
+        goodsid: shoplist.goodsid,
+        page: shoplist.page
+    }
+};
+
+export default connect(mapStateToProps)(DetailBar);
+
+

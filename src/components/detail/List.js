@@ -1,4 +1,4 @@
-import { List } from 'antd-mobile';
+import { List, Toast } from 'antd-mobile';
 import React from 'react';
 import style from './css/item.css';
 import ListItemRight from './ListItemRight';
@@ -9,19 +9,21 @@ import { connect } from 'dva';
 const Item = List.Item;
 
 class BoxList extends React.Component {
-
-    handleClick = (id) => {  
+    handleClick = (id) => {
         axios.post(`/api/goods/detail/${id}`,{
             payment: id
         }).then((message)=>{
-            this.props.dispatch({type: 'goodsdetail', payload: message});
+            this.props.dispatch({type: 'shoplist/changePage',payload: {page: 1}});
+            this.props.dispatch({type: 'shoplist/goodsDetail', payload: {data: message.data}});
+        }).catch((e)=>{
+            if(e){
+                Toast.fail('请求数据失败',1);
+            }
         })
-           
     }
 
     render() {
-        const tabs = this.props.tabs;
-        
+        const tabs = this.props.tabs;     
         const list = tabs.map((item, index) => {
                 return(
                     <List key={index} renderHeader={() => <div className={style.itemtitle}>{item.title}</div>}>

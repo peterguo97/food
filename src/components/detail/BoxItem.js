@@ -12,14 +12,14 @@ class BoxItem extends React.Component {
         return(
             <div className={style.footeritem}>
                 {list}
-            </div> 
+            </div>
         )
     }
 }
 
 const mapStateToProps = ({shoplist})=> {
     return {
-        list: shoplist.list, 
+        list: shoplist.list
     }
 }
 
