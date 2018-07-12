@@ -1,9 +1,9 @@
 export default {
 
-  namespace: 'modal',
+  namespace: 'goodsdetail',
 
   state: {
-      isModal: false,
+      
   },
 
   effects: {
