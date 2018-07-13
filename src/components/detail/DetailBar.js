@@ -48,7 +48,7 @@ class DetailBar extends React.Component {
                     <div style={{height: '100%'}}>
                        <GoodsDetail/>
                     </div>
-                    <div style={{ backgroundColor: 'rgb(243,245,247)',height: '100%' }}>
+                    <div style={{ backgroundColor: 'rgb(243,245,247)',height: '100%'}}>
                         <Comment id={this.props.id}/>
                     </div>
                 </Tabs>

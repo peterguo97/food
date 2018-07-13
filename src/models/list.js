@@ -12,7 +12,16 @@ export default {
     },
 
     subscriptions: {
-      setup({ dispatch, history }) {  // eslint-disable-line
+      setup({ dispatch, history }) {
+           history.listen(({ pathname }) => {
+                const address = pathname.includes('/detail');
+                if (address) {         
+                    dispatch({
+                    type: 'changePage',
+                    payload: {page: 0}
+                    });
+                }
+            }); // eslint-disable-line
       }
     },
 

@@ -11,6 +11,12 @@ class GoodsDetail extends React.Component {
        }
    }
     componentDidMount() {
+        axios.post('/api/goods/detail/5',{payment: 5}).then((mes)=>{
+            let data = mes.data;
+            this.setState({
+                message: data
+            })
+        })
     }
 
     UNSAFE_componentWillReceiveProps = (nextProps) => {
