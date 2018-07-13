@@ -18,6 +18,8 @@ class GoodsDetail extends React.Component {
     }
     render(){
         const message = this.state.message;
+        console.log(message);
+        
         return(
             <div className={style.shopbox}>
                 <p>商品名称：</p>
