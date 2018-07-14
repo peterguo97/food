@@ -1,6 +1,5 @@
 import React from 'react';
 import style from './css/shopUser.css';
-import { Toast } from "antd-mobile";
 import { connect } from 'dva';
 import axios from 'axios';
 
@@ -12,24 +11,17 @@ class GoodsDetail extends React.Component {
        }
    }
 
-    // componentDidMount() {
-    //     axios.post(`/api/goods/detail/5`,{
-    //         payment: 5
-    //     }).then((message)=>{
-    //         console.log(message.data);
-            
-    //         this.setState({
-    //             message: message.data
-    //         })
-    //     }).catch((e)=>{
-    //         if(e){
-    //             Toast.fail('没有数据',1);
-    //         }
-    //     })
-    // }
+    componentDidMount() {
+        axios.post('/api/goods/detail/5',{payment: 5}).then((mes)=>{            
+            let data = mes.data;
+            this.setState({
+                message: data
+            })
+        })
+    }
 
     UNSAFE_componentWillReceiveProps = (nextProps) => {
-        console.log(nextProps);
+        // console.log(nextProps);
         this.setState({
             message: nextProps.goodsdata
         })
@@ -37,13 +29,26 @@ class GoodsDetail extends React.Component {
     
     render(){
         const message = this.state.message;
-
-        console.log(this.state.message);
+        let imgItems = '';
+        if(message.imgs) {
+            imgItems = message.imgs.map(img => 
+                <img src={img.img} alt={img.img} key={img.img} width="30%" height="90"/>
+            )
+        }
+        
+        
+        
         return(
             <div className={style.shopbox}>
-                <p className={style.title}>商品名称：{message.name}</p>
+                <h3 className={style.title}>商品名称：{message.name}</h3>
                 <p>商品介绍：{message.abstract}</p>
-                <p>图片：</p>
+                <p>商品价格： {message.price}</p>
+                <div className={style.img}>
+                    <p>图片展示：</p>
+                    {
+                        imgItems
+                    }
+                </div>
             </div>
         )
     }

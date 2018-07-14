@@ -12,18 +12,17 @@ export default {
     },
 
     subscriptions: {
-      setup({ dispatch, history }) {  // eslint-disable-line
-        // history.listen(({ pathname }) => {
-        //     const path = pathname.includes('/detail');         
-        //     if (path) {
-        //         console.log(path);
-                         
-        //         dispatch({
-        //             type: 'changePage',
-        //             payload: { page: 0 }
-        //         });
-        //     }
-        // });
+
+      setup({ dispatch, history }) {
+           history.listen(({ pathname }) => {
+                const address = pathname.includes('/detail');
+                if (address) {        
+                    dispatch({
+                        type: 'changePage',
+                        payload: {page: 0}
+                    });
+                }
+            }); // eslint-disable-line
       }
     },
 
@@ -75,6 +74,7 @@ export default {
 
         changePage(state,{payload}){
             let page = payload.page;
+            
             return Object.assign({},state,{page: page});
         },
 

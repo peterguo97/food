@@ -32,7 +32,8 @@ class DetailBar extends React.Component {
     }
     render(){
         const page = this.props.page;
-        console.log(page);
+        // console.log(page);
+        
         return(
             <div style={{ position: 'fixed', top: '20%', left: 0, width: '100%', height: '80%'}}>
                 <Tabs initialPage={0}
@@ -49,7 +50,7 @@ class DetailBar extends React.Component {
                     <div style={{height: '100%'}}>
                        <GoodsDetail/>
                     </div>
-                    <div style={{ backgroundColor: 'rgb(243,245,247)',height: '100%' }}>
+                    <div style={{ backgroundColor: 'rgb(243,245,247)',height: '100%'}}>
                         <Comment id={this.props.id}/>
                     </div>
                 </Tabs>
@@ -61,10 +62,9 @@ class DetailBar extends React.Component {
 
 const mapStateToProps = ({shoplist}) => {
     return {
+        goodsid: shoplist.goodsid,
         page: shoplist.page
     }
 };
 
 export default connect(mapStateToProps)(DetailBar);
-
-

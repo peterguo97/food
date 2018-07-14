@@ -16,8 +16,7 @@ class IndexListItem extends React.Component {
                     onClick={() => { }}
                     thumb={val.img}
                 >                                       
-                        <Brief>{val.name}</Brief>    
-                        <Brief>{val.abstract}</Brief>                            
+                        <Brief>{val.name}</Brief>                           
                 </Item>
             </Link>
         )

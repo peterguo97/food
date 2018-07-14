@@ -1,6 +1,6 @@
 {
     "entry": {
-        "app": "./src/index.js",
+        "index": "./src/index.js",
         "common": "./src/vendor.js"
     },
     "commons": [{

@@ -1,5 +1,7 @@
 .shopbox {
     display: flex;
+    padding-left: 25px;
+    padding-right: 25px;
     flex-direction: column;
     height: 100%;
     width: 100%;
@@ -7,30 +9,12 @@
     overflow: scroll;
 }
 
-.shopItemDetail {
-    display: flex;
-    justify-content: space-between;
-    height: 60px;
-    line-height: 60px;
-    padding: 0px 15px;
-    margin: 5px 0px;
-    background: #fff;
+/* 图片 */
+.img {
+    padding-bottom: 65px;
 }
-
-.shopItemPhone {
-  display: flex;
-  justify-content: space-between;
-  height: 90px;
-  padding: 15px 15px;
-  margin: 5px 0px;
-  background: #fff;
-}
-
-.shopItemPhone p {
-    margin-top: 0;
-}
-
-.title {
-    height: 100px;
+.img img {
+    padding-right: 10px;
+    margin-bottom: 15px;
 }
 

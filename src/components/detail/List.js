@@ -9,28 +9,6 @@ import { connect } from 'dva';
 const Item = List.Item;
 
 class BoxList extends React.Component {
-    componentDidMount() {
-        axios.post(`/api/goods/detail/5`, {
-            payment: 5
-        }).then((message) => {
-            this.props.dispatch({
-                type: 'shoplist/changePage',
-                payload: {
-                    page: 1
-                }
-            });
-            this.props.dispatch({
-                type: 'shoplist/goodsDetail',
-                payload: {
-                    data: message.data
-                }
-            });
-        }).catch((e) => {
-            if (e) {
-                Toast.fail('请求数据失败', 1);
-            }
-        })
-    }
     handleClick = (id) => {
         axios.post(`/api/goods/detail/${id}`,{
             payment: id
@@ -48,7 +26,7 @@ class BoxList extends React.Component {
         const tabs = this.props.tabs;     
         const list = tabs.map((item, index) => {
                 return(
-                    <List key={index} renderHeader={() => <div className={style.itemtitle}>{item.title}</div>}>
+                    <List key={index} className={style.list} renderHeader={() => <div className={style.itemtitle}>{item.title}</div>}>
                     {
                         item.shoplist.map((item1,index)=>{
                             return(
