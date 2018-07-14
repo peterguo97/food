@@ -7,7 +7,7 @@ class TabBar extends Component {
 	render() {
         const { home, find, user, page } = this.props.all;
         let [homeSelcet, findSelect, userSelect] = [false, false, false];
-        const [font1, font2, font3] = ['首页', '发现', '我的'];
+        const [font1, font2, font3] = ['首页', '推荐', '我的'];
         if(page === '/') {
             homeSelcet = true;
         } else if(page === '/find') {

@@ -5,7 +5,7 @@ export default {
   state: {
       
   },
-
+  
   effects: {
     *fetch({ payload }, { call, put }) {  // eslint-disable-line
     //   yield put({ });
