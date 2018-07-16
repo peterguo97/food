@@ -27,7 +27,7 @@ class Search extends React.Component {
         return (<div>
             <WingBlank>
                 <SearchBar
-                    placeholder="搜索附近商家"
+                    placeholder="搜索商品"
                     onSubmit={this.onSubmit}
                     onClear={this.onClear}
                     onBlur={() => console.log('onBlur')}

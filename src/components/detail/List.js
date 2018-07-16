@@ -27,7 +27,7 @@ class BoxList extends React.Component {
         const tabs = this.props.tabs;     
         const list = tabs.map((item, index) => {
                 return(
-                    <List key={index} renderHeader={() => <div className={style.itemtitle}>{item.title}</div>}>
+                    <List key={index} className={style.list} renderHeader={() => <div className={style.itemtitle}>{item.title}</div>}>
                     {
                         item.shoplist.map((item1,index)=>{
                             return(

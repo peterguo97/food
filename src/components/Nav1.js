@@ -10,11 +10,11 @@ const data = [
     },
     {
         icon: food2,
-        text: '运输商',
+        text: '动保',
     },
     {
         icon: food3,
-        text: '广告',
+        text: '供求信息',
     },
 ];
 

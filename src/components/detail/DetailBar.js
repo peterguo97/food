@@ -39,6 +39,8 @@ class DetailBar extends React.Component {
     }
     render(){
         const page = this.props.page;
+        // console.log(page);
+        
         return(
             <div style={{ position: 'fixed', top: '20%', left: 0, width: '100%', height: '80%'}}>
                 <Tabs initialPage={0}
@@ -74,5 +76,3 @@ const mapStateToProps = ({shoplist}) => {
 };
 
 export default connect(mapStateToProps)(DetailBar);
-
-

@@ -13,13 +13,14 @@ export default {
     },
 
     subscriptions: {
+
       setup({ dispatch, history }) {
            history.listen(({ pathname }) => {
                 const address = pathname.includes('/detail');
-                if (address) {         
+                if (address) {        
                     dispatch({
-                    type: 'changePage',
-                    payload: {page: 0}
+                        type: 'changePage',
+                        payload: {page: 0}
                     });
                 }
             }); // eslint-disable-line
@@ -28,7 +29,9 @@ export default {
 
     effects: {
       *fetch({ payload }, { call, put }) {  // eslint-disable-line
-        yield put({ type: 'save' });
+        yield put({
+            
+        });
       }
     },
 
@@ -77,6 +80,7 @@ export default {
 
         changePage(state,{payload}){
             let page = payload.page;
+            
             return Object.assign({},state,{page: page});
         },
 

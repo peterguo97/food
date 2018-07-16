@@ -1,3 +1,7 @@
+.list {
+    padding-bottom: 65px;
+}
+
 .item {
     height: 120px;
     line-height: 100px;

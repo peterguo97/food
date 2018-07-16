@@ -1,45 +1,59 @@
 import React from 'react';
-import { List} from 'antd-mobile';
 import normal from './css/basic.css';
-import IndexListitem from './IndexListItem';
+import DiscoverListItem from './DiscoverListItem';
 import back from '../assets/back.png';
 import { Link } from 'dva/router';
-
-const data = [{id: '1',name: '点点饲料'},{id:'2',name:'点点最爱'}];
+import axios from 'axios';
 
 class SearchResult extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            data: this.props.match.params.value
+            data: this.props.match.params.value,
+            message: ''
         }
     }
 
     componentDidMount() {
         console.log(this.state.data);
+        axios.post('/api/goods/search', {payload: this.state.data }).then((message) => {
+            this.setState({
+                message: message.data
+            })
+        })
     }
     
 
     render(){
-        return(
-            <div className={normal.Wrapper}>
-                <Link to="/">
-                    <div className={normal.back}>
-                    <img src={back} alt="返回"/> <span>搜索</span>
-                    </div>
-                </Link>
-                <List renderHeader={() => '搜索结果'} className={normal.list}>
+        const message = this.state.message;
+        console.log(message);
+        
+        let listItem = '';
+        if(message) {
+            listItem =  <div className={normal.discoverlist}>
                     {
-                        data.map(function(value) {
-                            const str = value.id + value.name;
+                        message.map(function(value,index) {
                             return (
-                                <div key={str}>
-                                    <IndexListitem data={value}/>
+                                <div key={index} className={normal.discoverWrap}>
+                                    <DiscoverListItem data={value}/>
                                 </div>
                             )
                         }, this)
                     }
-                </List>
+                </div>
+        }
+        
+        return(
+            <div className={normal.Wrapper}>
+                <Link to="/">
+                    <div className={normal.back}>
+                        <img src={back} alt="返回"/> <span>搜索</span>
+                    </div>
+                </Link>
+                <p style={{
+                    textAlign: 'center'
+                }}>搜索结果</p>
+                { listItem !== '' && listItem }
             </div>
         )
     }
