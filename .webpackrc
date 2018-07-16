@@ -16,7 +16,7 @@
     ],
     "es5ImcompatibleVersions": true,
     "env": {
-        "development": {
+        "production": {
             "extraBabelPlugins": ["transform-remove-console"]
         }
     }
