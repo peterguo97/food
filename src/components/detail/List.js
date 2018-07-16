@@ -15,6 +15,7 @@ class BoxList extends React.Component {
         }).then((message)=>{
             this.props.dispatch({type: 'shoplist/changePage',payload: {page: 1}});
             this.props.dispatch({type: 'shoplist/goodsDetail', payload: {data: message.data}});
+            this.props.dispatch({type: 'shoplist/showFooter',payload: {isshow: false}});
         }).catch((e)=>{
             if(e){
                 Toast.fail('请求数据失败',1);

@@ -8,7 +8,8 @@ export default {
         showlist: false,
         list: [],
         page:  0,
-        goodsdata: {}
+        goodsdata: {},
+        showFooter: true,
     },
 
     subscriptions: {
@@ -51,6 +52,11 @@ export default {
                 let recentlist = [ ...state.list, payload ];
                 return Object.assign({}, state, { list: recentlist });
             }
+        },
+
+        showFooter(state, {payload}) {
+            console.log(payload);
+            return Object.assign({}, state, {showFooter: payload.isshow});
         },
 
         decreaseFromlist(state, {payload}){

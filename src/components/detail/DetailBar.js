@@ -14,14 +14,21 @@ const tabs2 = [
 class DetailBar extends React.Component {
     handleClick = (data,index) => {
         if(index){
-           if(this.props.handleChange){
-               this.props.handleChange(false);
-           }
+            //index 0 means first page
+            this.props.dispatch({
+                type: 'shoplist/showFooter',
+                payload: {
+                    isshow: false,
+                }
+            })
         }
         else{
-            if(this.props.handleChange){
-                this.props.handleChange(true);
-            }
+            this.props.dispatch({
+                type: 'shoplist/showFooter',
+                payload: {
+                    isshow: true,
+                }
+            })
         }
         this.props.dispatch({
             type: 'shoplist/changePage',
@@ -61,7 +68,8 @@ class DetailBar extends React.Component {
 const mapStateToProps = ({shoplist}) => {
     return {
         goodsid: shoplist.goodsid,
-        page: shoplist.page
+        page: shoplist.page,
+        isshow: shoplist.showFooter,
     }
 };
 

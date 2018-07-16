@@ -12,11 +12,9 @@ class Detail extends React.Component {
         super(props);
         this.state = {
             index: -500,
-            showFooter: true
         }
     }
 
-    
     UNSAFE_componentWillReceiveProps(nextProps) {
         let index = this.state.index;
         if( this.props.showlist !== nextProps.showlist ){
@@ -24,12 +22,6 @@ class Detail extends React.Component {
                 index: ~index
             })
         }
-    }
-    
-    showFooter = (bol) => {
-        this.setState({
-            showFooter: bol
-        })
     }
 
     handleClick(){
@@ -39,6 +31,7 @@ class Detail extends React.Component {
     }
     render(){
         const id = this.props.match.params.id;
+        console.log(this.props.isshow);
         return(
             <div style={{height: '100%'}}>
                 <div className={style.boxshadow} style={{zIndex: this.state.index}} onClick={this.handleClick.bind(this)}></div>
@@ -59,8 +52,8 @@ class Detail extends React.Component {
                         </div>
                     </div>
                 </div>          
-                <DetailBar id={id} handleChange={this.showFooter.bind(this)}/>
-                <ListFooter isShow={this.state.showFooter}/>
+                <DetailBar id={id} />
+                <ListFooter isShow={this.props.isshow}/>
             </div>
         )
     }
@@ -68,7 +61,8 @@ class Detail extends React.Component {
 
 const mapStateToProps = ({shoplist}) => {
     return {
-        showlist: shoplist.showlist
+        showlist: shoplist.showlist,
+        isshow: shoplist.showFooter,
     }
 }
 
